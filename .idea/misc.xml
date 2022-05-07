@@ -8,10 +8,11 @@
         <entry key="..\:/Users/H/Desktop/SA/APP1/app/src/main/res/layout/activity_register.xml" value="0.4" />
         <entry key="..\:/Users/H/Desktop/SA/APP1/app/src/main/res/layout/login.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/H/Desktop/SA/APP1/app/src/main/res/layout/register.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/Desktop/temp/Garbage_Classifier_App/app/src/main/res/xml/network_security_config.xml" value="0.1875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
