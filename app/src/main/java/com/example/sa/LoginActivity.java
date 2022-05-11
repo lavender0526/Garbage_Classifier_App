@@ -29,67 +29,36 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        btnConfirm = findViewById(R.id.btnBackmain);
-        btnBackmain = findViewById(R.id.btnConfirmRegist);
+        btnConfirm = findViewById(R.id.btnConfirm);
+        btnBackmain = findViewById(R.id.btnBackmain);
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                class TestTask extends AsyncTask<Void, Void, Void> {
-//                    @Override
-//                    protected Void doInBackground(Void... voids) {
-//                        JSONObject jsonObject = new JSONObject();
-//                        EditText username = (EditText) findViewById(R.id.editTextTextPersonName6);
-//                        EditText password = (EditText) findViewById(R.id.editTextTextPassword2);
-//                        class BasicAuthInterceptor implements Interceptor {
-//                            private String credentials;
-//
-//
-//                            public BasicAuthInterceptor(EditText user, EditText password) {
-//                                this.credentials = Credentials.basic(user, password);
-//                            }
-//                            @Override
-//                            public Response intercept(Chain chain) throws IOException {
-//                                Request request = chain.request();
-//                                Request authenticatedRequest = request.newBuilder()
-//                                        .header("Authorization", credentials).build();
-//                                return chain.proceed(authenticatedRequest);
-//                            }
-//                        }
-//                        OkHttpClient client = new OkHttpClient.Builder()
-//                                .addInterceptor(new BasicAuthInterceptor(username,password))
-//                                .build();
-//                        RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
-//                        final Request request = new Request.Builder()
-//                                .url("http://140.125.207.230:8080/api/register"
-//                                .post(body)
-//                                .build();
-//                        Response response = client.newCall(request).execute();
-//                        try {
-//                            jsonObject.put("password", password.getText().toString());
-//                            jsonObject.put("userName", username.getText().toString());
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-//                        RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
-//                        Request request = new Request.Builder()
-//                                .url("http://140.125.207.230:8080/api/register")
-//                                .post(body)
-//                                .build();
-//
-//                        try (Response response = client.newCall(request).execute()) {
-//                            System.out.println(response.body().string());
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                        return null;
-//                    }
-//                }
-//                new TestTask().execute();
+                EditText username = (EditText) findViewById(R.id.editTextTextPersonName6);
+                EditText password = (EditText) findViewById(R.id.editTextTextPassword2);
+                OkHttpClient client = new OkHttpClient().newBuilder()
+                        .build();
+                MediaType mediaType = MediaType.parse("application/json");
+                RequestBody body = RequestBody.create(mediaType,
+                        "{\r\n     \"username\":,"+username+",\r\n" +
+                                "\"password\":\""+password+"\r\n}");
+                Request request = new Request.Builder()
+                        .url("http://140.125.207.230:8080/api/login")
+                        .method("POST", body)
+                        .addHeader("Content-Type", "application/json")
+                        .build();
+                try (Response response = client.newCall(request).execute()) {
+                    if (response.code()==200 || response.code()==201){
+                        Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
+                        startActivity(intent);
+                    }
+                } catch (IOException e) {
+                    e.loginFailed();
+                }
 
-//                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-//                startActivity(intent);
+            }
+            public void loginFailed extends Exception{
+                
             }
         });
 
