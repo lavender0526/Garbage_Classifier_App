@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCFAB9"
+    tools:context=".NonRegistTrashcan">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="119dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06"
+        app:srcCompat="@drawable/can_ironbottel" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="116dp"
+        android:layout_height="199dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="364dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintVertical_bias="0.177"
+        app:srcCompat="@drawable/can_foilpack" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="118dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06"
+        app:srcCompat="@drawable/can_plastic" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="119dp"
+        android:layout_height="196dp"
+        android:layout_marginBottom="244dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/can_paper" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="150dp"
+        android:layout_height="59dp"
+        android:background="@drawable/registerbtn"
+        app:backgroundTint="@null"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="543dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="153dp"
+        android:layout_height="59dp"
+        android:background="@drawable/loginbtn"
+        app:backgroundTint="@null"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="543dp" />
+
+    <Button
+        android:id="@+id/btnBackmain"
+        android:layout_width="150dp"
+        android:layout_height="58dp"
+        android:background="@drawable/gobackbtn"
+        app:backgroundTint="@null"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="517dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

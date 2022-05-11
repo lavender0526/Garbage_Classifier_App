@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <!--形狀長方形-->
+        <shape android:shape="rectangle">
+            <!--填充顏色為紫色-->
+            <solid android:color="#70AD47"/>
+            <!--四周圓角角度4dp-->
+            <corners android:radius="100dp"/>
+        </shape>
+    </item>
+    <item android:state_pressed="false">
+        <!--形狀長方形-->
+        <shape android:shape="rectangle">
+            <!--填充顏色為紫色-->
+            <solid android:color="#47AE51"/>
+            <!--四周圓角角度4dp-->
+            <corners android:radius="100dp"/>
+            <stroke android:width="3dp"
+                android:color="@color/black"/>
+        </shape>
+    </item>
+</selector>
