@@ -12,12 +12,11 @@ import okhttp3.Response;
 
 class RestRequest{
     OkHttpClient client = new OkHttpClient();
-    RestRequest(){
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-    }
+    MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+
+    //post method
     Response post(String url, JSONObject jsonObject) throws IOException {
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-        RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
+        RequestBody body = RequestBody.create(jsonObject.toString(), this.mediaType);
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/"+url)
                 .post(body)
@@ -26,8 +25,9 @@ class RestRequest{
             System.out.println(response.body().string());
             return  response;
     }
+
+    //get method
     Response get(String url) throws IOException {
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/"+url)
                 .get()
@@ -36,8 +36,9 @@ class RestRequest{
         System.out.println(response.body().string());
         return  response;
     }
+
+    //put method
     Response put(String url, JSONObject jsonObject) throws IOException {
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/"+url)
@@ -47,8 +48,9 @@ class RestRequest{
         System.out.println(response.body().string());
         return  response;
     }
+
+    //patch method
     Response patch(String url, JSONObject jsonObject) throws IOException {
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/"+url)
@@ -58,8 +60,9 @@ class RestRequest{
         System.out.println(response.body().string());
         return  response;
     }
+
+    //delete method
     Response delete(String url) throws IOException {
-        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/"+url)
                 .delete()
