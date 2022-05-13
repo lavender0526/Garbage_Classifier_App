@@ -37,15 +37,15 @@ public class LoginActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                class TestTask extends AsyncTask<Void, Void, Void> {
+                class loginTask extends AsyncTask<Void, Void, Boolean> {
                     @Override
-                    protected Void doInBackground(Void... voids) {
+                    protected Boolean doInBackground(Void... voids) {
                         JSONObject jsonObject = new JSONObject();
                         EditText username = (EditText) findViewById(R.id.loginInputUsername);
                         EditText password = (EditText) findViewById(R.id.loginInputPassword);
                         try {
                             jsonObject.put("password", password.getText().toString());
-                            jsonObject.put("userName", username.getText().toString());
+                            jsonObject.put("username", username.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -58,17 +58,23 @@ public class LoginActivity extends AppCompatActivity {
 
                         try (Response response = client.newCall(request).execute()) {
                             if(response.code()==200){
+                                return true;
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return false;
+                    }
+                    protected void onPostExecute(Boolean result) {
+                            System.out.println(result);
+                            if (result){
                                 Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
                                 startActivity(intent);
                             }
-                        } catch (IOException e) {
-                            Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
-                            startActivity(intent);
-                        }
-                        return null;
                     }
                 }
-                new TestTask().execute();
+                new loginTask().execute();
             }
 //                EditText username = (EditText) findViewById(R.id.loginInputUsername);
 //                EditText password = (EditText) findViewById(R.id.loginInputPassword);
