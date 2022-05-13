@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="btnIntentActivityB" type="id" />
-    <item name="btnLogin" type="id" />
-    <item name="btnRegister" type="id" />
+    <item name="btnMainLogin" type="id" />
+    <item name="btnMainRegister" type="id" />
 </resources>

@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        btnBackMain = findViewById(R.id.btnBackmain);
+        btnBackMain = findViewById(R.id.btnLoginBackmain);
         btnConfirmRegist = findViewById(R.id.btnConfirmRegist);
         btnBackMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject();
                         EditText firstName = (EditText) findViewById(R.id.inputFirstName);
                         EditText lastName = (EditText) findViewById(R.id.inputLastName);
-                        EditText email = (EditText) findViewById(R.id.editTextTextPersonName5);
-                        EditText username = (EditText) findViewById(R.id.editTextTextPersonName6);
-                        EditText password = (EditText) findViewById(R.id.editTextTextPassword2);
+                        EditText email = (EditText) findViewById(R.id.inputEmail);
+                        EditText username = (EditText) findViewById(R.id.inputUsername);
+                        EditText password = (EditText) findViewById(R.id.inputPassword);
                         try {
                             jsonObject.put("email", email.getText().toString());
                             jsonObject.put("lastName", lastName.getText().toString());

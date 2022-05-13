@@ -23,12 +23,13 @@
         android:id="@+id/imageView8"
         android:layout_width="116dp"
         android:layout_height="199dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginBottom="364dp"
+        android:layout_marginBottom="248dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintVertical_bias="0.177"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.925"
         app:srcCompat="@drawable/can_foilpack" />
 
     <ImageView
@@ -37,7 +38,8 @@
         android:layout_height="198dp"
         android:layout_marginStart="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06"
@@ -47,38 +49,55 @@
         android:id="@+id/imageView7"
         android:layout_width="119dp"
         android:layout_height="196dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginBottom="252dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintHorizontal_bias="0.763"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/can_paper" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnMainRegister"
         android:layout_width="150dp"
         android:layout_height="59dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/registerbtn"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="543dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.962" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnMainLogin"
         android:layout_width="153dp"
         android:layout_height="59dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/loginbtn"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="543dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMainRegister"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.962" />
 
     <Button
-        android:id="@+id/btnBackmain"
+        android:id="@+id/btnLoginBackmain"
         android:layout_width="150dp"
         android:layout_height="58dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/gobackbtn"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

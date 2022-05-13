@@ -9,56 +9,67 @@
 
 
     <Button
-        android:id="@+id/btnTrashcan"
+        android:id="@+id/btnMainTrashcan"
         android:layout_width="247dp"
         android:layout_height="72dp"
         android:background="@drawable/trashcanbtn"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMainLogin"
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/btnLocation"
+        android:id="@+id/btnMainLocation"
         android:layout_width="247dp"
         android:layout_height="70dp"
+        android:layout_marginBottom="76dp"
         android:background="@drawable/locationbtn"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.868" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMainTrashcan"
+        app:layout_constraintVertical_bias="0.281" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnMainLogin"
         android:layout_width="249dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="80dp"
         android:background="@drawable/loginbtn"
         app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="376dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainRegister"
+        app:layout_constraintVertical_bias="0.07" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnMainRegister"
         android:layout_width="248dp"
         android:layout_height="67dp"
         android:background="@drawable/registerbtn"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.092" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="148dp"
         android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158"
         app:srcCompat="@drawable/icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

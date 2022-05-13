@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SA"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".registerReviseAccount"
+            android:exported="false" />
+        <activity
             android:name=".RegistTrashcan"
             android:exported="true" />
         <activity
