@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnConfirmRegist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                class TestTask extends AsyncTask<Void, Void, Void> {
+                class RegisterTask extends AsyncTask<Void, Void, Void> {
                     @Override
                     protected Void doInBackground(Void... voids) {
                         JSONObject jsonObject = new JSONObject();
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                         return null;
                     }
                 }
-                new TestTask().execute();
+                new RegisterTask().execute();
 
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);

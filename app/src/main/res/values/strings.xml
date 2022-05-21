@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">SA</string>
+    <string name="app_name">IM Garbage Recycle System</string>
+    <string-array name="locationCitySpinner">
+        <item>Kaohsiung</item>
+        <item>Taipei</item>
+        <item>Yunlin</item>
+    </string-array>
+    <string-array name="locationAreaSpinner">
+        <item>Douliu</item>
+    </string-array>
+    <string-array name="locationRoadSpinner">
+        <item>University</item>
+    </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

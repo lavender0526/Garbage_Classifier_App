@@ -14,7 +14,7 @@
         android:text="UserName："
         android:textColor="#131313"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/reviseInputUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
         android:text="Password："
         android:textColor="#131313"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/reviseInputPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/reviseInputUsername"
         android:layout_width="298dp"
         android:layout_height="53dp"
         android:layout_marginTop="92dp"
@@ -51,13 +51,13 @@
         app:layout_constraintVertical_bias="0.509" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/reviseInputPassword"
         android:layout_width="298dp"
         android:layout_height="53dp"
         android:layout_marginTop="272dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/accountReviseBtn"
+        app:layout_constraintBottom_toTopOf="@+id/btnAccountRevise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/accountReviseBtn"
+        android:id="@+id/btnAccountRevise"
         android:layout_width="156dp"
         android:layout_height="53dp"
         android:background="@drawable/revisebtn"

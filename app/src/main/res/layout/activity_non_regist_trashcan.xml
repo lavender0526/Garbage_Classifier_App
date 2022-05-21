@@ -8,96 +8,110 @@
     tools:context=".NonRegistTrashcan">
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="119dp"
-        android:layout_height="198dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.763"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06"
-        app:srcCompat="@drawable/can_ironbottel" />
-
-    <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/plasticbagCanNon"
         android:layout_width="116dp"
         android:layout_height="199dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="296dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.925"
-        app:srcCompat="@drawable/can_foilpack" />
+        app:layout_constraintTop_toBottomOf="@+id/plasticCan"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/can_plasticbag" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="118dp"
-        android:layout_height="198dp"
-        android:layout_marginStart="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06"
-        app:srcCompat="@drawable/can_plastic" />
-
-    <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/ironbottleCanNon"
         android:layout_width="119dp"
         android:layout_height="196dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="296dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/plasticCan"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/can_paper" />
+        app:srcCompat="@drawable/can_ironbottel" />
+
+    <TextView
+        android:id="@+id/plasticbagCanStorageNon"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="10%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <TextView
+        android:id="@+id/ironbottleCanStorageNon"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="10%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <ImageView
+        android:id="@+id/plasticCan"
+        android:layout_width="108dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088"
+        app:srcCompat="@drawable/can_plastic" />
+
+    <TextView
+        android:id="@+id/plasticCanStorageNon"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="10%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
     <Button
-        android:id="@+id/btnMainRegister"
+        android:id="@+id/btnNonRegistTrashcanUpdate"
         android:layout_width="150dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="140dp"
-        android:background="@drawable/registerbtn"
+        android:background="@drawable/updatebtn"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.962" />
+        app:layout_constraintTop_toBottomOf="@+id/plasticbagCanStorageNon"
+        app:layout_constraintVertical_bias="0.491" />
 
     <Button
-        android:id="@+id/btnMainLogin"
-        android:layout_width="153dp"
-        android:layout_height="59dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="140dp"
-        android:background="@drawable/loginbtn"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnMainRegister"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.962" />
-
-    <Button
-        android:id="@+id/btnLoginBackmain"
+        android:id="@+id/btnNonRegistTrashcanBackmain"
         android:layout_width="150dp"
         android:layout_height="58dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="104dp"
         android:background="@drawable/gobackbtn"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMainRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/ironbottleCanStorageNon"
+        app:layout_constraintVertical_bias="0.894" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

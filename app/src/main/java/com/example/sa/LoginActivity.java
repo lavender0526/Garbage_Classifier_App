@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,6 +23,10 @@ import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
     public Button btnConfirm,btnBackmain;
+    public String userName;
+    public String getUserName(){
+        return userName;
+    }
     OkHttpClient client = new OkHttpClient();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject();
                         EditText username = (EditText) findViewById(R.id.loginInputUsername);
                         EditText password = (EditText) findViewById(R.id.loginInputPassword);
+                        userName = username.toString();
                         try {
                             jsonObject.put("password", password.getText().toString());
                             jsonObject.put("username", username.getText().toString());
@@ -67,41 +74,19 @@ public class LoginActivity extends AppCompatActivity {
                         return false;
                     }
                     protected void onPostExecute(Boolean result) {
+                            TextView msg = (TextView)  findViewById(R.id.loginMsgIncorrect);
                             System.out.println(result);
                             if (result){
                                 Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
                                 startActivity(intent);
+                            }else{
+                                msg.setVisibility( View.VISIBLE );
                             }
                     }
+
                 }
                 new loginTask().execute();
             }
-//                EditText username = (EditText) findViewById(R.id.loginInputUsername);
-//                EditText password = (EditText) findViewById(R.id.loginInputPassword);
-//                OkHttpClient client = new OkHttpClient().newBuilder()
-//                        .build();
-//                MediaType mediaType = MediaType.parse("application/json");
-//                RequestBody body = RequestBody.create(mediaType,
-//                        "{\r\n     \"password\":,"+password+",\r\n" +
-//                                "\"username\":\""+username+"\r\n}");
-//                Request request = new Request.Builder()
-//
-//                        .url("http://140.125.207.230:8080/api/login")
-//                        .method("POST", body)
-//                        .addHeader("Content-Type", "application/json")
-//                        .build();
-//
-//                try (Response response = client.newCall(request).execute()) {
-//                    if(response.isSuccessful()){
-//                        loginSuceed();
-//                    }
-//                }
-//                catch (IOException e) {
-//                    Intent intent = new Intent(LoginActivity.this,RegistTrashcan.class);
-//                    startActivity(intent);
-//                }
-//
-//            }
         });
 
 }}

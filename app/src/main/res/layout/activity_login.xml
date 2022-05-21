@@ -88,4 +88,18 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="DuplicateIds" />
 
+    <TextView
+        android:id="@+id/loginMsgIncorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The username or password you entered is incorrect"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
