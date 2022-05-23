@@ -1,46 +1,41 @@
 package com.example.sa;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RegistTrashcan extends AppCompatActivity {
-    LoginActivity login = new LoginActivity();
     public String username;
     private String value;
-    public Button btn;
+    private Button btnUpdate,btnAccount,btnLocation,btnMoney,btnSetting;
     int i=18;
     OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        username = login.getUserName();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_trashcan);
+        Intent intent2 = getIntent();
+        username = intent2.getStringExtra("userLoginName");
+        btnUpdate = findViewById(R.id.btnUpdateStorage);
         TextView bottleStorage = (TextView) findViewById(R.id.bottleCanStorage);
         TextView ironStorage = (TextView) findViewById(R.id.IronbottleCanStorage);
         TextView plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorage);
-        btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
@@ -81,5 +76,16 @@ public class RegistTrashcan extends AppCompatActivity {
                 new registTrashcanTask().execute();
             }
         });
+    }
+
+    public void btnRegistTrashcanAccount(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,registerReviseAccount.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+    public void btnLocation(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,RegistLocation.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
     }
 }

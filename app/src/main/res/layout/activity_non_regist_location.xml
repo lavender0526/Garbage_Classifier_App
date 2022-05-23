@@ -34,7 +34,7 @@
     </com.google.android.material.chip.ChipGroup>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner11"
         android:layout_width="326dp"
         android:layout_height="21dp"
         android:layout_marginStart="40dp"

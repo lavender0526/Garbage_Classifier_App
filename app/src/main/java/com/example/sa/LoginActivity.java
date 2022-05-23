@@ -22,11 +22,12 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    public Button btnConfirm,btnBackmain;
-    public String userName;
+    private Button btnConfirm,btnBackmain;
+    private String userName;
     public String getUserName(){
         return userName;
     }
+
     OkHttpClient client = new OkHttpClient();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject();
                         EditText username = (EditText) findViewById(R.id.loginInputUsername);
                         EditText password = (EditText) findViewById(R.id.loginInputPassword);
-                        userName = username.toString();
+                        userName = username.getText().toString();
                         try {
                             jsonObject.put("password", password.getText().toString());
                             jsonObject.put("username", username.getText().toString());
@@ -78,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                             System.out.println(result);
                             if (result){
                                 Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
+                                intent.putExtra("userLoginName",userName);
                                 startActivity(intent);
                             }else{
                                 msg.setVisibility( View.VISIBLE );

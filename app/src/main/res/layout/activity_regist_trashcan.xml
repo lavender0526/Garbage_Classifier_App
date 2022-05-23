@@ -27,6 +27,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="248dp"
         android:background="@drawable/listuseraccountbtn"
+        android:onClick="btnRegistTrashcanAccount"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
         android:layout_width="83dp"
         android:layout_height="70dp"
         android:background="@drawable/listlocationbtn"
+        android:onClick="btnLocation"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,19 +74,70 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageView
+        android:id="@+id/plasticbagCan"
+        android:layout_width="116dp"
+        android:layout_height="199dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.541"
+        app:srcCompat="@drawable/can_plasticbag" />
+
     <TextView
         android:id="@+id/plasticbagCanStorage"
         android:layout_width="89dp"
         android:layout_height="58dp"
-        android:text="10%"
+        android:text="00%"
         android:textColor="#F60000"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.637" />
+
+    <ImageView
+        android:id="@+id/ironbottleCan"
+        android:layout_width="119dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54"
+        app:srcCompat="@drawable/can_ironbottel" />
+
+    <TextView
+        android:id="@+id/IronbottleCanStorage"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="00%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.634" />
+
+    <TextView
+        android:id="@+id/bottleCanStorage"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="00%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.849" />
 
     <ImageView
         android:id="@+id/bottleCan"
@@ -95,70 +148,20 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082"
+        app:layout_constraintVertical_bias="0.08"
         app:srcCompat="@drawable/can_plastic" />
 
-    <ImageView
-        android:id="@+id/plasticbagCan"
-        android:layout_width="116dp"
-        android:layout_height="199dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558"
-        app:srcCompat="@drawable/can_plasticbag" />
-
-    <ImageView
-        android:id="@+id/ironbottleCan"
-        android:layout_width="119dp"
-        android:layout_height="198dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"
-        app:srcCompat="@drawable/can_ironbottel" />
-
-    <TextView
-        android:id="@+id/bottleCanStorage"
-        android:layout_width="89dp"
-        android:layout_height="58dp"
-        android:text="10%"
-        android:textColor="#F60000"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845" />
-
-    <TextView
-        android:id="@+id/IronbottleCanStorage"
-        android:layout_width="89dp"
-        android:layout_height="58dp"
-        android:text="10%"
-        android:textColor="#F60000"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnUpdateStorage"
         android:layout_width="170dp"
         android:layout_height="51dp"
         android:background="@drawable/updatebtn"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/registTrashcanLocationButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IronbottleCanStorage" />
+        app:layout_constraintTop_toBottomOf="@+id/IronbottleCanStorage"
+        app:layout_constraintVertical_bias="0.534" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
