@@ -7,8 +7,23 @@
     android:background="#DCFAB9"
     tools:context=".NonRegistLocation">
 
+    <Button
+        android:id="@+id/nonRegistLocationConfirm"
+        android:layout_width="158dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="120dp"
+
+        android:background="@drawable/confirmbtn"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.17" />
+
     <Spinner
-        android:id="@+id/spinnerNonRegist"
+        android:id="@+id/nonRegistSelectedLocation"
         android:layout_width="328dp"
         android:layout_height="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,17 +31,18 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <Button
         android:id="@+id/nonRegistLocationBackmain"
-        android:layout_width="199dp"
-        android:layout_height="71dp"
+        android:layout_width="162dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="48dp"
         android:background="@drawable/gobackbtn"
         android:onClick="btnNonRegistLocationBackmain"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="574dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="550dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

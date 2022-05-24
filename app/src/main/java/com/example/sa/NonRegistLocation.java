@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +24,12 @@ public class NonRegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     String value;
     int i=0,k=0;
+    private String selectedLocation;
     ArrayList<String> getLocation = new ArrayList<String>();
+    public void btnNonRegistLocationBackmain(View view) {
+        Intent intent = new Intent(NonRegistLocation.this,MainActivity.class);
+        startActivity(intent);
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_non_regist_location);
@@ -72,13 +76,13 @@ public class NonRegistLocation extends AppCompatActivity {
         new nonRegistLocationTask().execute();
     }
     private void setSpinner() {
-        Spinner mspinner = (Spinner) findViewById(R.id.spinnerNonRegist);
+        Spinner mspinner = (Spinner) findViewById(R.id.nonRegistSelectedLocation);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, getLocation);
         mspinner.setAdapter(adapter);
         mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String ttext =  (String) mspinner.getSelectedItem();
+                selectedLocation =  (String) mspinner.getSelectedItem();
             }
 
             @Override
@@ -86,11 +90,8 @@ public class NonRegistLocation extends AppCompatActivity {
                 System.out.println("NN");
             }
         });
-
     }
+    
 
-    public void btnNonRegistLocationBackmain(View view) {
-        Intent intent = new Intent(NonRegistLocation.this,MainActivity.class);
-        startActivity(intent);
-    }
+
 }

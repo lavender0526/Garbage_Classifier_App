@@ -90,4 +90,17 @@ public class registerReviseAccount extends AppCompatActivity {
                 new registerReviseAccountTrashcanTask().execute();
             }
         });
-}}
+}
+    public void btnRegistReviseAccountSetting(View view) {
+        Intent intent = new Intent(registerReviseAccount.this,Setting.class);
+        startActivity(intent);
+    }
+    public void btnRegistReviseAccountHome(View view) {
+        Intent intent = new Intent(registerReviseAccount.this,MainActivity.class);
+        startActivity(intent);
+    }
+    public void btnRegistReviseAccountLocation(View view) {
+        Intent intent = new Intent(registerReviseAccount.this,RegistLocation.class);
+        startActivity(intent);
+    }
+}

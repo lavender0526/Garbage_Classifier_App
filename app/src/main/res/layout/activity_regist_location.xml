@@ -13,6 +13,7 @@
         android:layout_height="70dp"
         android:background="@drawable/listsettingbtn"
         app:backgroundTint="@null"
+        android:onClick="btnRegistLocationSetting"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -27,6 +28,7 @@
         android:layout_marginEnd="84dp"
         android:background="@drawable/listmoneybtn"
         app:backgroundTint="@null"
+        android:onClick="btnRegistLocationMoney"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -56,6 +58,7 @@
         android:layout_marginEnd="248dp"
         android:background="@drawable/listuseraccountbtn"
         app:backgroundTint="@null"
+        android:onClick="btnRegistLocationAccount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -68,6 +71,7 @@
         android:layout_width="82dp"
         android:layout_height="70dp"
         android:background="@drawable/listhomepagebtn"
+        android:onClick="btnRegistLocationHome"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,21 +86,36 @@
         android:layout_height="337dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522"
+        app:layout_constraintVertical_bias="0.378"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Spinner
-        android:id="@+id/spinnerNonRegist"
-        android:layout_width="340dp"
-        android:layout_height="69dp"
+        android:id="@+id/nonRegistSelectedLocation"
+        android:layout_width="372dp"
+        android:layout_height="50dp"
         android:animateLayoutChanges="true"
-        android:background="#DCFAB9"
+        android:background="@drawable/spinner_selectlocation"
         android:dropDownWidth="wrap_content"
+        android:popupBackground="#E2F0D9"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/registLocationConfirm"
+        android:layout_width="141dp"
+        android:layout_height="59dp"
+        android:background="@drawable/confirmbtn"
+        android:onClick="btnGetLocationImage"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.17" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

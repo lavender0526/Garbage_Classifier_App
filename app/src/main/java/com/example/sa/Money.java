@@ -98,5 +98,27 @@ public class Money extends AppCompatActivity {
         }
         new creatBankAcctTask().execute();
     }
+    public void btnMoneyAccount(View view) {
+        Intent intent = new Intent(Money.this,registerReviseAccount.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+    public void btnMoneyLocation(View view) {
+        Intent intent = new Intent(Money.this,RegistLocation.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
+    public void btnMoneySetting(View view) {
+        Intent intent = new Intent(Money.this,Setting.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
+    public void btnMoneyHome(View view) {
+        Intent intent = new Intent(Money.this,RegistTrashcan.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
 }
 
