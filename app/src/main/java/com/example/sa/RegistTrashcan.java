@@ -94,4 +94,10 @@ public class RegistTrashcan extends AppCompatActivity {
         intent.putExtra("userLoginName",username);
         startActivity(intent);
     }
+
+    public void btnRegistTrashcan(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,Setting.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
 }

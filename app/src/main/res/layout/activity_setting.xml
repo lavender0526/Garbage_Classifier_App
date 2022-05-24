@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCFAB9"
+    tools:context=".Setting">
+
+    <Button
+        android:id="@+id/settingHomeButton"
+        android:layout_width="82dp"
+        android:layout_height="68dp"
+        android:background="@drawable/listhomepagebtn"
+        android:onClick="btnsettingHome"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/settingAccountButton"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="248dp"
+        android:background="@drawable/listuseraccountbtn"
+        android:onClick="btnsettingAccount"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/settingHomeButton"
+        app:layout_constraintTop_toTopOf="@+id/settingLocationButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/settingLocationButton"
+        android:layout_width="83dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/listlocationbtn"
+        android:onClick="btnsettingLocation"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/settingAccountButton"
+        app:layout_constraintTop_toTopOf="@+id/settingMoneyButton" />
+
+    <Button
+        android:id="@+id/settingMoneyButton"
+        android:layout_width="78dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="84dp"
+        android:background="@drawable/listmoneybtn"
+        android:onClick="btnsettingMoney"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/settingLocationButton"
+        app:layout_constraintTop_toTopOf="@+id/settingButton" />
+
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="84dp"
+        android:layout_height="78dp"
+        android:background="@drawable/listsettingbtn2"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/settingMoneyButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/problemReport"
+        android:layout_width="279dp"
+        android:layout_height="75dp"
+        android:background="@drawable/problemReportbtn"
+        app:backgroundTint="@null"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="200dp" />
+
+    <Button
+        android:id="@+id/themeChange"
+        android:layout_width="281dp"
+        android:layout_height="77dp"
+        android:background="@drawable/themechangebtn"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SA"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Setting"
+            android:exported="false" />
+        <activity
             android:name=".CreatedMoney"
             android:exported="false" />
         <activity

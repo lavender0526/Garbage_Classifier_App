@@ -46,12 +46,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/moneyAccountButton"
-        app:layout_constraintTop_toTopOf="@+id/moneyButton" />
+        app:layout_constraintTop_toTopOf="@+id/moneyButton"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/moneyButton"
-        android:layout_width="87dp"
-        android:layout_height="78dp"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
         android:layout_marginEnd="84dp"
         android:background="@drawable/listmoneybtn2"
         app:backgroundTint="@null"
