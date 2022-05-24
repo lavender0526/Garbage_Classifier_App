@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -22,15 +23,11 @@ public class RegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     String value;
     int i=0;
-    boolean temp = false;
     ArrayList<String> location = new ArrayList<String>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
-        Spinner spinnerLocation = (Spinner) findViewById(R.id.spinner11);
-        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,location );
-        spinnerLocation.setAdapter(spinnerArrayAdapter);
         class registLocationTask extends AsyncTask<Void, Void, Void> {
 
             @Override
@@ -43,11 +40,9 @@ public class RegistLocation extends AppCompatActivity {
                     if (response.code() == 200) {
                         JSONArray jsonArray = new JSONArray(response.body().string());
                         try {
-                            while (true){
+                            while (i<=3){
                                 value =jsonArray.getJSONObject(i).getString("location");
                                 location.add(value);
-                                System.out.println(i);
-                                System.out.println(location);
                                 i++;
                             }
                         }
@@ -70,9 +65,21 @@ public class RegistLocation extends AppCompatActivity {
             }
         }
         new registLocationTask().execute();
-    }
-    public void putLocation(){
-//        spinnerLocation.setAdapter(spinnerArrayAdapter);
-//        spinnerLocation.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        Spinner spinnerLocation = (Spinner) findViewById(R.id.spinnerNonRegist);
+        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,location );
+        spinnerLocation.setAdapter(spinnerArrayAdapter);
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+//                String ss = (String) spinnerLocation.getSelectedItem();
+                System.out.println("ss");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                System.out.println("ERROR");
+            }
+
+        });
     }
 }

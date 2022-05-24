@@ -21,7 +21,7 @@ import okhttp3.Response;
 public class RegistTrashcan extends AppCompatActivity {
     public String username;
     private String value;
-    private Button btnUpdate,btnAccount,btnLocation,btnMoney,btnSetting;
+    private Button btnUpdate;
     int i=18;
     OkHttpClient client = new OkHttpClient();
 
@@ -85,6 +85,12 @@ public class RegistTrashcan extends AppCompatActivity {
     }
     public void btnLocation(View view) {
         Intent intent = new Intent(RegistTrashcan.this,RegistLocation.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
+    public void btnMoney(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,Money.class);
         intent.putExtra("userLoginName",username);
         startActivity(intent);
     }

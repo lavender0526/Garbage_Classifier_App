@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SA"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".CreatedMoney"
+            android:exported="false" />
+        <activity
+            android:name=".Money"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

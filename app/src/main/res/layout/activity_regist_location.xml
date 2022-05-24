@@ -88,10 +88,12 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Spinner
-        android:id="@+id/spinner11"
-        android:layout_width="343dp"
-        android:layout_height="49dp"
-        android:background="@drawable/spinner_selectlocation"
+        android:id="@+id/spinnerNonRegist"
+        android:layout_width="340dp"
+        android:layout_height="69dp"
+        android:animateLayoutChanges="true"
+        android:background="#DCFAB9"
+        android:dropDownWidth="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

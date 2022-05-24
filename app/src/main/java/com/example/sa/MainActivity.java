@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         btnLogin=findViewById(R.id.btnMainLogin);
         btnRegister=findViewById(R.id.btnMainRegister);
         btnTrashcan=findViewById(R.id.btnMainTrashcan);
-        btnLocation=findViewById(R.id.btnMainLocation);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,4 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void btnLocation(View view) {
+        Intent intent = new Intent(MainActivity.this,NonRegistLocation.class);
+        startActivity(intent);
+    }
 }
