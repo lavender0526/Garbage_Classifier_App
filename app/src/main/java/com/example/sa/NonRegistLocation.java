@@ -91,7 +91,48 @@ public class NonRegistLocation extends AppCompatActivity {
             }
         });
     }
-    
 
 
+//    public void btnNonRegistGetLocation(View view) {
+//        class nonRegistGetImageTask extends AsyncTask<Void, Void, Boolean> {
+//            @Override
+//            protected Boolean doInBackground(Void... voids) {
+//                Request request = new Request.Builder()
+//                        .url("http://140.125.207.230:8080/api/machines")
+//                        .build();
+//
+//                try (Response response = client.newCall(request).execute()) {
+//                    if (response.code() == 200) {
+//                        JSONArray jsonArray = new JSONArray(response.body().string());
+//                        try {
+//                            while (i <= 3) {
+//                                value = jsonArray.getJSONObject(i).getString("location");
+//                                location.add(value);
+//                                i++;
+//                            }
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        return true;
+//                    }
+//                } catch (IOException | JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                return false;
+//            }
+//            protected void onPostExecute(Boolean result) {
+//                if(result){
+//                    int k=0;
+//                    while (k< location.size()){
+//                        getLocation.add(location.get(k));
+//                        k++;
+//                    }
+//                    setSpinner();
+//                }
+//            }
+//        }
+//        new nonRegistGetImageTask().execute();
+//    }
 }

@@ -22,7 +22,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Money extends AppCompatActivity {
-    private String username;
+    private String username,checkBank;
     private int userID;
     OkHttpClient client = new OkHttpClient();
 
@@ -51,7 +51,34 @@ public class Money extends AppCompatActivity {
             }
         }
         new getUserIDTask().execute();
+        class confirmCreatedBankTask extends AsyncTask<Void, Void, Void> {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Request request = new Request.Builder()
+                        .url("http://140.125.207.230:8080/api/bank_acct/username/" + username)
+                        .build();
+                try (Response response = client.newCall(request).execute()) {
+                    if (response.code() == 200) {
+                        JSONObject jsonArray = new JSONObject(response.body().string());
+                        checkBank = String.valueOf(jsonArray.getInt("bank_code"));
+                        System.out.println(checkBank);
+                        check();
+                    }
 
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        new confirmCreatedBankTask().execute();
+    }
+    protected void check(){
+        if (checkBank == null){
+            Intent intent = new Intent(Money.this,RedgistMoney.class);
+            intent.putExtra("userLoginName",username);
+            startActivity(intent);
+        }
     }
 
     public void btnCreatBankAcct(View view) {

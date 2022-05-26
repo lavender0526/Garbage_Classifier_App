@@ -11,16 +11,17 @@
         android:id="@+id/nonRegistLocationConfirm"
         android:layout_width="158dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="140dp"
 
         android:background="@drawable/confirmbtn"
+        android:onClick="btnNonRegistGetLocation"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/nonRegistSelectedLocation"
@@ -41,8 +42,23 @@
         android:background="@drawable/gobackbtn"
         android:onClick="btnNonRegistLocationBackmain"
         app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nonRegistLocationConfirm"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="550dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="344dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nonRegistSelectedLocation"
+        app:layout_constraintVertical_bias="1.0"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
