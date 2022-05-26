@@ -14,10 +14,53 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sa.store.UserStore;
 import com.google.zxing.Result;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+class linkTask extends AsyncTask<String, Void, Void> {
+    @Override
+    protected Void doInBackground(String... params) {
+        // http://140.125.207.230:8080/api/machine/{machineId}/link
+        String machineURL = params[0];
+        int userId = UserStore.userId;
+
+        // http://140.125.207.230:8080/api/machine/{machineId}/link/{userId}
+        String url = String.format("%s/%d",machineURL,userId);
+        System.out.println(userId);
+        System.out.println(url);
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(new JSONObject().toString(), mediaType);
+        Request request = new Request.Builder()
+                .url(url)
+                .patch(body)
+                .build();
+        OkHttpClient client = new OkHttpClient();
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println(response.code());
+            if (response.code() == 200) {
+                System.out.println("Success...");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+}
 
 public class Setting extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private String username;
@@ -68,6 +111,7 @@ public class Setting extends AppCompatActivity implements ZXingScannerView.Resul
     public void handleResult(Result rawResult) {
         String machineURL = rawResult.getText();
         System.out.println(machineURL);
+        new linkTask().execute(machineURL);
 //        openQRCamera();
     }
 
