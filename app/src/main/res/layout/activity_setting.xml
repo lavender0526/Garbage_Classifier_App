@@ -7,6 +7,16 @@
     android:background="#DCFAB9"
     tools:context=".Setting">
 
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/ZXingScannerView_QRCode"
+        android:layout_width="288dp"
+
+        android:layout_height="305dp"
+        app:layout_constraintBottom_toTopOf="@+id/settingLocationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/settingHomeButton"
         android:layout_width="82dp"
