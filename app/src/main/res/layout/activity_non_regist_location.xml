@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/machineImageView"
         app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
@@ -36,28 +36,30 @@
 
     <Button
         android:id="@+id/nonRegistLocationBackmain"
-        android:layout_width="162dp"
-        android:layout_height="65dp"
+        android:layout_width="164dp"
+        android:layout_height="62dp"
         android:layout_marginStart="48dp"
         android:background="@drawable/gobackbtn"
         android:onClick="btnNonRegistLocationBackmain"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nonRegistLocationConfirm"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/machineImageView"
+        app:layout_constraintVertical_bias="0.385" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="344dp"
+        android:id="@+id/machineImageView"
+        android:layout_width="262dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nonRegistSelectedLocation"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
 
