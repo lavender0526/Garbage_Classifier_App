@@ -3,8 +3,11 @@ package com.example.sa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,17 +35,15 @@ public class RegistLocation extends AppCompatActivity {
     private String selectedLocation;
     ArrayList<String> setLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<>();
-//    ImageView imageView = findViewById(R.id.machineImageView);
+    ImageView imageView ;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
+        imageView = (ImageView)findViewById(R.id.machineImageView);
         new getMachineLocationTask().execute();
     }
 
-    public void btnGetLocationImage(View view) {
-        new registLocationGetImageTask().execute();
-    }
 
     class getMachineLocationTask extends AsyncTask<Void, Void, Boolean> {
         @Override
@@ -55,7 +56,7 @@ public class RegistLocation extends AppCompatActivity {
                 if (response.code() == 200) {
                     JSONArray jsonArray = new JSONArray(response.body().string());
                     try {
-                        while (i <= 3) {
+                        while (i < jsonArray.length()) {
                             getLocation = jsonArray.getJSONObject(i).getString("location");
                             location.add(getLocation);
                             i++;
@@ -106,14 +107,13 @@ public class RegistLocation extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... voids) {
             Request request = new Request.Builder()
-                    .url("http://140.125.207.230:8080/api/machines/location/" + selectedLocation)
+                    .url("http://140.125.207.230:8080/api/machines/location/?location=" + selectedLocation)
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
                 if (response.code() == 200) {
                     System.out.println(response.code());
-                    JSONObject json = new JSONObject(response.body().string());
-                    machineImage = json.getString("machinePicture");
+                    machineImage = new JSONArray(response.body().string()).getJSONObject(0).getString("machinePicture");
                     return true;
                 }
             } catch (IOException | JSONException e) {
@@ -125,10 +125,19 @@ public class RegistLocation extends AppCompatActivity {
 
         protected void onPostExecute(Boolean result) {
             if (result) {
-                System.out.println(machineImage);
+                byte[] decodedString = Base64.decode(machineImage, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                imageView.setImageBitmap(decodedByte);
+
             }
         }
     }
+
+    public void btnGetLocationImage(View view) {
+        new registLocationGetImageTask().execute();
+    }
+
+
     public void btnRegistLocationHome(View view) {
         Intent intent = new Intent(RegistLocation.this,RegistTrashcan.class);
         startActivity(intent);
