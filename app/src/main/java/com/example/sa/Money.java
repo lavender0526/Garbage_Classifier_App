@@ -37,39 +37,8 @@ public class Money extends AppCompatActivity {
         username = intent2.getStringExtra("userLoginName");
         new confirmCreatedBankTask().execute();
     }
-    protected void check(){
-        System.out.println(checkBank);
-        if (checkBank != "null") {
-            Intent intent = new Intent(Money.this, RedgistMoney.class);
-            intent.putExtra("userLoginName", username);
-            startActivity(intent);
-        }
-    }
-
     public void btnCreatBankAcct(View view) {
         new creatBankAcctTask().execute();
-    }
-    public void btnMoneyAccount(View view) {
-        Intent intent = new Intent(Money.this,registerReviseAccount.class);
-        intent.putExtra("userLoginName",username);
-        startActivity(intent);
-    }
-    public void btnMoneyLocation(View view) {
-        Intent intent = new Intent(Money.this,RegistLocation.class);
-        intent.putExtra("userLoginName",username);
-        startActivity(intent);
-    }
-
-    public void btnMoneySetting(View view) {
-        Intent intent = new Intent(Money.this,Setting.class);
-        intent.putExtra("userLoginName",username);
-        startActivity(intent);
-    }
-
-    public void btnMoneyHome(View view) {
-        Intent intent = new Intent(Money.this,RegistTrashcan.class);
-        intent.putExtra("userLoginName",username);
-        startActivity(intent);
     }
     class confirmCreatedBankTask extends AsyncTask<Void, Void, Void> {
         @Override
@@ -131,5 +100,36 @@ public class Money extends AppCompatActivity {
         }
 
     }
+    protected void check(){
+        System.out.println(checkBank);
+        if (checkBank != "null") {
+            Intent intent = new Intent(Money.this, RedgistMoney.class);
+            intent.putExtra("userLoginName", username);
+            startActivity(intent);
+        }
+    }
+    public void btnMoneyAccount(View view) {
+        Intent intent = new Intent(Money.this,registerReviseAccount.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+    public void btnMoneyLocation(View view) {
+        Intent intent = new Intent(Money.this,RegistLocation.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
+    public void btnMoneySetting(View view) {
+        Intent intent = new Intent(Money.this,Setting.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
+    public void btnMoneyHome(View view) {
+        Intent intent = new Intent(Money.this,RegistTrashcan.class);
+        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+
 }
 

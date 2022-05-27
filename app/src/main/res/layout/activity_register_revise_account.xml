@@ -132,7 +132,21 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.685" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="156dp"
+        android:layout_height="53dp"
+        android:background="@drawable/logoutbtn"
+        android:onClick="btnLogout"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAccountRevise"
+        app:layout_constraintVertical_bias="0.131" />
 
     <TextView
         android:id="@+id/username"

@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sa.store.UserStore;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -24,18 +27,17 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class registerReviseAccount extends AppCompatActivity {
-    private String username;
-    TextView userName;
+    UserStore getname = new UserStore();
+    String username =getname.getUserName();
+    TextView usernameView;
     EditText password;
     OkHttpClient client = new OkHttpClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_revise_account);
-        userName = (TextView)  findViewById(R.id.username);
-        Intent intent = getIntent();
-        username = intent.getStringExtra("userLoginName");
-        userName.setText(username);
+        usernameView = (TextView)  findViewById(R.id.username);
+        usernameView.setText(username);
         password = (EditText) findViewById(R.id.reviseInputPassword);
 
     }
@@ -58,6 +60,12 @@ public class registerReviseAccount extends AppCompatActivity {
     public void btnReviseAcct(View view) {
         new registerReviseAccountTrashcanTask().execute();
     }
+
+    public void btnLogout(View view) {
+        Intent intent = new Intent(registerReviseAccount.this,MainActivity.class);
+        startActivity(intent);
+    }
+
     class registerReviseAccountTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {

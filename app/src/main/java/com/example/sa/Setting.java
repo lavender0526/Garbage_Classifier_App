@@ -116,7 +116,7 @@ public class Setting extends AppCompatActivity implements ZXingScannerView.Resul
     }
 
     public void btnsettingHome(View view) {
-        Intent intent = new Intent(Setting.this,MainActivity.class);
+        Intent intent = new Intent(Setting.this,RegistTrashcan.class);
         intent.putExtra("userLoginName",username);
         startActivity(intent);
     }

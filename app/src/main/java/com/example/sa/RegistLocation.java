@@ -32,7 +32,7 @@ public class RegistLocation extends AppCompatActivity {
     private String selectedLocation;
     ArrayList<String> setLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<>();
-    ImageView imageView = findViewById(R.id.machineImageView);
+//    ImageView imageView = findViewById(R.id.machineImageView);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -84,12 +84,10 @@
         android:id="@+id/machineImageView"
         android:layout_width="325dp"
         android:layout_height="337dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="164dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Spinner
@@ -102,8 +100,10 @@
         android:popupBackground="#E2F0D9"
         app:layout_constraintBottom_toTopOf="@+id/machineImageView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561" />
 
     <Button
         android:id="@+id/registLocationConfirm"
@@ -116,6 +116,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/machineImageView"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintVertical_bias="0.328" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
