@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -29,10 +30,12 @@ android {
     buildFeatures {
         viewBinding true
     }
+    buildToolsVersion '31.0.0'
 }
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
     def nav_version = "2.3.5"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -52,5 +55,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.7.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
     implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
-    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-analytics'
+
+
 }
