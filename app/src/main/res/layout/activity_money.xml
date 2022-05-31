@@ -8,73 +8,15 @@
     tools:context=".Money">
 
     <Button
-        android:id="@+id/moneyHomeButton"
-        android:layout_width="83dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listhomepagebtn"
-        android:onClick="btnMoneyHome"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/moneyAccountButton"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="248dp"
-        android:background="@drawable/listuseraccountbtn"
-        android:onClick="btnMoneyAccount"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/moneyHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/moneyLocationButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/moneyLocationButton"
-        android:layout_width="78dp"
-        android:layout_height="71dp"
-        android:layout_marginEnd="172dp"
-        android:background="@drawable/listlocationbtn"
-        android:onClick="btnMoneyLocation"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/moneyAccountButton"
-        app:layout_constraintTop_toTopOf="@+id/moneyButton"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/moneyButton"
-        android:layout_width="86dp"
-        android:layout_height="86dp"
-        android:layout_marginEnd="84dp"
-        android:background="@drawable/listmoneybtn2"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/moneyLocationButton"
-        app:layout_constraintTop_toTopOf="@+id/moneySettingButton" />
-
-    <Button
         android:id="@+id/moneySettingButton"
-        android:layout_width="83dp"
-        android:layout_height="70dp"
+        android:layout_width="78dp"
+        android:layout_height="66dp"
         android:background="@drawable/listsettingbtn"
         android:onClick="btnMoneySetting"
+        android:orientation="horizontal"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/moneyButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -83,14 +25,42 @@
         android:id="@+id/inputAccountcode"
         android:layout_width="297dp"
         android:layout_height="44dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="220dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btnCreatBankAcct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.229" />
+
+    <EditText
+        android:id="@+id/inputBanktype"
+        android:layout_width="297dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="700"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bank Type(3 codes)"
+        android:textColor="#070000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputBanktype"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
 
     <TextView
         android:id="@+id/textView4"
@@ -106,34 +76,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bank Type(3 codes)"
-        android:textColor="#070000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputBanktype"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/inputBanktype"
-        android:layout_width="297dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="140dp"
-        android:ems="10"
-        android:hint="700"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
         android:id="@+id/btnCreatBankAcct"
         android:layout_width="204dp"
@@ -146,6 +88,59 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598" />
+        app:layout_constraintVertical_bias="0.637" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="247.5dp"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/moneyButton"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/moneyHomeButton"
+            android:layout_width="83dp"
+            android:layout_height="70dp"
+            android:background="@drawable/listhomepagebtn"
+            android:onClick="btnMoneyHome"
+            android:orientation="horizontal"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/moneyAccountButton"
+            android:layout_width="82dp"
+            android:layout_height="70dp"
+            android:background="@drawable/listuseraccountbtn"
+            android:onClick="btnMoneyAccount"
+            android:orientation="horizontal"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/moneyLocationButton"
+            android:layout_width="78dp"
+            android:layout_height="71dp"
+            android:background="@drawable/listlocationbtn"
+            android:onClick="btnMoneyLocation"
+            app:backgroundTint="@null"
+            tools:layout_editor_absoluteX="196dp"
+            tools:layout_editor_absoluteY="539dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/moneyButton"
+        android:layout_width="90dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/listmoneybtn2"
+        android:orientation="horizontal"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreatBankAcct"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

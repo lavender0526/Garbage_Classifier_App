@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IM Garbage Recycle System</string>
+    <string name="app_name">IM GarbageSystem</string>
     <string-array name="locationCitySpinner">
         <item></item>
     </string-array>

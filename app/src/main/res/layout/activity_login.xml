@@ -12,7 +12,7 @@
         android:layout_width="147dp"
         android:layout_height="52dp"
         android:background="@drawable/confirmbtn"
-        android:onClick="btnConfirm"
+        android:onClick="btnLoginConfirm"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +22,11 @@
         app:layout_constraintVertical_bias="0.793" />
 
     <Button
-        android:id="@+id/btnLoginBackmain"
+        android:id="@+id/btnRegistBackmain"
         android:layout_width="147dp"
         android:layout_height="52dp"
         android:background="@drawable/cancelbtn"
-        android:onClick="btnBackMain"
+        android:onClick="btnLoginBackMain"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

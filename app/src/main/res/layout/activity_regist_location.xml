@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/settingBtn"
-        android:layout_width="83dp"
+        android:layout_width="82dp"
         android:layout_height="70dp"
         android:background="@drawable/listsettingbtn"
         app:backgroundTint="@null"
@@ -23,32 +23,17 @@
 
     <Button
         android:id="@+id/moneyBtn"
-        android:layout_width="78dp"
+        android:layout_width="82dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="80dp"
         android:background="@drawable/listmoneybtn"
-        app:backgroundTint="@null"
         android:onClick="btnRegistLocationMoney"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/locationBtn"
         app:layout_constraintTop_toTopOf="@+id/settingBtn"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/locationBtn"
-        android:layout_width="83dp"
-        android:layout_height="81dp"
-        android:layout_marginEnd="164dp"
-        android:background="@drawable/listlocationbtn2"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/accountReviseBtn"
-        app:layout_constraintTop_toTopOf="@+id/moneyBtn"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/accountReviseBtn"
@@ -57,14 +42,12 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="248dp"
         android:background="@drawable/listuseraccountbtn"
-        app:backgroundTint="@null"
         android:onClick="btnRegistLocationAccount"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/homeBtn"
-        app:layout_constraintTop_toTopOf="@+id/locationBtn"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/homeBtn" />
 
     <Button
         android:id="@+id/homeBtn"
@@ -92,8 +75,8 @@
 
     <Spinner
         android:id="@+id/nonRegistSelectedLocation"
-        android:layout_width="372dp"
-        android:layout_height="50dp"
+        android:layout_width="359dp"
+        android:layout_height="57dp"
         android:animateLayoutChanges="true"
         android:background="@drawable/spinner_selectlocation"
         android:dropDownWidth="wrap_content"
@@ -117,5 +100,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/machineImageView"
         app:layout_constraintVertical_bias="0.328" />
+
+    <Button
+        android:id="@+id/locationBtn"
+        android:layout_width="90dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/listlocationbtn2"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toEndOf="@+id/accountReviseBtn"
+        app:layout_constraintTop_toTopOf="@+id/moneyBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

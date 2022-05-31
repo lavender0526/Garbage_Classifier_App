@@ -25,23 +25,27 @@ import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
+    EditText username,password;
+    TextView msg;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-}
-    public void btnBackMain(View view) {
+
+    }
+    public void btnLoginBackMain(View view) {
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);
     }
-    public void btnConfirm(View view) {
+    public void btnLoginConfirm(View view) {
         new loginTask().execute();
     }
+
     class loginTask extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {
             JSONObject jsonObject = new JSONObject();
-            EditText username = (EditText) findViewById(R.id.loginInputUsername);
-            EditText password = (EditText) findViewById(R.id.loginInputPassword);
+            username = (EditText) findViewById(R.id.loginInputUsername);
+            password = (EditText) findViewById(R.id.loginInputPassword);
             UserStore.userName = username.getText().toString();
             try {
                 jsonObject.put("password", password.getText().toString());
@@ -58,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
 
             try (Response response = client.newCall(request).execute()) {
                 if(response.code()==200){
-
                     JSONObject user = new JSONObject(response.body().string());
                     UserStore.userId = user.getInt("id");
                     return true;
@@ -70,13 +73,12 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
         protected void onPostExecute(Boolean result) {
-            TextView msg = (TextView)  findViewById(R.id.loginMsgIncorrect);
+            msg = (TextView)  findViewById(R.id.loginMsgIncorrect);
             if (result){
                 Intent intent = new Intent(LoginActivity.this, RegistTrashcan.class);
-                intent.putExtra("userLoginName",UserStore.userName);
                 startActivity(intent);
             }else{
-                msg.setVisibility( View.VISIBLE );
+                msg.setVisibility( View.VISIBLE);
             }
         }
 

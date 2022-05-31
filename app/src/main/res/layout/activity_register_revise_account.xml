@@ -66,19 +66,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/reviseAccountButton"
-        android:layout_width="81dp"
-        android:layout_height="77dp"
-        android:background="@drawable/listuseraccountbtn2"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/reviseLocationButton"
-        app:layout_constraintEnd_toStartOf="@+id/reviseLocationButton"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
         android:id="@+id/reviseLocationButton"
         android:layout_width="82dp"
         android:layout_height="70dp"
@@ -160,5 +147,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
+    <Button
+        android:id="@+id/reviseAccountButton"
+        android:layout_width="90dp"
+        android:layout_height="77dp"
+        android:background="@drawable/listuseraccountbtn2"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/reviseLocationButton"
+        app:layout_constraintEnd_toStartOf="@+id/reviseLocationButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

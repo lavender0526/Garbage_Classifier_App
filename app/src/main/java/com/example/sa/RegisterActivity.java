@@ -21,65 +21,58 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    private Button btnBackMain, btnConfirmRegist;
+    EditText firstname,lastname,email,username,password;
     OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        btnBackMain = findViewById(R.id.btnLoginBackmain);
-        btnConfirmRegist = findViewById(R.id.btnConfirmRegist);
-        btnBackMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnConfirmRegist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                class RegisterTask extends AsyncTask<Void, Void, Void> {
-                    @Override
-                    protected Void doInBackground(Void... voids) {
-                        JSONObject jsonObject = new JSONObject();
-                        EditText firstName = (EditText) findViewById(R.id.inputFirstName);
-                        EditText lastName = (EditText) findViewById(R.id.inputLastName);
-                        EditText email = (EditText) findViewById(R.id.inputEmail);
-                        EditText username = (EditText) findViewById(R.id.inputUsername);
-                        EditText password = (EditText) findViewById(R.id.inputPassword);
-                        try {
-                            jsonObject.put("email", email.getText().toString());
-                            jsonObject.put("lastName", lastName.getText().toString());
-                            jsonObject.put("name", firstName.getText().toString());
-                            jsonObject.put("password", password.getText().toString());
-                            jsonObject.put("userName", username.getText().toString());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-                        RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
-                        Request request = new Request.Builder()
-                                .url("http://140.125.207.230:8080/api/register")
-                                .post(body)
-                                .build();
-
-                        try (Response response = client.newCall(request).execute()) {
-                            System.out.println(response.body().string());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        return null;
-                    }
-                }
-                new RegisterTask().execute();
-
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
+
+    public void btnRegistBackMain(View view) {
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void btnRegistConfirm(View view) {
+        new RegisterTask().execute();
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    class RegisterTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            JSONObject jsonObject = new JSONObject();
+            firstname = (EditText) findViewById(R.id.inputFirstName);
+            lastname = (EditText) findViewById(R.id.inputLastName);
+            email = (EditText) findViewById(R.id.inputEmail);
+            username = (EditText) findViewById(R.id.inputUsername);
+            password = (EditText) findViewById(R.id.inputPassword);
+            try {
+                jsonObject.put("email", email.getText().toString());
+                jsonObject.put("lastName", lastname.getText().toString());
+                jsonObject.put("name", firstname.getText().toString());
+                jsonObject.put("password", password.getText().toString());
+                jsonObject.put("userName", username.getText().toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+            RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
+            Request request = new Request.Builder()
+                    .url("http://140.125.207.230:8080/api/register")
+                    .post(body)
+                    .build();
+
+            try (Response response = client.newCall(request).execute()) {
+                System.out.println(response.body().string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
 }

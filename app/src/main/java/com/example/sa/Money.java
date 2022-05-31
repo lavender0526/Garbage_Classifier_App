@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sa.store.UserStore;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,46 +27,27 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Money extends AppCompatActivity {
-    private String username,checkBank;
-    private int userID;
+    String username =UserStore.userName;
+    int userID =UserStore.userId;
+    private String checkBank;
+    EditText bankType,accountCode;
     OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money);
-        Intent intent2 = getIntent();
-        username = intent2.getStringExtra("userLoginName");
-        new confirmCreatedBankTask().execute();
     }
     public void btnCreatBankAcct(View view) {
         new creatBankAcctTask().execute();
     }
-    class confirmCreatedBankTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            Request request = new Request.Builder()
-                    .url("http://140.125.207.230:8080/api/back_acct/username/"+username)
-                    .build();
-            try (Response response = client.newCall(request).execute()) {
-                if (response.code() == 200) {
-                    JSONObject jsonArray = new JSONObject(response.body().string());
-                    checkBank = jsonArray.getString("bank_type");
-                    check();
-                }
 
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
     class creatBankAcctTask extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {
             JSONObject jsonObject = new JSONObject();
-            EditText bankType = findViewById(R.id.inputBanktype);
-            EditText accountCode = findViewById(R.id.inputAccountcode);
+            bankType = findViewById(R.id.inputBanktype);
+            accountCode = findViewById(R.id.inputAccountcode);
             try {
                 jsonObject.put("account_code", accountCode.getText().toString());
                 jsonObject.put("bank_type", bankType.getText().toString());
@@ -92,7 +75,7 @@ public class Money extends AppCompatActivity {
         }
         protected void onPostExecute(Boolean result) {
             if (result){
-                Intent intent = new Intent(Money.this, CreatedMoney.class);
+                Intent intent = new Intent(Money.this, RedgistMoney.class);
                 startActivity(intent);
             }else{
                 System.out.println("ERROR");

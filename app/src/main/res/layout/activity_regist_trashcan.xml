@@ -7,74 +7,6 @@
     android:background="#DCFAB9"
     tools:context=".RegistTrashcan">
 
-    <Button
-        android:id="@+id/registTrashcanHomeButton"
-        android:layout_width="81dp"
-        android:layout_height="77dp"
-        android:background="@drawable/listhomepagebtn2"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/registTrashcanAccountButton"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="248dp"
-        android:background="@drawable/listuseraccountbtn"
-        android:onClick="btnRegistTrashcanAccount"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/registTrashcanHomeButton"
-        app:layout_constraintTop_toTopOf="@+id/registTrashcanLocationButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/registTrashcanLocationButton"
-        android:layout_width="83dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listlocationbtn"
-        android:onClick="btnRegistTrashcanLocation"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/registTrashcanAccountButton"
-        app:layout_constraintTop_toTopOf="@+id/registTrashcanMoneyButton" />
-
-    <Button
-        android:id="@+id/registTrashcanMoneyButton"
-        android:layout_width="78dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listmoneybtn"
-        android:onClick="btnRegistTrashcanMoney"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/registTrashcanLocationButton"
-        app:layout_constraintTop_toTopOf="@+id/registTrashcanSettingButton" />
-
-    <Button
-        android:id="@+id/registTrashcanSettingButton"
-        android:layout_width="83dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listsettingbtn"
-        android:onClick="btnRegistTrashcanSetting"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/registTrashcanMoneyButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/plasticbagCan"
@@ -92,7 +24,7 @@
         android:id="@+id/plasticbagCanStorage"
         android:layout_width="89dp"
         android:layout_height="58dp"
-        android:text="00%"
+        android:text="%"
         android:textColor="#F60000"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +50,7 @@
         android:id="@+id/IronbottleCanStorage"
         android:layout_width="89dp"
         android:layout_height="58dp"
-        android:text="00%"
+        android:text="%"
         android:textColor="#F60000"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,14 +64,14 @@
         android:id="@+id/bottleCanStorage"
         android:layout_width="89dp"
         android:layout_height="58dp"
-        android:text="00%"
+        android:text="%"
         android:textColor="#F60000"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849" />
+        app:layout_constraintVertical_bias="0.869" />
 
     <ImageView
         android:id="@+id/bottleCan"
@@ -158,12 +90,89 @@
         android:layout_width="170dp"
         android:layout_height="51dp"
         android:background="@drawable/updatebtn"
+        android:onClick="btnTrashcanUpdateStorage"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/registTrashcanLocationButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IronbottleCanStorage"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.338" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="330dp"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/registTrashcanHomeButton"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateStorage"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/registTrashcanAccountButton"
+            android:layout_width="81dp"
+            android:layout_height="70dp"
+            android:background="@drawable/listuseraccountbtn"
+            android:onClick="btnRegistTrashcanAccount"
+            android:orientation="horizontal"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.845"
+            tools:layout_editor_absoluteX="37dp" />
+
+        <Button
+            android:id="@+id/registTrashcanLocationButton"
+            android:layout_width="83dp"
+            android:layout_height="70dp"
+            android:background="@drawable/listlocationbtn"
+            android:onClick="btnRegistTrashcanLocation"
+            android:orientation="horizontal"
+            app:backgroundTint="@null"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="554dp" />
+
+        <Button
+            android:id="@+id/registTrashcanMoneyButton"
+            android:layout_width="83dp"
+            android:layout_height="70dp"
+            android:background="@drawable/listmoneybtn"
+            android:onClick="btnRegistTrashcanMoney"
+            android:orientation="horizontal"
+            app:backgroundTint="@null"
+            tools:layout_editor_absoluteX="235dp"
+            tools:layout_editor_absoluteY="560dp" />
+
+        <Button
+            android:id="@+id/registTrashcanSettingButton"
+            android:layout_width="81dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/listsettingbtn"
+            android:onClick="btnRegistTrashcanSetting"
+            android:orientation="horizontal"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="594dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registTrashcanHomeButton"
+        android:layout_width="80dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/listhomepagebtn2"
+        android:orientation="horizontal"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateStorage"
+        app:layout_constraintVertical_bias="0.8" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

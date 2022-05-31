@@ -7,6 +7,20 @@
     android:background="#DCFAB9"
     tools:context=".RedgistMoney">
 
+    <Button
+        android:id="@+id/btnCreatAcct"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:background="@drawable/creatacctbtn"
+        android:onClick="btnGoCreateAcct"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/createdMoneyLocationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.577" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -28,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,26 +152,28 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="193dp"
-        android:layout_height="54dp"
+        android:layout_width="157dp"
+        android:layout_height="46dp"
         android:background="@drawable/updatebtn"
         android:onClick="btnUpdateWalletBalance"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/createdMoneyLocationButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.537" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="370dp"
+        android:layout_width="377dp"
         android:layout_height="275dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453"
+        app:layout_constraintVertical_bias="0.451"
         app:srcCompat="@drawable/walletballancetable" />
 
     <TextView
@@ -177,15 +193,15 @@
         android:id="@+id/walletUpdateDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2010/07/30 - 22:30:00"
+        android:text="yyyy/mm/dd - hh:mm:ss"
         android:textColor="#0B0B0B"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.406" />
 
     <TextView
         android:id="@+id/walletBalance"

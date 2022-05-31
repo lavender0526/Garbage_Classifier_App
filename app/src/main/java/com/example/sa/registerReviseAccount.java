@@ -27,8 +27,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class registerReviseAccount extends AppCompatActivity {
-    UserStore getname = new UserStore();
-    String username =getname.getUserName();
+    String username = UserStore.userName;
     TextView usernameView;
     EditText password;
     OkHttpClient client = new OkHttpClient();
@@ -54,7 +53,7 @@ public class registerReviseAccount extends AppCompatActivity {
         startActivity(intent);
     }
     public void btnRegistReviseAccountMoney(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,Money.class);
+        Intent intent = new Intent(registerReviseAccount.this,RedgistMoney.class);
         startActivity(intent);
     }
     public void btnReviseAcct(View view) {

@@ -147,7 +147,7 @@ public class RegistLocation extends AppCompatActivity {
         startActivity(intent);
     }
     public void btnRegistLocationMoney(View view) {
-        Intent intent = new Intent(RegistLocation.this,Money.class);
+        Intent intent = new Intent(RegistLocation.this,RedgistMoney.class);
         startActivity(intent);
     }
     public void btnRegistLocationSetting(View view) {

@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.sa.store.UserStore;
 import com.google.zxing.Result;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -131,7 +130,7 @@ public class Setting extends AppCompatActivity implements ZXingScannerView.Resul
         startActivity(intent);
     }
     public void btnsettingMoney(View view) {
-        Intent intent = new Intent(Setting.this,Money.class);
+        Intent intent = new Intent(Setting.this,RedgistMoney.class);
         intent.putExtra("userLoginName",username);
         startActivity(intent);
     }
