@@ -6,10 +6,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sa.chainOfResponsibility.Numbers;
+import com.example.sa.chainOfResponsibility.httpNum;
+import com.example.sa.chainOfResponsibility.http_is_200;
+import com.example.sa.chainOfResponsibility.http_is_401;
+import com.example.sa.chainOfResponsibility.http_is_404;
+import com.example.sa.chainOfResponsibility.http_is_502;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;

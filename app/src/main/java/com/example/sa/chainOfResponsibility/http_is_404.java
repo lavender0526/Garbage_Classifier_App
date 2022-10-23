@@ -1,10 +1,6 @@
-package com.example.sa;
+package com.example.sa.chainOfResponsibility;
 
-import com.example.sa.store.UserStore;
-
-import org.json.JSONObject;
-
-public class http_is_502 implements httpNum{
+public class http_is_404 implements httpNum{
 
     private httpNum nextInHttp;
 
@@ -16,9 +12,8 @@ public class http_is_502 implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers  request) {
-        if (request.gethttpN1() == 502){
-
+    public boolean httpstate(Numbers request) {
+        if (request.gethttpN1() == 404){
             return false;
         }else {
             nextInHttp.httpstate(request);

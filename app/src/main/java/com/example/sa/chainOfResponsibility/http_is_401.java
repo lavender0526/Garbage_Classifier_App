@@ -1,10 +1,6 @@
-package com.example.sa;
+package com.example.sa.chainOfResponsibility;
 
-import com.example.sa.store.UserStore;
-
-import org.json.JSONObject;
-
-public class http_is_200 implements httpNum{
+public class http_is_401 implements httpNum{
 
     private httpNum nextInHttp;
 
@@ -16,9 +12,11 @@ public class http_is_200 implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers  request) {
-        if (request.gethttpN1() == 200){
-            return true;
+    public boolean httpstate(Numbers request) {
+        if (request.gethttpN1() == 401){
+
+            return false;
+
         }else {
             nextInHttp.httpstate(request);
         }
