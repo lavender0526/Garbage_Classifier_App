@@ -61,7 +61,18 @@ public class LoginActivity extends AppCompatActivity {
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
-                if(response.code()==200){
+                httpNum http200 = new http_is_200();
+                httpNum http401 = new http_is_401();
+                httpNum http404 = new http_is_404();
+                httpNum http502 = new http_is_502();
+
+                http200.setNexthttp(http401);
+                http401.setNexthttp(http404);
+                http404.setNexthttp(http502);
+
+                Numbers http1 = new Numbers(response.code());
+
+                if(http200.httpstate(http1)){
                     JSONObject user = new JSONObject(response.body().string());
                     UserStore.userId = user.getInt("id");
                     return true;
