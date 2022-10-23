@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sa.Observer.BottleGarbage;
+import com.example.sa.Observer.ConcreteAttribute;
+import com.example.sa.Observer.GarbageAttribute;
+import com.example.sa.Observer.GarbageCan;
+import com.example.sa.Observer.IronGarbage;
+import com.example.sa.Observer.PlasticGarbage;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -25,15 +31,27 @@ public class RegistTrashcan extends AppCompatActivity {
     TextView bottleStorage,ironStorage,plasticbagStorage;
     private int i=18;
     OkHttpClient client = new OkHttpClient();
+    public static String bottleStorage_String;
+    public static String ironStorage_String;
+    public static String plasticbagStorage_String;
+    //Observer Pattern
+    GarbageAttribute garbageAttribute = new ConcreteAttribute();
+    GarbageCan plasticGarbage = new PlasticGarbage();
+    GarbageCan ironGarbage = new IronGarbage();
+    GarbageCan bottleGarbage = new BottleGarbage();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_trashcan);
-        bottleStorage = (TextView) findViewById(R.id.bottleCanStorage);
-        ironStorage = (TextView) findViewById(R.id.IronbottleCanStorage);
-        plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorage);
+//        bottleStorage = (TextView) findViewById(R.id.bottleCanStorage);
+//        ironStorage = (TextView) findViewById(R.id.IronbottleCanStorage);
+        bottleGarbage.setTextView((TextView) findViewById(R.id.bottleCanStorage));
+        ironGarbage.setTextView((TextView) findViewById(R.id.IronbottleCanStorage));
+        plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));
+//        plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorage);
+
     }
 
     public void btnRegistTrashcanAccount(View view) {
@@ -57,6 +75,13 @@ public class RegistTrashcan extends AppCompatActivity {
 
     public void btnTrashcanUpdateStorage(View view) {
         new registTrashcanTask().execute();
+        //When the button pressed ,it will start notifing
+        garbageAttribute.Create();
+        garbageAttribute.Attach(plasticGarbage);
+        garbageAttribute.Attach(ironGarbage);
+        garbageAttribute.Attach(bottleGarbage);
+        garbageAttribute.Notify();
+
     }
     class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override
@@ -82,11 +107,14 @@ public class RegistTrashcan extends AppCompatActivity {
 
         protected void onPostExecute() {
             if(i==18){
-                bottleStorage.setText(value+"%");
+                bottleStorage_String = (value+"%");
+//                bottleStorage.setText(value+"%");
             }else if(i==19){
-                ironStorage.setText(value+"%");
+                ironStorage_String = (value+"%");
+//                ironStorage.setText(value+"%");
             }else if(i==21){
-                plasticbagStorage.setText(value+"%");
+                plasticbagStorage_String = (value+"%");
+//                plasticbagStorage.setText(value+"%");
             }
             else{
                 System.out.println("11");
