@@ -1,13 +1,18 @@
 package com.example.sa;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,11 +40,55 @@ public class NonRegistLocation extends AppCompatActivity {
     ArrayList<String> getLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<String>();
 
+    //prototype
+    Bitmap bp = null;
+    float scaleWidth;
+    float scaleHeight;
+    int h;
+    boolean num = false;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_non_regist_location);
         machineImageView = (ImageView) findViewById(R.id.nonRegistMachineImageView);
+
+        //Prototype
+        //create 矩陣
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        bp=BitmapFactory.decodeResource(getResources().R.drawable.nonRegistMachineImageView);
+        int width = bp.getWidth();
+        int height = bp.getHeight();
+        int w = dm.widthPixels;//get screen width
+        int h = dm.heightPixels;//get screen height
+        scaleHeight = ((float)h)/height;
+        scaleWidth = ((float)w)/width;
+        machineImageView.setImageBitmap(bp);
         new nonRegistLocationTask().execute();
+    }
+
+    public boolean onTouchEvent(MotionEvent event){
+        switch (event.getAction()){
+            //check first touch in the screen will trigger it
+            case MotionEvent.ACTION_DOWN:
+                if (num==true) {
+                    Matrix matrix = new Matrix();
+                    matrix.postScale(scaleWidth, scaleHeight);
+                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
+                    machineImageView.setImageBitmap(newBitmap);
+                    num = false;
+                }else{
+                    Matrix matrix = new Matrix();
+                    matrix.postScale(1.0f,1.0f);
+                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
+                    machineImageView.setImageBitmap(newBitmap);
+                    num=true;
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 
     public void btnNonRegistLocationBackmain(View view) {
