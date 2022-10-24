@@ -19,7 +19,6 @@ import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
-import com.example.sa.databinding.ActivityMainBinding;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;

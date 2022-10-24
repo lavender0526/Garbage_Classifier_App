@@ -85,6 +85,7 @@ public class RegistLocation extends AppCompatActivity {
                             i++;
                         }
 
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -135,8 +136,8 @@ public class RegistLocation extends AppCompatActivity {
 
             try (Response response = client.newCall(request).execute()) {
                 if (response.code() == 200) {
-                    System.out.println(response.code());
-                    machineImage = new JSONArray(response.body().string()).getJSONObject(0).getString("machinePicture");
+                    JSONArray json = new JSONArray(response.body().string());
+                    machineImage = json.getJSONObject(0).getString("machinePicture");
                     return true;
                 }
             } catch (IOException | JSONException e) {
