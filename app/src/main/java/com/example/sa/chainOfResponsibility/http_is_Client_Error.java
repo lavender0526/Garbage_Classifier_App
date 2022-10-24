@@ -1,6 +1,6 @@
 package com.example.sa.chainOfResponsibility;
 
-public class http_is_404 implements httpNum{
+public class http_is_Client_Error implements httpNum{
 
     private httpNum nextInHttp;
 
@@ -12,13 +12,15 @@ public class http_is_404 implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 404){
-            return false;
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 400 && request.gethttpN1() < 500){
+
+
+
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
+
     }
 }

@@ -1,6 +1,6 @@
 package com.example.sa.chainOfResponsibility;
 
-public class http_is_200 implements httpNum{
+public class http_is_Redirection implements httpNum{
 
     private httpNum nextInHttp;
 
@@ -12,13 +12,13 @@ public class http_is_200 implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 200){
-            return true;
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 300 && request.gethttpN1() < 400){
+
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
+
     }
 }

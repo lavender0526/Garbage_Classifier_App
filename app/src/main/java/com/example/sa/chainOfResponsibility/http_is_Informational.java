@@ -1,6 +1,6 @@
 package com.example.sa.chainOfResponsibility;
 
-public class http_is_502 implements httpNum{
+public class http_is_Informational implements httpNum{
 
     private httpNum nextInHttp;
 
@@ -12,14 +12,15 @@ public class http_is_502 implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 502){
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 100 && request.gethttpN1() < 200){
 
-            return false;
+
+
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
+
     }
 }
