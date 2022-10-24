@@ -40,27 +40,22 @@ public class RedgistMoney extends AppCompatActivity {
         new getBankInfor().execute();
 
     }
-    public void btnCreatedMoneyAccount(View view) {
+    public void gotoAccount(View view) {
         Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
         startActivity(intent);
     }
-    public void btnCreatedMoneyLocation(View view) {
+    public void gotoLocation(View view) {
         Intent intent = new Intent(RedgistMoney.this,RegistLocation.class);
         startActivity(intent);
     }
 
-    public void btnCreatedMoneySetting(View view) {
+    public void gotoConnect(View view) {
         Intent intent = new Intent(RedgistMoney.this,Setting.class);
         startActivity(intent);
     }
 
-    public void btnCreatedMoneyHome(View view) {
+    public void gotoHome(View view) {
         Intent intent = new Intent(RedgistMoney.this,RegistTrashcan.class);
-        startActivity(intent);
-    }
-
-    public void btnGoCreateAcct(View view) {
-        Intent intent = new Intent(RedgistMoney.this,Money.class);
         startActivity(intent);
     }
 

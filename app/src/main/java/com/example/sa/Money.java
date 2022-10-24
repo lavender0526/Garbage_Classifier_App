@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -27,7 +28,6 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Money extends AppCompatActivity {
-    String username =UserStore.userName;
     int userID =UserStore.userId;
     private String checkBank;
     EditText bankType,accountCode;
@@ -87,30 +87,30 @@ public class Money extends AppCompatActivity {
         System.out.println(checkBank);
         if (checkBank != "null") {
             Intent intent = new Intent(Money.this, RedgistMoney.class);
-            intent.putExtra("userLoginName", username);
             startActivity(intent);
         }
     }
-    public void btnMoneyAccount(View view) {
+    public void gotoAccount(View view) {
+//                Factory.changePage("Acct",Money.this);
         Intent intent = new Intent(Money.this,registerReviseAccount.class);
-        intent.putExtra("userLoginName",username);
         startActivity(intent);
     }
-    public void btnMoneyLocation(View view) {
+    public void gotoLocation(View view) {
         Intent intent = new Intent(Money.this,RegistLocation.class);
-        intent.putExtra("userLoginName",username);
         startActivity(intent);
     }
 
-    public void btnMoneySetting(View view) {
+    public void gotoConnect(View view) {
         Intent intent = new Intent(Money.this,Setting.class);
-        intent.putExtra("userLoginName",username);
         startActivity(intent);
     }
 
-    public void btnMoneyHome(View view) {
+    public void gotoHome(View view) {
         Intent intent = new Intent(Money.this,RegistTrashcan.class);
-        intent.putExtra("userLoginName",username);
+        startActivity(intent);
+    }
+    public void gotoMoney(View view) {
+        Intent intent = new Intent(Money.this,Money.class);
         startActivity(intent);
     }
 

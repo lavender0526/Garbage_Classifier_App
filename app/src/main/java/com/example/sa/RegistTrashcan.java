@@ -1,7 +1,11 @@
 package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sa.Observer.BottleGarbage;
+import com.example.sa.Observer.ConcreteAttribute;
+import com.example.sa.Observer.GarbageAttribute;
+import com.example.sa.Observer.GarbageCan;
+import com.example.sa.Observer.IronGarbage;
+import com.example.sa.Observer.PlasticGarbage;
+import com.example.sa.databinding.ActivityMainBinding;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -23,40 +34,53 @@ import okhttp3.Response;
 public class RegistTrashcan extends AppCompatActivity {
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
+    public static String bottleStorage_String;
+    public static String ironStorage_String;
+    public static String plasticbagStorage_String;
     private int i=18;
     OkHttpClient client = new OkHttpClient();
+    GarbageAttribute garbageAttribute = new ConcreteAttribute();
+    GarbageCan plasticGarbage = new PlasticGarbage();
+    GarbageCan ironGarbage = new IronGarbage();
+    GarbageCan bottleGarbage = new BottleGarbage();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_trashcan);
-        bottleStorage = (TextView) findViewById(R.id.bottleCanStorage);
-        ironStorage = (TextView) findViewById(R.id.IronbottleCanStorage);
-        plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorage);
+
+        bottleGarbage.setTextView((TextView) findViewById(R.id.bottleCanStorage));
+        ironGarbage.setTextView((TextView) findViewById(R.id.IronbottleCanStorage));
+        plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
     }
 
-    public void btnRegistTrashcanAccount(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,registerReviseAccount.class);
-        startActivity(intent);
-    }
-    public void btnRegistTrashcanLocation(View view) {
+    public void gotoLocation(View view) {
         Intent intent = new Intent(RegistTrashcan.this,RegistLocation.class);
         startActivity(intent);
     }
 
-    public void btnRegistTrashcanMoney(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,RedgistMoney.class);
+    public void gotoConnect(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,Setting.class);
         startActivity(intent);
     }
 
-    public void btnRegistTrashcanSetting(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,Setting.class);
+    public void gotoHome(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,RegistTrashcan.class);
+        startActivity(intent);
+    }
+    public void gotoMoney(View view) {
+        Intent intent = new Intent(RegistTrashcan.this,Money.class);
         startActivity(intent);
     }
 
     public void btnTrashcanUpdateStorage(View view) {
         new registTrashcanTask().execute();
+        garbageAttribute.Create();
+        garbageAttribute.Attach(plasticGarbage);
+        garbageAttribute.Attach(ironGarbage);
+        garbageAttribute.Attach(bottleGarbage);
+        garbageAttribute.Notify();
     }
     class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override
@@ -82,11 +106,11 @@ public class RegistTrashcan extends AppCompatActivity {
 
         protected void onPostExecute() {
             if(i==18){
-                bottleStorage.setText(value+"%");
+                bottleStorage_String = (value+"%");
             }else if(i==19){
-                ironStorage.setText(value+"%");
+                ironStorage_String = (value+"%");
             }else if(i==21){
-                plasticbagStorage.setText(value+"%");
+                plasticbagStorage_String = (value+"%");
             }
             else{
                 System.out.println("11");

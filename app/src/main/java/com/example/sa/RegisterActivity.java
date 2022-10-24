@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
             MediaType mediaType = MediaType.get("application/json; charset=utf-8");
             RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
             Request request = new Request.Builder()
-                    .url("http://140.125.207.230:8080/api/register")
+                    .url("http://http://140.125.207.230:8080/swagger-ui/api/register")
                     .post(body)
                     .build();
 

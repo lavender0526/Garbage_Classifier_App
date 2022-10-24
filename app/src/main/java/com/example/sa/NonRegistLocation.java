@@ -67,7 +67,7 @@ public class NonRegistLocation extends AppCompatActivity {
                             location.add(value);
                             i++;
                         }
-
+                        System.out.println(location);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

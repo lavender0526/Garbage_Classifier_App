@@ -12,7 +12,7 @@
         android:layout_width="78dp"
         android:layout_height="66dp"
         android:background="@drawable/listsettingbtn"
-        android:onClick="btnMoneySetting"
+        android:onClick="gotoConnect"
         android:orientation="horizontal"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,7 +104,7 @@
             android:layout_width="83dp"
             android:layout_height="70dp"
             android:background="@drawable/listhomepagebtn"
-            android:onClick="btnMoneyHome"
+            android:onClick="gotoHome"
             android:orientation="horizontal"
             app:backgroundTint="@null" />
 
@@ -113,7 +113,7 @@
             android:layout_width="82dp"
             android:layout_height="70dp"
             android:background="@drawable/listuseraccountbtn"
-            android:onClick="btnMoneyAccount"
+            android:onClick="gotoAccount"
             android:orientation="horizontal"
             app:backgroundTint="@null" />
 
@@ -122,7 +122,7 @@
             android:layout_width="78dp"
             android:layout_height="71dp"
             android:background="@drawable/listlocationbtn"
-            android:onClick="btnMoneyLocation"
+            android:onClick="gotoLocation"
             app:backgroundTint="@null"
             tools:layout_editor_absoluteX="196dp"
             tools:layout_editor_absoluteY="539dp" />
