@@ -6,10 +6,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sa.ChainOfResponsibility.Numbers;
+import com.example.sa.ChainOfResponsibility.httpNum;
+import com.example.sa.ChainOfResponsibility.http_is_Successful;
+import com.example.sa.ChainOfResponsibility.http_is_Informational;
+import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
+import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
@@ -61,18 +66,19 @@ public class LoginActivity extends AppCompatActivity {
                     .build();
 
             try (Response response = client.newCall(request).execute()) {
-                httpNum http200 = new http_is_200();
-                httpNum http401 = new http_is_401();
-                httpNum http404 = new http_is_404();
-                httpNum http502 = new http_is_502();
+                httpNum http200 = new http_is_Successful();
+                httpNum http401 = new http_is_Informational();
+                httpNum http404 = new http_is_Server_Error();
+                httpNum http502 = new http_is_Client_Error();
 
                 http200.setNexthttp(http401);
                 http401.setNexthttp(http404);
                 http404.setNexthttp(http502);
 
                 Numbers http1 = new Numbers(response.code());
+                http200.httpstate(http1);
 
-                if(http200.httpstate(http1)){
+                if(response.code() == 200){
                     JSONObject user = new JSONObject(response.body().string());
                     UserStore.userId = user.getInt("id");
                     return true;
