@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SA"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Prototype.locationImage"
+            android:exported="false" />
         <activity
             android:name=".RedgistMoney"
             android:exported="false" />

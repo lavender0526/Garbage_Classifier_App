@@ -1,28 +1,31 @@
 package com.example.sa;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.DisplayMetrics;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.sa.Prototype.imagePrototype;
+import com.example.sa.Prototype.locationImage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -39,57 +42,58 @@ public class NonRegistLocation extends AppCompatActivity {
     ImageView machineImageView;
     ArrayList<String> getLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<String>();
+    Bitmap decodedByte;
 
-    //prototype
-    Bitmap bp = null;
-    float scaleWidth;
-    float scaleHeight;
-    int h;
-    boolean num = false;
-
+//    //prototype
+//    Bitmap bp = null;
+//    float scaleWidth;
+//    float scaleHeight;
+//    int h;
+//    boolean num = false;
+//
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_non_regist_location);
-        machineImageView = (ImageView) findViewById(R.id.nonRegistMachineImageView);
+        machineImageView = (ImageView) findViewById(R.id.locationImage);
 
-        //Prototype
-        //create 矩陣
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        bp=BitmapFactory.decodeResource(getResources().R.drawable.nonRegistMachineImageView);
-        int width = bp.getWidth();
-        int height = bp.getHeight();
-        int w = dm.widthPixels;//get screen width
-        int h = dm.heightPixels;//get screen height
-        scaleHeight = ((float)h)/height;
-        scaleWidth = ((float)w)/width;
-        machineImageView.setImageBitmap(bp);
+//        //Prototype
+//        //create 矩陣
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//
+//        bp=BitmapFactory.decodeResource(getResources(),);
+//        int width = bp.getWidth();
+//        int height = bp.getHeight();
+//        int w = dm.widthPixels;//get screen width
+//        int h = dm.heightPixels;//get screen height
+//        scaleHeight = ((float)h)/height;
+//        scaleWidth = ((float)w)/width;
+//        machineImageView.setImageBitmap(bp);
         new nonRegistLocationTask().execute();
     }
 
-    public boolean onTouchEvent(MotionEvent event){
-        switch (event.getAction()){
-            //check first touch in the screen will trigger it
-            case MotionEvent.ACTION_DOWN:
-                if (num==true) {
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(scaleWidth, scaleHeight);
-                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
-                    machineImageView.setImageBitmap(newBitmap);
-                    num = false;
-                }else{
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(1.0f,1.0f);
-                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
-                    machineImageView.setImageBitmap(newBitmap);
-                    num=true;
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
+//    public void zoomin(MotionEvent event){
+//        switch (event.getAction()){
+//            //check if first touch in the screen will trigger it
+//            case MotionEvent.ACTION_DOWN:
+//                if (num==true) {
+//                    Matrix matrix = new Matrix();
+//                    matrix.postScale(scaleWidth, scaleHeight);
+//                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
+//                    machineImageView.setImageBitmap(newBitmap);
+//                    num = false;
+//                }else{
+//                    Matrix matrix = new Matrix();
+//                    matrix.postScale(1.0f,1.0f);
+//                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
+//                    machineImageView.setImageBitmap(newBitmap);
+//                    num=true;
+//                }
+//                break;
+//        }
+//        return super.onTouchEvent(event);
+//    }
 
     public void btnNonRegistLocationBackmain(View view) {
         Intent intent = new Intent(NonRegistLocation.this, MainActivity.class);
@@ -180,9 +184,31 @@ public class NonRegistLocation extends AppCompatActivity {
         protected void onPostExecute(Boolean result) {
             if (result) {
                 byte[] decodedString = Base64.decode(machineImage, Base64.DEFAULT);
-                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                 machineImageView.setImageBitmap(decodedByte);
             }
         }
+    }
+    //點一張照片就執行
+    public void imageZommin(View view) {
+//        if (Build.VERSION.SDK_INT < 21) {
+//            Toast.makeText(NonRegistLocation.this, "21+ only, keep out", Toast.LENGTH_SHORT).show();
+//        } else {
+//            locationImage prototype =new locationImage();
+//            prototype.setImage(decodedByte);
+            //轉換葉面
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            decodedByte.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] bytes = stream.toByteArray();
+
+            Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
+            intent.putExtra("photo",decodedByte);
+
+//            ActivityOptionsCompat options = ActivityOptionsCompat.
+//                    makeSceneTransitionAnimation(NonRegistLocation.this, view, getString(R.string.transition_test));
+            startActivity(intent);
+    //這裡執行沒問題
+
+//        }
     }
 }
