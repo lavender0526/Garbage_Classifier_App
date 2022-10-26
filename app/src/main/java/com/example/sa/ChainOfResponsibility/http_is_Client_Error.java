@@ -12,14 +12,14 @@ public class http_is_Client_Error implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 502){
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 400 && request.gethttpN1() < 500){
 
-            return false;
+
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
+
     }
 }
