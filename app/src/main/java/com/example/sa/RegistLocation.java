@@ -2,12 +2,21 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sa.Observer.BottleGarbage;
+import com.example.sa.Observer.ConcreteAttribute;
+import com.example.sa.Observer.GarbageAttribute;
+import com.example.sa.Observer.GarbageCan;
+import com.example.sa.Observer.IronGarbage;
+import com.example.sa.Observer.PlasticGarbage;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +37,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+
+
 public class RegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     int i = 0;
@@ -36,11 +47,23 @@ public class RegistLocation extends AppCompatActivity {
     ArrayList<String> setLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<>();
     ImageView imageView ;
+    float scaleWidth,scaleHeight;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
         imageView = (ImageView)findViewById(R.id.machineImageView);
+        //創建矩陣
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        //bp = BitmapFactory.decodeResource(getResources(),R.drawable.)
+        //int height =
+        //to get screen width and height
+        int w=dm.widthPixels;
+        int h=dm.heightPixels;
+
+        //to create array and get location  , put in the spinner
         new getMachineLocationTask().execute();
     }
 
@@ -61,6 +84,7 @@ public class RegistLocation extends AppCompatActivity {
                             location.add(getLocation);
                             i++;
                         }
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -112,8 +136,8 @@ public class RegistLocation extends AppCompatActivity {
 
             try (Response response = client.newCall(request).execute()) {
                 if (response.code() == 200) {
-                    System.out.println(response.code());
-                    machineImage = new JSONArray(response.body().string()).getJSONObject(0).getString("machinePicture");
+                    JSONArray json = new JSONArray(response.body().string());
+                    machineImage = json.getJSONObject(0).getString("machinePicture");
                     return true;
                 }
             } catch (IOException | JSONException e) {

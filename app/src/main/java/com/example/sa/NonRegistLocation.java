@@ -67,7 +67,6 @@ public class NonRegistLocation extends AppCompatActivity {
                             location.add(value);
                             i++;
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -119,16 +118,13 @@ public class NonRegistLocation extends AppCompatActivity {
 
             try (Response response = client.newCall(request).execute()) {
                 if (response.code() == 200) {
-                    System.out.println(response.code());
                     JSONArray json = new JSONArray(response.body().string());
-                    System.out.println(json);
-                    machineImage = new JSONArray(response.body().string()).getJSONObject(0).getString("machinePicture");
+                    machineImage = json.getJSONObject(0).getString("machinePicture");
                     return true;
                 }
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
-
             return false;
         }
 
