@@ -1,7 +1,11 @@
 package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,8 +39,21 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        new AlertDialog.Builder(LoginActivity.this)
+                .setTitle("about")
+                .setMessage("this system is develop to help ambulance " +
+                        "reach the emergency site or hospital faster and safer.")
+                .setPositiveButton("ok", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).setNegativeButton("cancel",null).create()
+                .show();
+
 
     }
+
     public void btnLoginBackMain(View view) {
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);

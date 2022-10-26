@@ -12,15 +12,15 @@ public class http_is_Informational implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 401){
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 100 && request.gethttpN1() < 200){
 
-            return false;
+
 
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
+
     }
 }
