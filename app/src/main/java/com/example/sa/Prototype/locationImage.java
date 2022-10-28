@@ -15,6 +15,7 @@ public class locationImage extends AppCompatActivity{
     imagePrototype prototype = new imagePrototype();
     ImageView imageview;
     Intent intent;
+    String location;
     Bitmap photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +23,14 @@ public class locationImage extends AppCompatActivity{
         setContentView(R.layout.activity_location_image);
 
         intent = getIntent();
-        photo= intent.getParcelableExtra("photo");
-        prototype.setImage(photo);
+        location= intent.getStringExtra("location");
+        prototype.getlocation(location);
         imageview = (ImageView) findViewById(R.id.imageView22);
-        imageview.setImageBitmap(prototype.getImage());
-        System.out.println(prototype.clone());
+        try {
+            photo = (Bitmap) prototype.clone();
+            imageview.setImageBitmap(photo);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 }

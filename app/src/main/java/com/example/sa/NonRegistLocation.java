@@ -37,7 +37,7 @@ public class NonRegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     String value;
     int i = 0, k = 0;
-    private String selectedLocation;
+    public String selectedLocation;
     private String machineImage;
     ImageView machineImageView;
     ArrayList<String> getLocation = new ArrayList<String>();
@@ -200,8 +200,10 @@ public class NonRegistLocation extends AppCompatActivity {
             byte[] bytes = stream.toByteArray();
 //            locationImage locationImage = new locationImage(decodedByte);
 //            locationImage.setImage(decodedByte);
+            imagePrototype prototype = new imagePrototype();
+            prototype.setImage(selectedLocation,decodedByte);
             Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
-            intent.putExtra("photo",decodedByte);
+            intent.putExtra("location",selectedLocation);
 
 //            ActivityOptionsCompat options = ActivityOptionsCompat.
 //                    makeSceneTransitionAnimation(NonRegistLocation.this, view, getString(R.string.transition_test));

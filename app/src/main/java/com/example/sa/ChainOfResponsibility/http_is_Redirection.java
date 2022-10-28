@@ -12,14 +12,13 @@ public class http_is_Redirection implements httpNum{
     }
 
     @Override
-    public boolean httpstate(Numbers request) {
-        if (request.gethttpN1() == 502){
+    public void httpstate(Numbers request) {
+        if (request.gethttpN1() >= 300 && request.gethttpN1() < 400){
 
-            return false;
+
         }else {
             nextInHttp.httpstate(request);
         }
 
-        return false;
-    }
+        }
 }
