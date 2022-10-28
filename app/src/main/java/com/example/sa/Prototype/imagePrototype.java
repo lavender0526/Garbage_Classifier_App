@@ -6,11 +6,13 @@ import android.graphics.BitmapFactory;
 public class imagePrototype implements Cloneable{
     private Bitmap image;
 
-    public Bitmap setImage(Bitmap image){
+    public void setImage(Bitmap image){
         this.image = image;
-        return image;
     }
     public Bitmap getImage(){
-        return image;//這裡get過去就變null了
+        return image;
+    }
+    public Object clone() throws CloneNotSupportedException{
+        return (imagePrototype) super.clone();
     }
 }

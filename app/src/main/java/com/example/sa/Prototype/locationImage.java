@@ -23,16 +23,9 @@ public class locationImage extends AppCompatActivity{
 
         intent = getIntent();
         photo= intent.getParcelableExtra("photo");
+        prototype.setImage(photo);
         imageview = (ImageView) findViewById(R.id.imageView22);
-//        imageview.setImageBitmap(prototype.getImage());
-        System.out.println("8995" + photo);
-        imageview.setImageBitmap(photo);//這裡變null
-    }
-//    public B getImage(){
-//        return prototype.getImage();
-//    }
-    public void setImage(Bitmap image){
-        System.out.println("87android "+image);//這裡image還在
-        prototype.setImage(image);
+        imageview.setImageBitmap(prototype.getImage());
+        System.out.println(prototype.clone());
     }
 }

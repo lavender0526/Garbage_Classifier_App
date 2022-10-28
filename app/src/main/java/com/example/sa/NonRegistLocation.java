@@ -43,7 +43,7 @@ public class NonRegistLocation extends AppCompatActivity {
     ArrayList<String> getLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<String>();
     Bitmap decodedByte;
-
+    public imagePrototype imagePrototype;
 //    //prototype
 //    Bitmap bp = null;
 //    float scaleWidth;
@@ -189,25 +189,23 @@ public class NonRegistLocation extends AppCompatActivity {
             }
         }
     }
-    //點一張照片就執行
     public void imageZommin(View view) {
 //        if (Build.VERSION.SDK_INT < 21) {
 //            Toast.makeText(NonRegistLocation.this, "21+ only, keep out", Toast.LENGTH_SHORT).show();
 //        } else {
 //            locationImage prototype =new locationImage();
 //            prototype.setImage(decodedByte);
-            //轉換葉面
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             decodedByte.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] bytes = stream.toByteArray();
-
+//            locationImage locationImage = new locationImage(decodedByte);
+//            locationImage.setImage(decodedByte);
             Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
             intent.putExtra("photo",decodedByte);
 
 //            ActivityOptionsCompat options = ActivityOptionsCompat.
 //                    makeSceneTransitionAnimation(NonRegistLocation.this, view, getString(R.string.transition_test));
             startActivity(intent);
-    //這裡執行沒問題
 
 //        }
     }
