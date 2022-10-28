@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.sa.Iterator.ConcreteAggregate;
+import com.example.sa.Iterator.Iterator;
 import com.example.sa.Prototype.imagePrototype;
 import com.example.sa.Prototype.locationImage;
 
@@ -36,64 +38,21 @@ import okhttp3.Response;
 public class NonRegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     String value;
-    int i = 0, k = 0;
+    int i = 0;
     public String selectedLocation;
     private String machineImage;
     ImageView machineImageView;
     ArrayList<String> getLocation = new ArrayList<String>();
-    ArrayList<String> location = new ArrayList<String>();
     Bitmap decodedByte;
-    public imagePrototype imagePrototype;
-//    //prototype
-//    Bitmap bp = null;
-//    float scaleWidth;
-//    float scaleHeight;
-//    int h;
-//    boolean num = false;
-//
+    ConcreteAggregate concreteAggregate = new ConcreteAggregate();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_non_regist_location);
         machineImageView = (ImageView) findViewById(R.id.locationImage);
-
-//        //Prototype
-//        //create 矩陣
-//        DisplayMetrics dm = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(dm);
-//
-//        bp=BitmapFactory.decodeResource(getResources(),);
-//        int width = bp.getWidth();
-//        int height = bp.getHeight();
-//        int w = dm.widthPixels;//get screen width
-//        int h = dm.heightPixels;//get screen height
-//        scaleHeight = ((float)h)/height;
-//        scaleWidth = ((float)w)/width;
-//        machineImageView.setImageBitmap(bp);
         new nonRegistLocationTask().execute();
     }
 
-//    public void zoomin(MotionEvent event){
-//        switch (event.getAction()){
-//            //check if first touch in the screen will trigger it
-//            case MotionEvent.ACTION_DOWN:
-//                if (num==true) {
-//                    Matrix matrix = new Matrix();
-//                    matrix.postScale(scaleWidth, scaleHeight);
-//                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
-//                    machineImageView.setImageBitmap(newBitmap);
-//                    num = false;
-//                }else{
-//                    Matrix matrix = new Matrix();
-//                    matrix.postScale(1.0f,1.0f);
-//                    Bitmap newBitmap = Bitmap.createBitmap(bp,0,0,bp.getWidth(),bp.getHeight(),matrix,true);
-//                    machineImageView.setImageBitmap(newBitmap);
-//                    num=true;
-//                }
-//                break;
-//        }
-//        return super.onTouchEvent(event);
-//    }
 
     public void btnNonRegistLocationBackmain(View view) {
         Intent intent = new Intent(NonRegistLocation.this, MainActivity.class);
@@ -115,9 +74,9 @@ public class NonRegistLocation extends AppCompatActivity {
                 if (response.code() == 200) {
                     JSONArray jsonArray = new JSONArray(response.body().string());
                     try {
-                        while (i <= 3) {
+                        while (jsonArray.getJSONObject(i).getString("location")!=null) {
                             value = jsonArray.getJSONObject(i).getString("location");
-                            location.add(value);
+                            concreteAggregate.add(value);
                             i++;
                         }
                     } catch (JSONException e) {
@@ -133,17 +92,16 @@ public class NonRegistLocation extends AppCompatActivity {
         }
 
         protected void onPostExecute(Boolean result) {
+            Iterator  iterator = concreteAggregate.createIterator();
             if (result) {
-                int k = 0;
-                while (k < location.size()) {
-                    getLocation.add(location.get(k));
-                    k++;
+                while (iterator.hasNext()) {
+                    getLocation.add(iterator.next());
+                    System.out.println(iterator.next());
                 }
                 setSpinner();
             }
         }
     }
-
     private void setSpinner() {
         Spinner mspinner = (Spinner) findViewById(R.id.nonRegistSelectedLocation);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, getLocation);
@@ -152,7 +110,6 @@ public class NonRegistLocation extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedLocation = (String) mspinner.getSelectedItem();
-                System.out.println(selectedLocation);
             }
 
             @Override
@@ -190,25 +147,12 @@ public class NonRegistLocation extends AppCompatActivity {
         }
     }
     public void imageZommin(View view) {
-//        if (Build.VERSION.SDK_INT < 21) {
-//            Toast.makeText(NonRegistLocation.this, "21+ only, keep out", Toast.LENGTH_SHORT).show();
-//        } else {
-//            locationImage prototype =new locationImage();
-//            prototype.setImage(decodedByte);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             decodedByte.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] bytes = stream.toByteArray();
-//            locationImage locationImage = new locationImage(decodedByte);
-//            locationImage.setImage(decodedByte);
             imagePrototype prototype = new imagePrototype();
             prototype.setImage(selectedLocation,decodedByte);
             Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
             intent.putExtra("location",selectedLocation);
-
-//            ActivityOptionsCompat options = ActivityOptionsCompat.
-//                    makeSceneTransitionAnimation(NonRegistLocation.this, view, getString(R.string.transition_test));
             startActivity(intent);
-
-//        }
     }
 }
