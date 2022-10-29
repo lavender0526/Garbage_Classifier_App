@@ -26,17 +26,7 @@ public class http_is_Informational implements httpNum{
         System.out.println(request.getResponse().code());
         if (request.getResponse().code() >= 100 && request.getResponse().code() < 200) {
             System.out.println(request.getResponse().code());
-            new AlertDialog.Builder(request.getContext())
-                    .setTitle("00")
-                    .setMessage("this system is developed to help ambulance " +
-                            "reach the emergency site or hospital faster and safer.")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener(){
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    }).setNegativeButton("cancel",null).create()
-                    .show();
+            System.out.println("OK");
         } else {
             nextInHttp.httpstate(request);
         }

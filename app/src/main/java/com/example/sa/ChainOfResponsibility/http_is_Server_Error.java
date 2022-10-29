@@ -30,9 +30,8 @@ public class http_is_Server_Error implements httpNum{
         System.out.println(request.getResponse().code());
         if (request.getResponse().code() >= 200 && request.getResponse().code() < 300 && request.getResponse().code() != 204 ) {
             new AlertDialog.Builder(request.getContext())
-                    .setTitle("00")
-                    .setMessage("this system is developed to help ambulance " +
-                            "reach the emergency site or hospital faster and safer.")
+                    .setTitle("Server error")
+                    .setMessage("Sorry is my problem ")
                     .setPositiveButton("ok", new DialogInterface.OnClickListener(){
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

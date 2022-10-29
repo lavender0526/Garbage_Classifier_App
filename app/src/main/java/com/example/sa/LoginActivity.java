@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Context Log = new LoginActivity();
         context = this;
-        msg = (TextView)  findViewById(R.id.loginMsgIncorrect);
+        msg =  findViewById(R.id.loginMsgIncorrect);
     }
 
     public void btnLoginBackMain(View view) {
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             redirection.setNexthttp(Client_Error);
             Client_Error.setNexthttp((Server_Error));
 
-            Numbers request = new Numbers(w.response,w.body,context);
+            Numbers request = new Numbers(w.response,w.body,context,msg);
 
             Informational.httpstate(request);
 
@@ -119,10 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-    public class showmsg{
 
-
-    }
 
 
 

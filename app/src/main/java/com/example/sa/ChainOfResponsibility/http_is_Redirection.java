@@ -25,12 +25,11 @@ public class http_is_Redirection implements httpNum{
 
 
         System.out.println(request.getResponse().code());
-        if (request.getResponse().code() >= 100 && request.getResponse().code() < 600) {
+        if (request.getResponse().code() >= 300 && request.getResponse().code() < 600) {
             System.out.println(request.getResponse().code());
             new AlertDialog.Builder(request.getContext())
                     .setTitle("Redirection")
-                    .setMessage("this system is developed to help ambulance " +
-                            "reach the emergency site or hospital faster and safer.")
+                    .setMessage("Call for 0800-XXX-XXX")
                     .setPositiveButton("ok", new DialogInterface.OnClickListener(){
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
