@@ -1,17 +1,30 @@
 package com.example.sa.ChainOfResponsibility;
 
+import static com.example.sa.R.id.content;
+
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sa.LoginActivity;
+import com.example.sa.R;
 import com.example.sa.RegistTrashcan;
 
-import okhttp3.Response;
+public class loginError implements httpNum{
+    LoginActivity loginActivity = new LoginActivity();
 
-public class http_is_Informational implements httpNum{
 
     private httpNum nextInHttp;
+
+
+
+
 
     @Override
     public void setNexthttp(httpNum nexthttp) {
@@ -20,17 +33,30 @@ public class http_is_Informational implements httpNum{
 
     }
 
+
+
+
+
+
     public void httpstate(Numbers request) {
 
 
         System.out.println(request.getResponse().code());
-        if (request.getResponse().code() >= 100 && request.getResponse().code() < 200) {
-            System.out.println(request.getResponse().code());
-            System.out.println("OK");
+        if (request.getResponse().code() == 204 ) {
+            System.out.println("ERROR");
+
+            request.getTextView().setVisibility(View.VISIBLE);
+
+
+
         } else {
             nextInHttp.httpstate(request);
         }
 
 
     }
+
+
+
+
 }
