@@ -25,7 +25,7 @@ public class http_is_Redirection implements httpNum{
 
 
         System.out.println(request.getResponse().code());
-        if (request.getResponse().code() >= 300 && request.getResponse().code() < 600) {
+        if (request.getResponse().code() >= 300 && request.getResponse().code() < 400) {
             System.out.println(request.getResponse().code());
             new AlertDialog.Builder(request.getContext())
                     .setTitle("Redirection")
