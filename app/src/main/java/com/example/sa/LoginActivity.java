@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Context Log = new LoginActivity();
+      //  Context log = new LoginActivity();
         context = this;
         msg =  findViewById(R.id.loginMsgIncorrect);
     }
