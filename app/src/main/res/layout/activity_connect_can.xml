@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCFAB9"
+    tools:context=".ConnectCan">
+
+    <Button
+        android:id="@+id/settingButton2"
+        android:layout_width="90dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="131dp"
+        android:background="@drawable/listsettingbtn2"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ZXingScannerView_QRCode" />
+
+    <Button
+        android:id="@+id/settingHomeButton2"
+        android:layout_width="82dp"
+        android:layout_height="68dp"
+        android:background="@drawable/listhomepagebtn"
+        android:onClick="btnsettingHome"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingAccountButton2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ZXingScannerView_QRCode"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/settingAccountButton2"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="139dp"
+        android:background="@drawable/listuseraccountbtn"
+        android:onClick="btnsettingAccount"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingLocationButton2"
+        app:layout_constraintStart_toEndOf="@+id/settingHomeButton2"
+        app:layout_constraintTop_toBottomOf="@+id/ZXingScannerView_QRCode" />
+
+    <Button
+        android:id="@+id/settingLocationButton2"
+        android:layout_width="83dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="139dp"
+        android:background="@drawable/listlocationbtn"
+        android:onClick="btnsettingLocation"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingMoneyButton2"
+        app:layout_constraintStart_toEndOf="@+id/settingAccountButton2"
+        app:layout_constraintTop_toBottomOf="@+id/ZXingScannerView_QRCode" />
+
+    <Button
+        android:id="@+id/settingMoneyButton2"
+        android:layout_width="78dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="139dp"
+        android:background="@drawable/listmoneybtn"
+        android:onClick="btnsettingMoney"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settingButton2"
+        app:layout_constraintStart_toEndOf="@+id/settingLocationButton2"
+        app:layout_constraintTop_toBottomOf="@+id/ZXingScannerView_QRCode" />
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/ZXingScannerView_QRCode"
+        android:layout_width="314dp"
+
+        android:layout_height="394dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
