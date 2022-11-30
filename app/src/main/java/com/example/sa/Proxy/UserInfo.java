@@ -11,7 +11,7 @@ import okhttp3.Response;
 
 public class UserInfo {
     private static int userId;
-    private static String username;
+    private static String username = "FKTTim";
     private static String lastName;
     private static String firstName;
     private static String email;

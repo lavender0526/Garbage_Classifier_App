@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
             try (Response response = client.newCall(request).execute()) {
                 Wrapper w = new Wrapper(response,response.body().string());
+                //TODO: Store all user information by login response
                 return w;
 
             } catch (IOException e) {

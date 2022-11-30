@@ -1,14 +1,19 @@
 package com.example.sa.Proxy;
 
+import android.util.Log;
+
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class WalletProxy implements WalletService {
     private WalletService walletService = new WalletServiceImpl();
 
     @Override
-    public void getWalletInfo() {
+    public JSONObject getWalletInfo() {
         if(this.userValidate()){
-            this.walletService.getWalletInfo();
+            return this.walletService.getWalletInfo();
+        }else{
+            return null;
         }
     }
 
@@ -21,8 +26,24 @@ public class WalletProxy implements WalletService {
         }
     }
 
+    @Override
+    public JSONObject updateWalletInfo(String username) {
+        if(this.userValidate()){
+            return this.walletService.updateWalletInfo(username);
+        }else{
+          return null;
+        }
+    }
+
     public boolean userValidate(){
         //TODO: get User login statement from singleton Pattern
-        return true;
+        if(UserInfo.getUsername() != null){
+            Log.d("INFO",UserInfo.getUsername()+" is valid");
+            return true;
+        }else{
+            Log.d("INFO","User is invalid");
+            return false;
+        }
+
     }
 }

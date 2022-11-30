@@ -1,5 +1,8 @@
 package com.example.sa.Proxy;
 
+import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,25 +18,25 @@ public class WalletServiceImpl implements WalletService{
 
     private OkHttpClient client = new OkHttpClient();
     @Override
-    public void getWalletInfo() {
+    public JSONObject getWalletInfo() {
         //TODO:getUsername from singleton Pattern
         String username=UserInfo.getUsername();
+        Log.d("INFO",username);
         Request request = new Request.Builder()
-                .url("http://140.125.207.230:8080/api/bank_acct/username/"+username)
+                .url("http://140.125.207.230:8080/api/back_acct/username/"+username)
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
+            Log.d("INFO", String.valueOf(response.code()));
             if(response.code() == 200){
                 JSONObject jsonObject = new JSONObject(response.body().string());
-                String bankName=jsonObject.getJSONObject("bank_type").getString("bank_name");
-                String bankCode=jsonObject.getJSONObject("bank_type").getString("bank_code");
-                String accountCode=jsonObject.getString("account_code");
-                double walletValue=jsonObject.getJSONObject("wallet").getDouble("change_value");
+                return jsonObject;
             }
 
         } catch (IOException|JSONException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -57,6 +60,31 @@ public class WalletServiceImpl implements WalletService{
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public JSONObject updateWalletInfo(String username) {
+        Request request = new Request.Builder()
+                .url("http://140.125.207.230:8080/api/walletInfo/"+username)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            Log.d("INFO", String.valueOf(response.code()));
+            if (response.code() == 200) {
+                JSONArray jsonArray = new JSONArray(response.body().string());
+                JSONObject jsonObject = null;
+                Log.d("INFO",jsonArray.toString());
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    jsonObject =jsonArray.getJSONObject(0);
+                    Log.d("INFO",jsonObject.toString());
+                }
+                return jsonObject;
+            }
+
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
