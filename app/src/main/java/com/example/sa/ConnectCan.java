@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
 import com.example.sa.store.UserStore;
 import com.google.zxing.Result;
 
@@ -56,7 +58,7 @@ class linkTask extends AsyncTask<String, Void, Void> {
     }
 }
 
-public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler,Page {
     private String username;
     ZXingScannerView zXingScannerView;
 
@@ -78,10 +80,17 @@ public class ConnectCan extends AppCompatActivity implements ZXingScannerView.Re
 
 
     }
+
     private void openQRCamera(){
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
     }
+
+    @Override
+    public void accept(Visotor visotor) {
+        visotor.visit(this);
+    }
+
     /**取得權限回傳*/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

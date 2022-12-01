@@ -19,6 +19,8 @@ import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -30,7 +32,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RegistTrashcan extends AppCompatActivity {
+public class RegistTrashcan extends AppCompatActivity implements Page {
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     public static String bottleStorage_String;
@@ -52,6 +54,11 @@ public class RegistTrashcan extends AppCompatActivity {
         bottleGarbage.setTextView((TextView) findViewById(R.id.bottleCanStorage));
         ironGarbage.setTextView((TextView) findViewById(R.id.IronbottleCanStorage));
         plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
+    }
+
+    @Override
+    public void accept(Visotor visotor) {
+        visotor.visit(this,this);
     }
 
     public void gotoLocation(View view) {

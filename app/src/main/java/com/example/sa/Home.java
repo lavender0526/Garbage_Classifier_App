@@ -6,7 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Switch;
+
 public class Home extends AppCompatActivity {
+
+    private Page NonRegistLocation;
+    private Page NonRegistTrashcan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +31,14 @@ public class Home extends AppCompatActivity {
     }
 
     public void btnMainToLocation(View view) {
-        Intent intent = new Intent(Home.this,NonRegistLocation.class);
-        startActivity(intent);
+        System.out.printf("go NonRegistLocation");
+        Switch s = new Switch(false,NonRegistLocation);
+        s.activity();
     }
 
     public void btnMainToTrashcan(View view) {
-        Intent intent = new Intent(Home.this,NonRegistTrashcan.class);
-        startActivity(intent);
+        System.out.printf("go NonRegistTrashcan");
+        Switch s = new Switch(false,NonRegistTrashcan);
+        s.activity();
     }
 }

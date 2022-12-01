@@ -8,6 +8,8 @@ import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -39,7 +41,7 @@ import okhttp3.Response;
 
 
 
-public class RegistLocation extends AppCompatActivity {
+public class RegistLocation extends AppCompatActivity implements Page {
     OkHttpClient client = new OkHttpClient();
     int i = 0;
     String getLocation, machineImage;
@@ -67,6 +69,10 @@ public class RegistLocation extends AppCompatActivity {
         new getMachineLocationTask().execute();
     }
 
+    @Override
+    public void accept(Visotor visotor) {
+        visotor.visit(this);
+    }
 
     class getMachineLocationTask extends AsyncTask<Void, Void, Boolean> {
         @Override

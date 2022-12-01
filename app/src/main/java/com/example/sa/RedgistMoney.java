@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
@@ -20,7 +22,7 @@ import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 
-public class RedgistMoney extends AppCompatActivity {
+public class RedgistMoney extends AppCompatActivity implements Page {
     String username = UserStore.userName;
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
@@ -38,6 +40,12 @@ public class RedgistMoney extends AppCompatActivity {
         new getBankInfor().execute();
 
     }
+
+    @Override
+    public void accept(Visotor visotor) {
+        visotor.visit(this);
+    }
+
     public void gotoAccount(View view) {
         Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
         startActivity(intent);

@@ -10,13 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
 
 import okhttp3.OkHttpClient;
 
-public class Money extends AppCompatActivity {
+public class Money extends AppCompatActivity{
     int userID =UserStore.userId;
     private String checkBank;
     EditText bankType,accountCode;

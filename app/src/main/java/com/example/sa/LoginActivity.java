@@ -18,6 +18,7 @@ import com.example.sa.ChainOfResponsibility.http_is_Informational;
 import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
 import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
 import com.example.sa.ChainOfResponsibility.loginError;
+import com.example.sa.Visitor.Visotor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
@@ -96,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             return null;
         }
+
         protected void onPostExecute(Wrapper w) {
 
             System.out.println(w.body);

@@ -14,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.example.sa.Visitor.Page;
+import com.example.sa.Visitor.Visotor;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +28,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NonRegistLocation extends AppCompatActivity {
+public class NonRegistLocation extends AppCompatActivity implements Page {
     OkHttpClient client = new OkHttpClient();
     String value;
     int i = 0, k = 0;
@@ -40,6 +43,11 @@ public class NonRegistLocation extends AppCompatActivity {
         setContentView(R.layout.activity_non_regist_location);
         machineImageView = (ImageView) findViewById(R.id.nonRegistMachineImageView);
         new nonRegistLocationTask().execute();
+    }
+
+    @Override
+    public void accept(Visotor visotor) {
+        visotor.visit(this);
     }
 
     public void btnNonRegistLocationBackmain(View view) {
