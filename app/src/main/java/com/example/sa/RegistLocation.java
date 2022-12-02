@@ -9,7 +9,8 @@ import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Switch;
+import com.example.sa.Visitor.Visitor;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -52,6 +53,11 @@ public class RegistLocation extends AppCompatActivity implements Page {
     float scaleWidth,scaleHeight;
 
 
+    //visitor
+    private Page RegistTrashcan = new RegistTrashcan();
+    private Page RedgistMoney = new RedgistMoney();
+    private Page ConnectCan = new ConnectCan();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
@@ -70,8 +76,8 @@ public class RegistLocation extends AppCompatActivity implements Page {
     }
 
     @Override
-    public void accept(Visotor visotor) {
-        visotor.visit(this);
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
     }
 
     class getMachineLocationTask extends AsyncTask<Void, Void, Boolean> {
@@ -169,19 +175,46 @@ public class RegistLocation extends AppCompatActivity implements Page {
 
 
     public void btnRegistLocationHome(View view) {
-        Intent intent = new Intent(RegistLocation.this,RegistTrashcan.class);
-        startActivity(intent);
+        System.out.printf("go RegistTrashcan");
+        Switch s = new Switch(RegistTrashcan);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RegistLocation.this, RegistTrashcan.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
     public void btnRegistLocationAccount(View view) {
         Intent intent = new Intent(RegistLocation.this,registerReviseAccount.class);
         startActivity(intent);
     }
     public void btnRegistLocationMoney(View view) {
-        Intent intent = new Intent(RegistLocation.this,RedgistMoney.class);
-        startActivity(intent);
+        System.out.printf("go RedgistMoney");
+        Switch s = new Switch(RedgistMoney);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RegistLocation.this, RedgistMoney.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
     public void btnRegistLocationSetting(View view) {
-        Intent intent = new Intent(RegistLocation.this,Setting.class);
-        startActivity(intent);
+        System.out.printf("go ConnectCan");
+        Switch s = new Switch(ConnectCan);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RegistLocation.this, Setting.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 }

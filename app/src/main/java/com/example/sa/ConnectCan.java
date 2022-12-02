@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 import com.google.zxing.Result;
 
@@ -87,8 +87,8 @@ public class ConnectCan extends AppCompatActivity implements ZXingScannerView.Re
     }
 
     @Override
-    public void accept(Visotor visotor) {
-        visotor.visit(this);
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
     }
 
     /**取得權限回傳*/

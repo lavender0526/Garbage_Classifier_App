@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Switch;
+import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
@@ -41,28 +42,60 @@ public class RedgistMoney extends AppCompatActivity implements Page {
 
     }
 
+    //visitor
+    private Page RegistTrashcan = new RegistTrashcan();
+    private Page RegistLocation = new RegistLocation();
+    private Page ConnectCan = new ConnectCan();
+
     @Override
-    public void accept(Visotor visotor) {
-        visotor.visit(this);
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
     }
 
     public void gotoAccount(View view) {
         Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
         startActivity(intent);
     }
+
     public void gotoLocation(View view) {
-        Intent intent = new Intent(RedgistMoney.this,RegistLocation.class);
-        startActivity(intent);
+        System.out.printf("go RegistLocation");
+        Switch s = new Switch(RegistLocation);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RedgistMoney.this, RegistLocation.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(RedgistMoney.this,Setting.class);
-        startActivity(intent);
+        System.out.printf("go ConnectCan");
+        Switch s = new Switch(ConnectCan);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RedgistMoney.this, Setting.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void gotoHome(View view) {
-        Intent intent = new Intent(RedgistMoney.this,RegistTrashcan.class);
-        startActivity(intent);
+        Switch s = new Switch(RegistTrashcan);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(RedgistMoney.this, RegistTrashcan.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     class getBankInfor extends AsyncTask<Void, Void, Boolean> {

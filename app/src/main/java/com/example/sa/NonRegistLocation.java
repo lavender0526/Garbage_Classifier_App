@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Visitor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,8 +46,8 @@ public class NonRegistLocation extends AppCompatActivity implements Page {
     }
 
     @Override
-    public void accept(Visotor visotor) {
-        visotor.visit(this);
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
     }
 
     public void btnNonRegistLocationBackmain(View view) {

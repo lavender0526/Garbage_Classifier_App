@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;

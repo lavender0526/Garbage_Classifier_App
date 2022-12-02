@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visotor;
+import com.example.sa.Visitor.Visitor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +25,7 @@ public class NonRegistTrashcan extends AppCompatActivity implements Page {
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     OkHttpClient client = new OkHttpClient();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,8 @@ public class NonRegistTrashcan extends AppCompatActivity implements Page {
     }
 
     @Override
-    public void accept(Visotor visotor) {
-        visotor.visit(this);
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
     }
 
     public void btnNonRegistUpdateStorage(View view) {

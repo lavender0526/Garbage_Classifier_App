@@ -2,6 +2,7 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +12,8 @@ import com.example.sa.Visitor.Switch;
 
 public class Home extends AppCompatActivity {
 
-    private Page NonRegistLocation;
-    private Page NonRegistTrashcan;
-
+    private Page NonRegistLocation=new NonRegistLocation();
+    private Page NonRegistTrashcan=new NonRegistTrashcan();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +32,29 @@ public class Home extends AppCompatActivity {
 
     public void btnMainToLocation(View view) {
         System.out.printf("go NonRegistLocation");
-        Switch s = new Switch(false,NonRegistLocation);
-        s.activity();
+        Switch s = new Switch(NonRegistLocation);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(Home.this, RegistLocation.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(Home.this, NonRegistLocation.class);
+            startActivity(intent);
+        }
     }
 
     public void btnMainToTrashcan(View view) {
         System.out.printf("go NonRegistTrashcan");
-        Switch s = new Switch(false,NonRegistTrashcan);
-        s.activity();
+        Switch s = new Switch(NonRegistTrashcan);
+        boolean isAccept = s.activity();
+        if(isAccept){
+            Intent intent = new Intent(Home.this, RegistTrashcan.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(Home.this, NonRegistTrashcan.class);
+            startActivity(intent);
+        }
     }
 }
