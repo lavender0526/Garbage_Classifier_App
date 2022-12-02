@@ -75,8 +75,6 @@ public class http_is_Successful  implements httpNum{
         System.out.println(request.getResponse().code());
         if (request.getResponse().code() >= 200 && request.getResponse().code() < 300 && request.getResponse().code() != 204 ) {
             System.out.println("OK");
-            UserStore userStore = new UserStore();
-            userStore.setUserName("testname");
             Intent intent = new Intent(request.getContext().getApplicationContext(), RegistTrashcan.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             request.getContext().getApplicationContext().startActivity(intent);

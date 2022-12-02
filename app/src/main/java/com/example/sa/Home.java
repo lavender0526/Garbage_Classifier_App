@@ -32,7 +32,7 @@ public class Home extends AppCompatActivity {
 
     public void btnMainToLocation(View view) {
         System.out.printf("go NonRegistLocation");
-        Switch s = new Switch(NonRegistLocation);
+        Switch s = new Switch("NonRegistLocation");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Home.this, RegistLocation.class);
@@ -46,7 +46,7 @@ public class Home extends AppCompatActivity {
 
     public void btnMainToTrashcan(View view) {
         System.out.printf("go NonRegistTrashcan");
-        Switch s = new Switch(NonRegistTrashcan);
+        Switch s = new Switch("NonRegistTrashcan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Home.this, RegistTrashcan.class);

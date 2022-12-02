@@ -1,11 +1,16 @@
 package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sa.Observer.BottleGarbage;
@@ -17,6 +22,7 @@ import com.example.sa.Observer.PlasticGarbage;
 import com.example.sa.Visitor.Page;
 import com.example.sa.Visitor.Switch;
 import com.example.sa.Visitor.Visitor;
+import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RegistTrashcan extends AppCompatActivity implements Page {
+public class RegistTrashcan extends AppCompatActivity implements Page{
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     public static String bottleStorage_String;
@@ -40,12 +46,10 @@ public class RegistTrashcan extends AppCompatActivity implements Page {
     GarbageCan ironGarbage = new IronGarbage();
     GarbageCan bottleGarbage = new BottleGarbage();
 
-    //visitor
-    private Page RegistTrashcan = new RegistTrashcan();
-    private Page RegistLocation = new RegistLocation();
-    private Page RedgistMoney = new RedgistMoney();
-    private Page ConnectCan = new ConnectCan();
-
+//    visitor
+//    private Page registLocation = new RegistLocation();
+//    private Page redgistMoney = new RedgistMoney();
+//    private Page connectCan = new ConnectCan();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +61,9 @@ public class RegistTrashcan extends AppCompatActivity implements Page {
         plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
-
-
     public void gotoLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch(RegistLocation);
+        Switch s = new Switch("RegistLocation");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistTrashcan.this, RegistLocation.class);
@@ -79,7 +77,7 @@ public class RegistTrashcan extends AppCompatActivity implements Page {
 
     public void gotoConnect(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch(ConnectCan);
+        Switch s = new Switch("ConnectCan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistTrashcan.this, Setting.class);
@@ -92,20 +90,12 @@ public class RegistTrashcan extends AppCompatActivity implements Page {
     }
 
     public void gotoHome(View view) {
-        Switch s = new Switch(RegistTrashcan);
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistTrashcan.this, RegistTrashcan.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(RegistTrashcan.this,RegistTrashcan.class);
+        startActivity(intent);
     }
     public void gotoMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch(RedgistMoney);
+        Switch s = new Switch("RedgistMoney");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistTrashcan.this, RedgistMoney.class);
@@ -125,6 +115,12 @@ public class RegistTrashcan extends AppCompatActivity implements Page {
         garbageAttribute.Attach(bottleGarbage);
         garbageAttribute.Notify();
     }
+
+    @Override
+    public boolean accept(Visitor visotor) {
+        return visotor.visit(this);
+    }
+
     class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {

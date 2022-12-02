@@ -54,9 +54,9 @@ public class RegistLocation extends AppCompatActivity implements Page {
 
 
     //visitor
-    private Page RegistTrashcan = new RegistTrashcan();
-    private Page RedgistMoney = new RedgistMoney();
-    private Page ConnectCan = new ConnectCan();
+//    private Page RegistTrashcan = new RegistTrashcan();
+//    private Page RedgistMoney = new RedgistMoney();
+//    private Page ConnectCan = new ConnectCan();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,7 +176,7 @@ public class RegistLocation extends AppCompatActivity implements Page {
 
     public void btnRegistLocationHome(View view) {
         System.out.printf("go RegistTrashcan");
-        Switch s = new Switch(RegistTrashcan);
+        Switch s = new Switch("RegistTrashcan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistLocation.this, RegistTrashcan.class);
@@ -193,7 +193,7 @@ public class RegistLocation extends AppCompatActivity implements Page {
     }
     public void btnRegistLocationMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch(RedgistMoney);
+        Switch s = new Switch("RedgistMoney");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistLocation.this, RedgistMoney.class);
@@ -206,7 +206,7 @@ public class RegistLocation extends AppCompatActivity implements Page {
     }
     public void btnRegistLocationSetting(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch(ConnectCan);
+        Switch s = new Switch("ConnectCan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RegistLocation.this, Setting.class);

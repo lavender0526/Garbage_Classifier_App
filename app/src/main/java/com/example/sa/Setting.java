@@ -34,23 +34,15 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Setting extends AppCompatActivity{
-
-    private Page RegistTrashcan = new RegistTrashcan();
-    private Page RegistLocation = new RegistLocation();
-    private Page RedgistMoney = new RedgistMoney();
-    private Page ConnectCan = new ConnectCan();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
     }
 
-
-
-
     public void btnsettingHome(View view) {
         System.out.printf("go RegistTrashcan");
-        Switch s = new Switch(RegistTrashcan);
+        Switch s = new Switch("RegistTrashcan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Setting.this, RegistTrashcan.class);
@@ -67,7 +59,7 @@ public class Setting extends AppCompatActivity{
     }
     public void btnsettingLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch(RegistLocation);
+        Switch s = new Switch("RegistLocation");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Setting.this, RegistLocation.class);
@@ -80,7 +72,7 @@ public class Setting extends AppCompatActivity{
     }
     public void btnsettingMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch(RedgistMoney);
+        Switch s = new Switch("RedgistMoney");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Setting.this, RedgistMoney.class);
@@ -93,7 +85,7 @@ public class Setting extends AppCompatActivity{
     }
     public void btnConnectCan(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch(ConnectCan);
+        Switch s = new Switch("ConnectCan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(Setting.this, Setting.class);

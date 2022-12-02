@@ -43,9 +43,9 @@ public class RedgistMoney extends AppCompatActivity implements Page {
     }
 
     //visitor
-    private Page RegistTrashcan = new RegistTrashcan();
-    private Page RegistLocation = new RegistLocation();
-    private Page ConnectCan = new ConnectCan();
+//    private Page RegistTrashcan = new RegistTrashcan();
+//    private Page RegistLocation = new RegistLocation();
+//    private Page ConnectCan = new ConnectCan();
 
     @Override
     public boolean accept(Visitor visotor) {
@@ -59,7 +59,7 @@ public class RedgistMoney extends AppCompatActivity implements Page {
 
     public void gotoLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch(RegistLocation);
+        Switch s = new Switch("RegistLocation");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RedgistMoney.this, RegistLocation.class);
@@ -73,7 +73,7 @@ public class RedgistMoney extends AppCompatActivity implements Page {
 
     public void gotoConnect(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch(ConnectCan);
+        Switch s = new Switch("ConnectCan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RedgistMoney.this, Setting.class);
@@ -86,7 +86,7 @@ public class RedgistMoney extends AppCompatActivity implements Page {
     }
 
     public void gotoHome(View view) {
-        Switch s = new Switch(RegistTrashcan);
+        Switch s = new Switch("RegistTrashcan");
         boolean isAccept = s.activity();
         if(isAccept){
             Intent intent = new Intent(RedgistMoney.this, RegistTrashcan.class);
