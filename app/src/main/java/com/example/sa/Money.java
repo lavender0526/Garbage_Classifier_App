@@ -17,7 +17,7 @@ import org.json.JSONException;
 import okhttp3.OkHttpClient;
 
 public class Money extends AppCompatActivity {
-    int userID =UserStore.userId;
+    int userID = UserStore.getInstance().getUserId();
     private String checkBank;
     EditText bankType,accountCode;
     OkHttpClient client = new OkHttpClient();

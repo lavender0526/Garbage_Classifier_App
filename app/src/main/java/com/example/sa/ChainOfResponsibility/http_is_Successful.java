@@ -36,6 +36,7 @@ import com.example.sa.LoginActivity;
 import com.example.sa.R;
 import com.example.sa.RegistTrashcan;
 import com.example.sa.store.UserStore;
+import com.example.sa.util.JsonObjectUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,15 +70,29 @@ public class http_is_Successful  implements httpNum{
 
 
 
-    public void httpstate(Numbers request) {
+    public void httpstate(Numbers request)  {
 
 
         System.out.println(request.getResponse().code());
         if (request.getResponse().code() >= 200 && request.getResponse().code() < 300 && request.getResponse().code() != 204 ) {
-            System.out.println("OK");
-            Intent intent = new Intent(request.getContext().getApplicationContext(), RegistTrashcan.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            request.getContext().getApplicationContext().startActivity(intent);
+            try {
+                System.out.println("OK");
+                JSONObject resBody = new JSONObject(request.getBody());
+                UserStore.getInstance().setUserInfo(
+                        resBody.getInt("id"),
+                        resBody.getString("userName"),
+                        resBody.optString("lastName",""),
+                        resBody.optString("name",""),
+                        resBody.optString("email",""),
+                        JsonObjectUtil.getNullableString(resBody,"firebaseToken"),
+                        JsonObjectUtil.getNullableString(resBody,"wallet")
+                );
+                Intent intent = new Intent(request.getContext().getApplicationContext(), RegistTrashcan.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                request.getContext().getApplicationContext().startActivity(intent);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
         } else {
             nextInHttp.httpstate(request);
         }
