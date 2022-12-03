@@ -30,7 +30,7 @@ class linkTask extends AsyncTask<String, Void, Void> {
     protected Void doInBackground(String... params) {
         // http://140.125.207.230:8080/api/machine/{machineId}/link
         String machineURL = params[0];
-        int userId = UserStore.userId;
+        int userId = UserStore.getInstance().getUserId();
 
         // http://140.125.207.230:8080/api/machine/{machineId}/link/{userId}
         String url = String.format("%s/%d",machineURL,userId);
