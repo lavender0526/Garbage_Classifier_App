@@ -8,6 +8,19 @@
     tools:context=".Setting">
 
     <Button
+        android:id="@+id/connect2"
+        android:layout_width="331dp"
+        android:layout_height="64dp"
+        android:onClick="btnConnectCan"
+        android:text="Connect Garbage Can"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22" />
+
+    <Button
         android:id="@+id/settingButton"
         android:layout_width="90dp"
         android:layout_height="78dp"
@@ -70,13 +83,13 @@
         android:id="@+id/connect"
         android:layout_width="331dp"
         android:layout_height="64dp"
-        android:onClick="btnConnectCan"
-        android:text="Connect Garbage Can"
+        android:onClick="btnContact"
+        android:text="Contact with us"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.409" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

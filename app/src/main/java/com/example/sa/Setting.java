@@ -58,4 +58,8 @@ public class Setting extends AppCompatActivity {
         Intent intent = new Intent(Setting.this,ConnectCan.class);
         startActivity(intent);
     }
+    public void btnContact(View view){
+        Intent intent = new Intent(Setting.this,Contact.class);
+        startActivity(intent);
+    }
 }
