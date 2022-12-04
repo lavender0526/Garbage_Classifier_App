@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!--recycler view to display our chats-->
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/idRVChats"
+            android:layout_marginBottom="-171dp"
+            android:onClick="Back"
+            android:text="Back" />
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/idRVChats"
+            android:layout_width="match_parent"
+            android:layout_height="493dp"
+            android:layout_above="@+id/idLLMessage"
+            android:layout_marginBottom="191dp" />
+
+        <LinearLayout
+            android:id="@+id/idLLMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <!--edit text to enter message-->
+            <EditText
+                android:id="@+id/idEdtMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:hint="Enter Message" />
+
+            <!--button to send message-->
+            <ImageButton
+                android:id="@+id/idIBSend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/purple_200"
+                android:src="@android:drawable/ic_menu_send"
+                app:tint="@color/white" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/moneyBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/idRVChats"
+            android:layout_marginBottom="-67dp"
+            android:onClick="moneyBtn"
+            android:text="Money" />
+
+        <Button
+            android:id="@+id/machineBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/idRVChats"
+            android:layout_marginBottom="-119dp"
+            android:onClick="Machine"
+            android:text="Machine" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
