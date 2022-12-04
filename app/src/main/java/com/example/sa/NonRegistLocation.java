@@ -1,33 +1,25 @@
 package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.sa.Iterator.ConcreteAggregate;
 import com.example.sa.Iterator.Iterator;
-import com.example.sa.Prototype.imagePrototype;
-import com.example.sa.Prototype.locationImage;
+import com.example.sa.Flyweight.FlyweightFactory;
+import com.example.sa.Flyweight.locationImage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -40,11 +32,11 @@ public class NonRegistLocation extends AppCompatActivity {
     String value;
     int i = 0;
     public String selectedLocation;
-    private String machineImage;
     ImageView machineImageView;
     ArrayList<String> getLocation = new ArrayList<String>();
-    Bitmap decodedByte;
+    Bitmap bitmap;
     ConcreteAggregate concreteAggregate = new ConcreteAggregate();
+    FlyweightFactory factory;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +52,8 @@ public class NonRegistLocation extends AppCompatActivity {
     }
 
     public void btnNonRegistGetLocation(View view) {
-        new nonRegistLocationGetImageTask().execute();
+        bitmap = factory.getImage(selectedLocation);
+        machineImageView.setImageBitmap(bitmap);
     }
 
     class nonRegistLocationTask extends AsyncTask<Void, Void, Boolean> {
@@ -96,7 +89,6 @@ public class NonRegistLocation extends AppCompatActivity {
             if (result) {
                 while (iterator.hasNext()) {
                     getLocation.add(iterator.next());
-                    System.out.println(iterator.next());
                 }
                 setSpinner();
             }
@@ -119,40 +111,10 @@ public class NonRegistLocation extends AppCompatActivity {
         });
     }
 
-    class nonRegistLocationGetImageTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(Void... voids) {
-            Request request = new Request.Builder()
-                    .url("http://140.125.207.230:8080/api/machines/location?location=" + selectedLocation)
-                    .build();
-
-            try (Response response = client.newCall(request).execute()) {
-                if (response.code() == 200) {
-                    JSONArray json = new JSONArray(response.body().string());
-                    machineImage = json.getJSONObject(0).getString("machinePicture");
-                    return true;
-                }
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-            return false;
-        }
-
-        protected void onPostExecute(Boolean result) {
-            if (result) {
-                byte[] decodedString = Base64.decode(machineImage, Base64.DEFAULT);
-                decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                machineImageView.setImageBitmap(decodedByte);
-            }
-        }
-    }
     public void imageZommin(View view) {
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            decodedByte.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            imagePrototype prototype = new imagePrototype();
-            prototype.setImage(selectedLocation,decodedByte);
             Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
             intent.putExtra("location",selectedLocation);
+            System.out.println(selectedLocation);
             startActivity(intent);
     }
 }

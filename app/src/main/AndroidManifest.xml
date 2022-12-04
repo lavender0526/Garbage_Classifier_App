@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SA"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Prototype.locationImage"
+            android:name=".Flyweight.locationImage"
             android:exported="false" />
         <activity
             android:name=".RedgistMoney"
