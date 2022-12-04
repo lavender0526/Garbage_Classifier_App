@@ -17,6 +17,9 @@
             android:name=".ConnectCan"
             android:exported="false" />
         <activity
+            android:name=".Flyweight.locationImage"
+            android:exported="false" />
+        <activity
             android:name=".RedgistMoney"
             android:exported="false" />
         <activity
