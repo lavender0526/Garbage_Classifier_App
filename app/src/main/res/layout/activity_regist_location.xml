@@ -7,71 +7,17 @@
     android:background="#DCFAB9"
     tools:context=".RegistLocation">
 
-    <Button
-        android:id="@+id/settingBtn"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listsettingbtn"
-        app:backgroundTint="@null"
-        android:onClick="btnRegistLocationSetting"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/moneyBtn"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="80dp"
-        android:background="@drawable/listmoneybtn"
-        android:onClick="btnRegistLocationMoney"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/locationBtn"
-        app:layout_constraintTop_toTopOf="@+id/settingBtn"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/accountReviseBtn"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="248dp"
-        android:background="@drawable/listuseraccountbtn"
-        android:onClick="btnRegistLocationAccount"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/homeBtn" />
-
-    <Button
-        android:id="@+id/homeBtn"
-        android:layout_width="82dp"
-        android:layout_height="70dp"
-        android:background="@drawable/listhomepagebtn"
-        android:onClick="btnRegistLocationHome"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
         android:id="@+id/machineImageView"
         android:layout_width="325dp"
         android:layout_height="337dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="104dp"
         android:onClick="zoomIn"
+        app:layout_constraintBottom_toTopOf="@+id/registLocationConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Spinner
@@ -93,28 +39,62 @@
         android:id="@+id/registLocationConfirm"
         android:layout_width="141dp"
         android:layout_height="59dp"
+        android:layout_marginBottom="92dp"
         android:background="@drawable/confirmbtn"
         android:onClick="btnGetLocationImage"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/machineImageView"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/locationBtn"
-        android:layout_width="90dp"
-        android:layout_height="81dp"
-        android:layout_marginEnd="164dp"
-        android:background="@drawable/listlocationbtn2"
-        app:backgroundTint="@null"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="413dp"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintStart_toEndOf="@+id/accountReviseBtn"
-        app:layout_constraintTop_toTopOf="@+id/moneyBtn"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+        <Button
+            android:id="@+id/createdMoneyHomeButton2"
+            android:layout_width="83dp"
+            android:layout_height="75dp"
+            android:background="@drawable/listhomepagebtn"
+            android:onClick="gotoHome"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/createdMoneyAccountButton2"
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:background="@drawable/listuseraccountbtn"
+            android:onClick="gotoAccount"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/createdMoneyLocationButton2"
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:background="@drawable/listlocationbtn2"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/gotoMoney"
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:background="@drawable/listmoneybtn"
+            android:onClick="gotoMoney"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/createdMoneySettingButton2"
+            android:layout_width="82dp"
+            android:layout_height="75dp"
+            android:background="@drawable/listsettingbtn"
+            android:onClick="gotoConnect"
+            app:backgroundTint="@null" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

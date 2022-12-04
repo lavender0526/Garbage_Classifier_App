@@ -111,7 +111,7 @@ public class NonRegistLocation extends AppCompatActivity {
         });
     }
 
-    public void imageZommin(View view) {
+    public void zoomIn(View view) {
             Intent intent = new Intent(NonRegistLocation.this, locationImage.class);
             intent.putExtra("location",selectedLocation);
             System.out.println(selectedLocation);

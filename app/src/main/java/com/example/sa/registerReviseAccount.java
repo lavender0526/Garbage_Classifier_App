@@ -7,18 +7,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.sa.store.UserStore;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -40,19 +37,19 @@ public class registerReviseAccount extends AppCompatActivity {
         password = (EditText) findViewById(R.id.reviseInputPassword);
 
     }
-    public void btnRegistReviseAccountSetting(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,Setting.class);
+    public void gotoConnect(View view) {
+        Intent intent = new Intent(registerReviseAccount.this, Setting.class);
         startActivity(intent);
     }
-    public void btnRegistReviseAccountHome(View view) {
+    public void gotoHome(View view) {
         Intent intent = new Intent(registerReviseAccount.this,RegistTrashcan.class);
         startActivity(intent);
     }
-    public void btnRegistReviseAccountLocation(View view) {
+    public void gotoLocation(View view) {
         Intent intent = new Intent(registerReviseAccount.this,RegistLocation.class);
         startActivity(intent);
     }
-    public void btnRegistReviseAccountMoney(View view) {
+    public void gotoMoney(View view) {
         Intent intent = new Intent(registerReviseAccount.this,RedgistMoney.class);
         startActivity(intent);
     }

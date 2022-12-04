@@ -61,7 +61,6 @@ public class Money extends AppCompatActivity {
         }
     }
     public void gotoAccount(View view) {
-//                Factory.changePage("Acct",Money.this);
         Intent intent = new Intent(Money.this,registerReviseAccount.class);
         startActivity(intent);
     }
@@ -71,7 +70,7 @@ public class Money extends AppCompatActivity {
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(Money.this,Setting.class);
+        Intent intent = new Intent(Money.this, Setting.class);
         startActivity(intent);
     }
 
@@ -79,10 +78,7 @@ public class Money extends AppCompatActivity {
         Intent intent = new Intent(Money.this,RegistTrashcan.class);
         startActivity(intent);
     }
-    public void gotoMoney(View view) {
-        Intent intent = new Intent(Money.this,Money.class);
-        startActivity(intent);
-    }
+
 
 }
 

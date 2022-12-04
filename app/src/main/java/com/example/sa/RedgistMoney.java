@@ -48,7 +48,7 @@ public class RedgistMoney extends AppCompatActivity {
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(RedgistMoney.this,Setting.class);
+        Intent intent = new Intent(RedgistMoney.this, Setting.class);
         startActivity(intent);
     }
 

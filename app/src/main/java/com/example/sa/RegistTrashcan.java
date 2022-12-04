@@ -1,16 +1,11 @@
 package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sa.Observer.BottleGarbage;
@@ -19,7 +14,6 @@ import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
-import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,12 +54,12 @@ public class RegistTrashcan extends AppCompatActivity {
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,Setting.class);
+        Intent intent = new Intent(RegistTrashcan.this, Setting.class);
         startActivity(intent);
     }
 
-    public void gotoHome(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,RegistTrashcan.class);
+    public void gotoAccount(View view) {
+        Intent intent = new Intent(RegistTrashcan.this, registerReviseAccount.class);
         startActivity(intent);
     }
     public void gotoMoney(View view) {
