@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+caches
+daemon
+gradle
+jdks
+native
+wrapper
+.idea
