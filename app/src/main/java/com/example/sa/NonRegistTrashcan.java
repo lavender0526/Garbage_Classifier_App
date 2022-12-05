@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visitor;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 

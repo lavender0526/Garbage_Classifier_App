@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class RegistTrashcanMediary implements Page{
 
     @Override
@@ -16,7 +14,7 @@ public class RegistTrashcanMediary implements Page{
         context.getApplicationContext().startActivity(intent);
     }
     @Override
-    public void accept(Visitor visoitor) {
+    public void accept(AuthVisitor visoitor) {
         visoitor.visit(this);
     }
 }

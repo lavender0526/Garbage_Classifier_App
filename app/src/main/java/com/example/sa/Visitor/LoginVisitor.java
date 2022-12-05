@@ -1,25 +1,17 @@
 package com.example.sa.Visitor;
 
 
-import android.app.Activity;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sa.ConnectCan;
-import com.example.sa.LoginActivity;
-import com.example.sa.NonRegistLocation;
-import com.example.sa.NonRegistTrashcan;
 import com.example.sa.RedgistMoney;
 import com.example.sa.RegistLocation;
 import com.example.sa.RegistTrashcan;
 import com.example.sa.Setting;
 import com.example.sa.registerReviseAccount;
-import com.example.sa.store.UserStore;
 
-import java.security.PublicKey;
-
-public class LoginVisitor extends AppCompatActivity implements Visitor {
+public class LoginVisitor extends AppCompatActivity implements AuthVisitor {
     Context context;
     public LoginVisitor(Context context){
         this.context = context;

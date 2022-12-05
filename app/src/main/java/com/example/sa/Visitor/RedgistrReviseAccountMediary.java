@@ -14,7 +14,7 @@ public class RedgistrReviseAccountMediary implements Page {
     }
 
     @Override
-    public void accept(Visitor visoitor) {
+    public void accept(AuthVisitor visoitor) {
          visoitor.visit(this);
     }
 }

@@ -11,7 +11,7 @@ import com.example.sa.RedgistMoney;
 import com.example.sa.RegistLocation;
 import com.example.sa.RegistTrashcan;
 
-public interface Visitor{
+public interface AuthVisitor {
      void visit(RedgistMoneyMediary redgistMoneyMediary);
      void visit(ConnectCanMediary connectCanMediary);
      void visit(RegistLocationMediary registLocationMediary);

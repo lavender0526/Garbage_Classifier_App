@@ -2,42 +2,28 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sa.Observer.BottleGarbage;
-import com.example.sa.Observer.ConcreteAttribute;
-import com.example.sa.Observer.GarbageAttribute;
-import com.example.sa.Observer.GarbageCan;
-import com.example.sa.Observer.IronGarbage;
-import com.example.sa.Observer.PlasticGarbage;
-import com.example.sa.Visitor.Page;
 import com.example.sa.Visitor.Switch;
-import com.example.sa.Visitor.Visitor;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 

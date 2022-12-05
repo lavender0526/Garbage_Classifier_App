@@ -21,8 +21,8 @@ public class Switch {
     public void activity(){
         System.out.println("success");
         System.out.println(location);
-        Visitor guestVisitor = new GuestVisitor(context);
-        Visitor loginVisitor = new LoginVisitor(context);
+        AuthVisitor guestVisitor = new GuestVisitor(context);
+        AuthVisitor loginVisitor = new LoginVisitor(context);
         if(UserStore.userName == null){
             if(location == "RegistTrashcan"){
                 registTrashcanMediary.accept(guestVisitor);

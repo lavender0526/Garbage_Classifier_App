@@ -4,11 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.sa.RedgistMoney;
-import com.example.sa.registerReviseAccount;
-
 public class RedgistMoneyMediary implements Page {
     @Override
     public void gotoPage(Context context, Class<?> tClass,String text) {
@@ -19,7 +14,7 @@ public class RedgistMoneyMediary implements Page {
     }
 
     @Override
-    public void accept(Visitor visoitor) {
+    public void accept(AuthVisitor visoitor) {
          visoitor.visit(this);
     }
 }

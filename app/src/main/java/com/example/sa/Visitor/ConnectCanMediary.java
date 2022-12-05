@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class ConnectCanMediary implements Page{
 
 
@@ -18,7 +16,7 @@ public class ConnectCanMediary implements Page{
     }
 
     @Override
-    public void accept(Visitor visoitor) {
+    public void accept(AuthVisitor visoitor) {
          visoitor.visit(this);
     }
 }

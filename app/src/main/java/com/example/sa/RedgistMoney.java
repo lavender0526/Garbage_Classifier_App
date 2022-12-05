@@ -1,6 +1,5 @@
 package com.example.sa;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
-import com.example.sa.Visitor.Page;
 import com.example.sa.Visitor.Switch;
-import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;

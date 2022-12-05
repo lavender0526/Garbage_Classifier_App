@@ -11,8 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.sa.Visitor.Page;
-import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 import com.google.zxing.Result;
 

@@ -18,7 +18,6 @@ import com.example.sa.ChainOfResponsibility.http_is_Informational;
 import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
 import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
 import com.example.sa.ChainOfResponsibility.loginError;
-import com.example.sa.Visitor.Visitor;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
