@@ -20,7 +20,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NonRegistTrashcan extends AppCompatActivity implements Page {
+public class NonRegistTrashcan extends AppCompatActivity{
     private int i=18;
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
@@ -35,10 +35,6 @@ public class NonRegistTrashcan extends AppCompatActivity implements Page {
         plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorageNon);
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
 
     public void btnNonRegistUpdateStorage(View view) {
         new nonRegistTrashcanTask().execute();

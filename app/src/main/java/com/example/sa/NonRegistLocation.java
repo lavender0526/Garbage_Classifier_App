@@ -28,7 +28,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NonRegistLocation extends AppCompatActivity implements Page {
+public class NonRegistLocation extends AppCompatActivity{
     OkHttpClient client = new OkHttpClient();
     String value;
     int i = 0, k = 0;
@@ -45,10 +45,6 @@ public class NonRegistLocation extends AppCompatActivity implements Page {
         new nonRegistLocationTask().execute();
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
 
     public void btnNonRegistLocationBackmain(View view) {
         Intent intent = new Intent(NonRegistLocation.this, MainActivity.class);

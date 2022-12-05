@@ -42,7 +42,7 @@ import okhttp3.Response;
 
 
 
-public class RegistLocation extends AppCompatActivity implements Page {
+public class RegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
     int i = 0;
     String getLocation, machineImage;
@@ -75,10 +75,6 @@ public class RegistLocation extends AppCompatActivity implements Page {
         new getMachineLocationTask().execute();
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
 
     class getMachineLocationTask extends AsyncTask<Void, Void, Boolean> {
         @Override
@@ -176,16 +172,16 @@ public class RegistLocation extends AppCompatActivity implements Page {
 
     public void btnRegistLocationHome(View view) {
         System.out.printf("go RegistTrashcan");
-        Switch s = new Switch("RegistTrashcan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistLocation.this, RegistTrashcan.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistTrashcan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistLocation.this, RegistTrashcan.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
     public void btnRegistLocationAccount(View view) {
         Intent intent = new Intent(RegistLocation.this,registerReviseAccount.class);
@@ -193,28 +189,28 @@ public class RegistLocation extends AppCompatActivity implements Page {
     }
     public void btnRegistLocationMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch("RedgistMoney");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistLocation.this, RedgistMoney.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RedgistMoney");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistLocation.this, RedgistMoney.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
     public void btnRegistLocationSetting(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch("ConnectCan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistLocation.this, Setting.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("ConnectCan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistLocation.this, Setting.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 }

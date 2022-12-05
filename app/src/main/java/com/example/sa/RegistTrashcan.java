@@ -33,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RegistTrashcan extends AppCompatActivity implements Page{
+public class RegistTrashcan extends AppCompatActivity{
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     public static String bottleStorage_String;
@@ -63,30 +63,30 @@ public class RegistTrashcan extends AppCompatActivity implements Page{
 
     public void gotoLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch("RegistLocation");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistTrashcan.this, RegistLocation.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("ConnectCan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistTrashcan.this, RegistLocation.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     public void gotoConnect(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch("ConnectCan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistTrashcan.this, Setting.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("ConnectCan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistTrashcan.this, Setting.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     public void gotoHome(View view) {
@@ -95,16 +95,16 @@ public class RegistTrashcan extends AppCompatActivity implements Page{
     }
     public void gotoMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch("RedgistMoney");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RegistTrashcan.this, RedgistMoney.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RedgistMoney");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RegistTrashcan.this, RedgistMoney.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     public void btnTrashcanUpdateStorage(View view) {
@@ -116,10 +116,6 @@ public class RegistTrashcan extends AppCompatActivity implements Page{
         garbageAttribute.Notify();
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
 
     class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override

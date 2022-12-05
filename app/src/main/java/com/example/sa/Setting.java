@@ -42,16 +42,16 @@ public class Setting extends AppCompatActivity{
 
     public void btnsettingHome(View view) {
         System.out.printf("go RegistTrashcan");
-        Switch s = new Switch("RegistTrashcan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(Setting.this, RegistTrashcan.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(Setting.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistTrashcan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(Setting.this, RegistTrashcan.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(Setting.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
     public void btnsettingAccount(View view) {
         Intent intent = new Intent(Setting.this,registerReviseAccount.class);
@@ -59,42 +59,42 @@ public class Setting extends AppCompatActivity{
     }
     public void btnsettingLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch("RegistLocation");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(Setting.this, RegistLocation.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(Setting.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistLocation");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(Setting.this, RegistLocation.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(Setting.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
     public void btnsettingMoney(View view) {
         System.out.printf("go RedgistMoney");
-        Switch s = new Switch("RedgistMoney");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(Setting.this, RedgistMoney.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(Setting.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RedgistMoney");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(Setting.this, RedgistMoney.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(Setting.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
     public void btnConnectCan(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch("ConnectCan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(Setting.this, Setting.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(Setting.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("ConnectCan");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(Setting.this, Setting.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(Setting.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
 }

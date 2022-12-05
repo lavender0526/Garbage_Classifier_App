@@ -58,7 +58,7 @@ class linkTask extends AsyncTask<String, Void, Void> {
     }
 }
 
-public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler,Page {
+public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler{
     private String username;
     ZXingScannerView zXingScannerView;
 
@@ -86,10 +86,6 @@ public class ConnectCan extends AppCompatActivity implements ZXingScannerView.Re
         zXingScannerView.startCamera();
     }
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
 
     /**取得權限回傳*/
     @Override

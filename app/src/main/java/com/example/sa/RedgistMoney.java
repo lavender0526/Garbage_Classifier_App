@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 
-public class RedgistMoney extends AppCompatActivity implements Page {
+public class RedgistMoney extends AppCompatActivity {
     String username = UserStore.userName;
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
@@ -47,11 +47,6 @@ public class RedgistMoney extends AppCompatActivity implements Page {
 //    private Page RegistLocation = new RegistLocation();
 //    private Page ConnectCan = new ConnectCan();
 
-    @Override
-    public boolean accept(Visitor visotor) {
-        return visotor.visit(this);
-    }
-
     public void gotoAccount(View view) {
         Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
         startActivity(intent);
@@ -59,43 +54,43 @@ public class RedgistMoney extends AppCompatActivity implements Page {
 
     public void gotoLocation(View view) {
         System.out.printf("go RegistLocation");
-        Switch s = new Switch("RegistLocation");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RedgistMoney.this, RegistLocation.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistLocation");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RedgistMoney.this, RegistLocation.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     public void gotoConnect(View view) {
         System.out.printf("go ConnectCan");
-        Switch s = new Switch("ConnectCan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RedgistMoney.this, Setting.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistLocation");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RedgistMoney.this, Setting.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     public void gotoHome(View view) {
-        Switch s = new Switch("RegistTrashcan");
-        boolean isAccept = s.activity();
-        if(isAccept){
-            Intent intent = new Intent(RedgistMoney.this, RegistTrashcan.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-            startActivity(intent);
-        }
+        Switch aswitch = new Switch("RegistLocation");
+        aswitch.activity();
+//        if(isAccept){
+//            Intent intent = new Intent(RedgistMoney.this, RegistTrashcan.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     class getBankInfor extends AsyncTask<Void, Void, Boolean> {

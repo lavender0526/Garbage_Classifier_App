@@ -1,46 +1,62 @@
 package com.example.sa.Visitor;
 
 
-import com.example.sa.ConnectCan;
-import com.example.sa.NonRegistLocation;
-import com.example.sa.NonRegistTrashcan;
-import com.example.sa.RedgistMoney;
-import com.example.sa.RegistLocation;
-import com.example.sa.RegistTrashcan;
+import com.example.sa.store.UserStore;
 
 public class Switch {
     private String location;
-    private Page RegistTrashcan = new RegistTrashcan();
-    private Page RegistLocation = new RegistLocation();
-    private Page RedgistMoney = new RedgistMoney();
-    private Page ConnectCan = new ConnectCan();
-    private Page NonRegistTrashcan = new NonRegistTrashcan();
-    private Page NonRegistLocation = new NonRegistLocation();
+    private Page registTrashcanMediary = new RegistTrashcanMediary();
+    private Page registLocationMediary = new RegistLocationMediary();
+    private Page redgistMoneyMediary = new RedgistMoneyMediary();
+    private Page connectCanMediary = new ConnectCanMediary();
     public Switch(String location){
         this.location = location;
     }
 
-    public boolean activity(){
+    public void activity(){
         System.out.println("success");
         System.out.println(location);
-        Visitor authorityVisitor = new AuthorityVisitor();
-        if(location == "RegistTrashcan"){
-            return RegistTrashcan.accept(authorityVisitor);
-        }
-        else if(location == "RegistLocation"){
-            return RegistLocation.accept(authorityVisitor);
-        }
-        else if(location == "RedgistMoney"){
-            return RedgistMoney.accept(authorityVisitor);
-        }
-        else if(location == "ConnectCan"){
-            return ConnectCan.accept(authorityVisitor);
-        }
-        else if(location == "NonRegistTrashcan"){
-            return NonRegistTrashcan.accept(authorityVisitor);
+        Visitor guestVisitor = new GuestVisitor();
+        Visitor loginVisitor = new LoginVisitor();
+        if(UserStore.userName == null){
+            if(location == "RegistTrashcan"){
+                registTrashcanMediary.accept(guestVisitor);
+            }
+            else if(location == "RegistLocation"){
+                registLocationMediary.accept(guestVisitor);
+            }
+            else if(location == "RedgistMoney"){
+                redgistMoneyMediary.accept(guestVisitor);
+            }
+            else if(location == "ConnectCan"){
+                connectCanMediary.accept(guestVisitor);
+            }
+            else if(location == "NonRegistTrashcan"){
+                registTrashcanMediary.accept(guestVisitor);
+            }
+            else{
+                registLocationMediary.accept(guestVisitor);
+            }
         }
         else{
-            return NonRegistLocation.accept(authorityVisitor);
+            if(location == "RegistTrashcan"){
+                registTrashcanMediary.accept(loginVisitor);
+            }
+            else if(location == "RegistLocation"){
+                registLocationMediary.accept(loginVisitor);
+            }
+            else if(location == "RedgistMoney"){
+                redgistMoneyMediary.accept(loginVisitor);
+            }
+            else if(location == "ConnectCan"){
+                connectCanMediary.accept(loginVisitor);
+            }
+            else if(location == "NonRegistTrashcan"){
+                registTrashcanMediary.accept(loginVisitor);
+            }
+            else{
+                registLocationMediary.accept(loginVisitor);
+            }
         }
 
     }

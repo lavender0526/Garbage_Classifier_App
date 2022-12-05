@@ -12,10 +12,8 @@ import com.example.sa.RegistLocation;
 import com.example.sa.RegistTrashcan;
 
 public interface Visitor{
-     boolean visit(RedgistMoney redgistMoney);
-     boolean visit(ConnectCan connectCan);
-     boolean visit(NonRegistLocation nonRegistLocation);
-     boolean visit(NonRegistTrashcan nonRegistTrashcan);
-     boolean visit(RegistLocation registLocation);
-     boolean visit(RegistTrashcan registTrashcan);
+     void visit(RedgistMoneyMediary redgistMoneyMediary);
+     void visit(ConnectCanMediary connectCanMediary);
+     void visit(RegistLocationMediary registLocationMediary);
+     void visit(RegistTrashcanMediary registTrashcanMediary);
 }

@@ -1,5 +1,6 @@
 package com.example.sa.Visitor;
 
 public interface Page {
-    public boolean accept(Visitor visotor);
+    void gotoPage(Class<?> tClass);
+    void accept(Visitor visotor);
 }
