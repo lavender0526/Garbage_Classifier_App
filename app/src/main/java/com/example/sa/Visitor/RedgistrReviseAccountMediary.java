@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class RegistLocationMediary implements Page{
+public class RedgistrReviseAccountMediary implements Page {
     @Override
     public void gotoPage(Context context, Class<?> tClass,String text) {
         Intent intent = new Intent(context.getApplicationContext(), tClass);
@@ -14,6 +12,7 @@ public class RegistLocationMediary implements Page{
         Toast.makeText(context.getApplicationContext(),text, Toast.LENGTH_SHORT).show();
         context.getApplicationContext().startActivity(intent);
     }
+
     @Override
     public void accept(Visitor visoitor) {
          visoitor.visit(this);

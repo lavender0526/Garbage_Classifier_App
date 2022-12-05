@@ -1,17 +1,21 @@
 package com.example.sa.Visitor;
 
+import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sa.RedgistMoney;
 import com.example.sa.registerReviseAccount;
 
-public class RedgistMoneyMediary extends AppCompatActivity implements Page {
+public class RedgistMoneyMediary implements Page {
     @Override
-    public void gotoPage(Class<?> tClass) {
-        Intent intent = new Intent(getApplication(), tClass);
-        startActivity(intent);
+    public void gotoPage(Context context, Class<?> tClass,String text) {
+        Intent intent = new Intent(context.getApplicationContext(), tClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Toast.makeText(context.getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+        context.getApplicationContext().startActivity(intent);
     }
 
     @Override

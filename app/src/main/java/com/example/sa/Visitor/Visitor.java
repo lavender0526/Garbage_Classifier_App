@@ -15,5 +15,6 @@ public interface Visitor{
      void visit(RedgistMoneyMediary redgistMoneyMediary);
      void visit(ConnectCanMediary connectCanMediary);
      void visit(RegistLocationMediary registLocationMediary);
+     void visit(RedgistrReviseAccountMediary redgistrReviseAccountMediary);
      void visit(RegistTrashcanMediary registTrashcanMediary);
 }

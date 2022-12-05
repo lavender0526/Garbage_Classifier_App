@@ -107,6 +107,7 @@
         android:layout_height="81dp"
         android:layout_marginEnd="164dp"
         android:background="@drawable/listlocationbtn2"
+        android:onClick="btnRegistLocation"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

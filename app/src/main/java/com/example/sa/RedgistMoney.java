@@ -42,55 +42,24 @@ public class RedgistMoney extends AppCompatActivity {
 
     }
 
-    //visitor
-//    private Page RegistTrashcan = new RegistTrashcan();
-//    private Page RegistLocation = new RegistLocation();
-//    private Page ConnectCan = new ConnectCan();
-
     public void gotoAccount(View view) {
-        Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
 
     public void gotoLocation(View view) {
-        System.out.printf("go RegistLocation");
-        Switch aswitch = new Switch("RegistLocation");
+        Switch aswitch = new Switch("RegistLocation",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RedgistMoney.this, RegistLocation.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 
     public void gotoConnect(View view) {
-        System.out.printf("go ConnectCan");
-        Switch aswitch = new Switch("RegistLocation");
+        Switch aswitch = new Switch("ConnectCan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RedgistMoney.this, Setting.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 
     public void gotoHome(View view) {
-        Switch aswitch = new Switch("RegistLocation");
+        Switch aswitch = new Switch("RegistLocation",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RedgistMoney.this, RegistTrashcan.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RedgistMoney.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 
     class getBankInfor extends AsyncTask<Void, Void, Boolean> {

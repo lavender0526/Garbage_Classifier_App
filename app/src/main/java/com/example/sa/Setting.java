@@ -41,60 +41,24 @@ public class Setting extends AppCompatActivity{
     }
 
     public void btnsettingHome(View view) {
-        System.out.printf("go RegistTrashcan");
-        Switch aswitch = new Switch("RegistTrashcan");
+        Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Setting.this, RegistTrashcan.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Setting.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
     public void btnsettingAccount(View view) {
-        Intent intent = new Intent(Setting.this,registerReviseAccount.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
     public void btnsettingLocation(View view) {
-        System.out.printf("go RegistLocation");
-        Switch aswitch = new Switch("RegistLocation");
+        Switch aswitch = new Switch("RegistLocation",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Setting.this, RegistLocation.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Setting.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
     public void btnsettingMoney(View view) {
-        System.out.printf("go RedgistMoney");
-        Switch aswitch = new Switch("RedgistMoney");
+        Switch aswitch = new Switch("RedgistMoney",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Setting.this, RedgistMoney.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Setting.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
     public void btnConnectCan(View view) {
-        System.out.printf("go ConnectCan");
-        Switch aswitch = new Switch("ConnectCan");
+        Switch aswitch = new Switch("ConnectCan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Setting.this, Setting.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Setting.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 
 }

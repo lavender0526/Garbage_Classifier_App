@@ -1,6 +1,8 @@
 package com.example.sa.Visitor;
 
+import android.content.Context;
+
 public interface Page {
-    void gotoPage(Class<?> tClass);
+    void gotoPage(Context context, Class<?> tClass,String text);
     void accept(Visitor visotor);
 }

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sa.Visitor.Switch;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -41,20 +42,20 @@ public class registerReviseAccount extends AppCompatActivity {
 
     }
     public void btnRegistReviseAccountSetting(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,Setting.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
     public void btnRegistReviseAccountHome(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RegistTrashcan.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RegistTrashcan",this);
+        aswitch.activity();
     }
     public void btnRegistReviseAccountLocation(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RegistLocation.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
     public void btnRegistReviseAccountMoney(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RedgistMoney.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistMoney",this);
+        aswitch.activity();
     }
     public void btnReviseAcct(View view) {
         new registerReviseAccountTrashcanTask().execute();

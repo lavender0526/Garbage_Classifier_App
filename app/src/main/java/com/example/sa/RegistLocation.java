@@ -171,46 +171,23 @@ public class RegistLocation extends AppCompatActivity {
 
 
     public void btnRegistLocationHome(View view) {
-        System.out.printf("go RegistTrashcan");
-        Switch aswitch = new Switch("RegistTrashcan");
+        Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistLocation.this, RegistTrashcan.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
     public void btnRegistLocationAccount(View view) {
-        Intent intent = new Intent(RegistLocation.this,registerReviseAccount.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
+    }
+    public void btnRegistLocation(View view) {
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
     public void btnRegistLocationMoney(View view) {
-        System.out.printf("go RedgistMoney");
-        Switch aswitch = new Switch("RedgistMoney");
+        Switch aswitch = new Switch("RedgistMoney",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistLocation.this, RedgistMoney.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
     public void btnRegistLocationSetting(View view) {
-        System.out.printf("go ConnectCan");
-        Switch aswitch = new Switch("ConnectCan");
+        Switch aswitch = new Switch("ConnectCan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistLocation.this, Setting.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistLocation.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 }

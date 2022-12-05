@@ -61,50 +61,27 @@ public class RegistTrashcan extends AppCompatActivity{
         plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
     }
 
-    public void gotoLocation(View view) {
-        System.out.printf("go RegistLocation");
-        Switch aswitch = new Switch("ConnectCan");
+
+    public void gotoHome(View view) {
+        Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistTrashcan.this, RegistLocation.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
+    }
+    public void gotoLocation(View view) {
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
+    }
+    public void gotoAccount(View view) {
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
 
     public void gotoConnect(View view) {
-        System.out.printf("go ConnectCan");
-        Switch aswitch = new Switch("ConnectCan");
+        Switch aswitch = new Switch("ConnectCan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistTrashcan.this, Setting.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
-    }
-
-    public void gotoHome(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,RegistTrashcan.class);
-        startActivity(intent);
     }
     public void gotoMoney(View view) {
-        System.out.printf("go RedgistMoney");
-        Switch aswitch = new Switch("RedgistMoney");
+        Switch aswitch = new Switch("RedgistMoney",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(RegistTrashcan.this, RedgistMoney.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(RegistTrashcan.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
     }
 
     public void btnTrashcanUpdateStorage(View view) {

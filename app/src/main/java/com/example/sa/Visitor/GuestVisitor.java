@@ -17,28 +17,38 @@ import com.example.sa.R;
 import com.example.sa.RedgistMoney;
 import com.example.sa.RegistLocation;
 import com.example.sa.RegistTrashcan;
+import com.example.sa.registerReviseAccount;
 import com.example.sa.store.UserStore;
 
 public class GuestVisitor extends AppCompatActivity implements Visitor {
 
+    Context context;
+    public GuestVisitor(Context context){
+        this.context = context;
+    }
     @Override
     public void visit(RedgistMoneyMediary redgistMoneyMediary) {
-        redgistMoneyMediary.gotoPage(LoginActivity.class);
+        redgistMoneyMediary.gotoPage(context,LoginActivity.class,"Please login");
     }
 
     @Override
     public void visit(ConnectCanMediary connectCanMediary) {
-        connectCanMediary.gotoPage(LoginActivity.class);
+        connectCanMediary.gotoPage(context,LoginActivity.class,"Please login");
     }
 
     @Override
     public void visit(RegistLocationMediary registLocationMediary) {
-        registLocationMediary.gotoPage(NonRegistLocation.class);
+        registLocationMediary.gotoPage(context,NonRegistLocation.class,"success");
     }
 
     @Override
     public void visit(RegistTrashcanMediary registTrashcanMediary) {
-        registTrashcanMediary.gotoPage(NonRegistTrashcan.class);
+        registTrashcanMediary.gotoPage(context,NonRegistTrashcan.class,"success");
+    }
+
+    @Override
+    public void visit(RedgistrReviseAccountMediary redgistrReviseAccountMediary) {
+        redgistrReviseAccountMediary.gotoPage(context, LoginActivity.class,"success");
     }
 
 }
