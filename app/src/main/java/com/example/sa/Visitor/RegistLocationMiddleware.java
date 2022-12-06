@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-public class RegistLocationMediary implements Page{
+public class RegistLocationMiddleware implements Page{
     @Override
     public void gotoPage(Context context, Class<?> tClass,String text) {
         Intent intent = new Intent(context.getApplicationContext(), tClass);

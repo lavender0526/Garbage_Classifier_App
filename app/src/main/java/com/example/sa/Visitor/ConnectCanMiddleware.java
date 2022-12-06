@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-public class ConnectCanMediary implements Page{
+public class ConnectCanMiddleware implements Page{
 
 
     @Override

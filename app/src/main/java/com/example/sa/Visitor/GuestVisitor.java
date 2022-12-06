@@ -16,28 +16,28 @@ public class GuestVisitor extends AppCompatActivity implements AuthVisitor {
         this.context = context;
     }
     @Override
-    public void visit(RedgistMoneyMediary redgistMoneyMediary) {
-        redgistMoneyMediary.gotoPage(context,LoginActivity.class,"Please login");
+    public void visit(RedgistMoneyMiddleware redgistMoneyMiddleware) {
+        redgistMoneyMiddleware.gotoPage(context,LoginActivity.class,"Please login");
     }
 
     @Override
-    public void visit(ConnectCanMediary connectCanMediary) {
-        connectCanMediary.gotoPage(context,LoginActivity.class,"Please login");
+    public void visit(ConnectCanMiddleware connectCanMiddleware) {
+        connectCanMiddleware.gotoPage(context,LoginActivity.class,"Please login");
     }
 
     @Override
-    public void visit(RegistLocationMediary registLocationMediary) {
-        registLocationMediary.gotoPage(context,NonRegistLocation.class,"success");
+    public void visit(RegistLocationMiddleware registLocationMiddleware) {
+        registLocationMiddleware.gotoPage(context,NonRegistLocation.class,"success");
     }
 
     @Override
-    public void visit(RegistTrashcanMediary registTrashcanMediary) {
-        registTrashcanMediary.gotoPage(context,NonRegistTrashcan.class,"success");
+    public void visit(RegistTrashcanMiddleware registTrashcanMiddleware) {
+        registTrashcanMiddleware.gotoPage(context,NonRegistTrashcan.class,"success");
     }
 
     @Override
-    public void visit(RedgistrReviseAccountMediary redgistrReviseAccountMediary) {
-        redgistrReviseAccountMediary.gotoPage(context, LoginActivity.class,"success");
+    public void visit(RedgistrReviseAccountMiddleware redgistrReviseAccountMiddleware) {
+        redgistrReviseAccountMiddleware.gotoPage(context, LoginActivity.class,"success");
     }
 
 }

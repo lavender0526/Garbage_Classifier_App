@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-public class RegistTrashcanMediary implements Page{
+public class RegistTrashcanMiddleware implements Page{
 
     @Override
     public void gotoPage(Context context, Class<?> tClass,String text) {
