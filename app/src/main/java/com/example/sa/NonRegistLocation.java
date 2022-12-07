@@ -27,7 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NonRegistLocation extends AppCompatActivity {
+public class NonRegistLocation extends AppCompatActivity{
     OkHttpClient client = new OkHttpClient();
     String value;
     int i = 0;
@@ -56,7 +56,7 @@ public class NonRegistLocation extends AppCompatActivity {
         machineImageView.setImageBitmap(bitmap);
     }
 
-    class nonRegistLocationTask extends AsyncTask<Void, Void, Boolean> {
+    class nonRegistLocationTask extends  AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {
             Request request = new Request.Builder()

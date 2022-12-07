@@ -2,7 +2,6 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +13,7 @@ import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
 import com.example.sa.Observer.PlasticGarbage;
+import com.example.sa.Visitor.Switch;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RegistTrashcan extends AppCompatActivity {
+public class RegistTrashcan extends AppCompatActivity{
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     public static String bottleStorage_String;
@@ -48,23 +48,27 @@ public class RegistTrashcan extends AppCompatActivity {
         plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
     }
 
+
+    public void gotoHome(View view) {
+        Switch aswitch = new Switch("RegistTrashcan",this);
+        aswitch.activity();
+    }
     public void gotoLocation(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,RegistLocation.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
+    }
+    public void gotoAccount(View view) {
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(RegistTrashcan.this, Setting.class);
-        startActivity(intent);
-    }
-
-    public void gotoAccount(View view) {
-        Intent intent = new Intent(RegistTrashcan.this, registerReviseAccount.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
     public void gotoMoney(View view) {
-        Intent intent = new Intent(RegistTrashcan.this,Money.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistMoney",this);
+        aswitch.activity();
     }
 
     public void btnTrashcanUpdateStorage(View view) {
@@ -75,6 +79,8 @@ public class RegistTrashcan extends AppCompatActivity {
         garbageAttribute.Attach(bottleGarbage);
         garbageAttribute.Notify();
     }
+
+
     class registTrashcanTask extends AsyncTask<Void, Void,Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {

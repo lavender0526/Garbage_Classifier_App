@@ -1,22 +1,16 @@
 package com.example.sa;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
-import com.example.sa.command.Command;
-import com.example.sa.command.Concrete_Commands;
-import com.example.sa.command.receiver;
+import com.example.sa.Visitor.Switch;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
@@ -27,19 +21,12 @@ import java.util.HashMap;
 import okhttp3.OkHttpClient;
 
 public class RedgistMoney extends AppCompatActivity {
-    String username = UserStore.getInstance().getUsername();
+    String username = UserStore.userName;
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
-    TextView banktype,acctcode,date,balance,moneyview;
-    EditText inputmoney;
-    String money;
+    TextView banktype,acctcode,date,balance;
     WalletService walletProxy= new WalletProxy();
-    private Command command;
-    private receiver receiver;
-//    private  receiver;
 
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,27 +35,28 @@ public class RedgistMoney extends AppCompatActivity {
         acctcode = (TextView)findViewById(R.id.accountCodeView);
         date = (TextView)findViewById(R.id.walletUpdateDate);
         balance = (TextView)findViewById(R.id.walletBalance);
-        inputmoney = (EditText)findViewById(R.id.inputmoney);
         new getBankInfor().execute();
 
     }
+
     public void gotoAccount(View view) {
-        Intent intent = new Intent(RedgistMoney.this,registerReviseAccount.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
+
     public void gotoLocation(View view) {
-        Intent intent = new Intent(RedgistMoney.this,RegistLocation.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
 
     public void gotoConnect(View view) {
-        Intent intent = new Intent(RedgistMoney.this, Setting.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
 
     public void gotoHome(View view) {
-        Intent intent = new Intent(RedgistMoney.this,RegistTrashcan.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
 
     class getBankInfor extends AsyncTask<Void, Void, Boolean> {
@@ -119,36 +107,5 @@ public class RedgistMoney extends AppCompatActivity {
             }
     }
         new updateBalance().execute();
-
 }
-//    public String getchangemoney(){
-//        return inputmoney.getText().toString();
-//    }
-//    public String getmoney(){
-//        return setTextView.get("balance");
-//    }
-    public void btngomoney(View view){
-
-        money = balance.getText().toString();
-        System.out.println(money);
-        receiver = new receiver(inputmoney.getText().toString() ,setTextView.get("balance"));
-        command = new Concrete_Commands(receiver);
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
-        alertDialog.setView(R.layout.activity_bank_change_money);
-        AlertDialog alertDialog1 = alertDialog.create();
-        alertDialog1.show();
-        moneyview = alertDialog1.findViewById(R.id.Viewchangemoney);
-        moneyview.setText(command.execute());
-        alertDialog1.findViewById(R.id.btngomoneyOK).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                balance.setText(command.execute());
-            }
-        });
-    }
-
-
-
-
-
 }

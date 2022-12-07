@@ -7,15 +7,19 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sa.Visitor.Switch;
 import com.example.sa.store.UserStore;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -24,7 +28,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class registerReviseAccount extends AppCompatActivity {
-    String username = UserStore.getInstance().getUsername();
+    String username = UserStore.userName;
     TextView usernameView;
     EditText password;
     OkHttpClient client = new OkHttpClient();
@@ -37,21 +41,21 @@ public class registerReviseAccount extends AppCompatActivity {
         password = (EditText) findViewById(R.id.reviseInputPassword);
 
     }
-    public void gotoConnect(View view) {
-        Intent intent = new Intent(registerReviseAccount.this, Setting.class);
-        startActivity(intent);
+    public void btnRegistReviseAccountSetting(View view) {
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
-    public void gotoHome(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RegistTrashcan.class);
-        startActivity(intent);
+    public void btnRegistReviseAccountHome(View view) {
+        Switch aswitch = new Switch("RegistTrashcan",this);
+        aswitch.activity();
     }
-    public void gotoLocation(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RegistLocation.class);
-        startActivity(intent);
+    public void btnRegistReviseAccountLocation(View view) {
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
-    public void gotoMoney(View view) {
-        Intent intent = new Intent(registerReviseAccount.this,RedgistMoney.class);
-        startActivity(intent);
+    public void btnRegistReviseAccountMoney(View view) {
+        Switch aswitch = new Switch("RedgistMoney",this);
+        aswitch.activity();
     }
     public void btnReviseAcct(View view) {
         new registerReviseAccountTrashcanTask().execute();

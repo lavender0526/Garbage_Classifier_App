@@ -2,15 +2,14 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sa.Flyweight.FlyweightFactory;
-import com.example.sa.Flyweight.locationImage;
+import com.example.sa.Visitor.Switch;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,14 +36,23 @@ public class RegistLocation extends AppCompatActivity {
     ArrayList<String> setLocation = new ArrayList<String>();
     ArrayList<String> location = new ArrayList<>();
     ImageView imageView ;
-    Bitmap bitmap;
-    FlyweightFactory factory;
+    float scaleWidth,scaleHeight;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
         imageView = (ImageView)findViewById(R.id.machineImageView);
+        //創建矩陣
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        //bp = BitmapFactory.decodeResource(getResources(),R.drawable.)
+        //int height =
+        //to get screen width and height
+        int w=dm.widthPixels;
+        int h=dm.heightPixels;
+
+        //to create array and get location  , put in the spinner
         new getMachineLocationTask().execute();
     }
 
@@ -137,33 +145,30 @@ public class RegistLocation extends AppCompatActivity {
             }
         }
     }
-    public void zoomIn(View view) {
-        Intent intent = new Intent(RegistLocation.this, locationImage.class);
-        intent.putExtra("location",selectedLocation);
-        System.out.println(selectedLocation);
-        startActivity(intent);
-    }
 
     public void btnGetLocationImage(View view) {
-        bitmap = factory.getImage(selectedLocation);
-        imageView.setImageBitmap(bitmap);
+        new registLocationGetImageTask().execute();
     }
 
 
-    public void gotoHome(View view) {
-        Intent intent = new Intent(RegistLocation.this,RegistTrashcan.class);
-        startActivity(intent);
+    public void btnRegistLocationHome(View view) {
+        Switch aswitch = new Switch("RegistTrashcan",this);
+        aswitch.activity();
     }
-    public void gotoAccount(View view) {
-        Intent intent = new Intent(RegistLocation.this,registerReviseAccount.class);
-        startActivity(intent);
+    public void btnRegistLocationAccount(View view) {
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
-    public void gotoMoney(View view) {
-        Intent intent = new Intent(RegistLocation.this,RedgistMoney.class);
-        startActivity(intent);
+    public void btnRegistLocation(View view) {
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
-    public void gotoConnect(View view) {
-        Intent intent = new Intent(RegistLocation.this, Setting.class);
-        startActivity(intent);
+    public void btnRegistLocationMoney(View view) {
+        Switch aswitch = new Switch("RedgistMoney",this);
+        aswitch.activity();
+    }
+    public void btnRegistLocationSetting(View view) {
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
 }
