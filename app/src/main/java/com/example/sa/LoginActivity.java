@@ -18,7 +18,6 @@ import com.example.sa.ChainOfResponsibility.http_is_Informational;
 import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
 import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
 import com.example.sa.ChainOfResponsibility.loginError;
-import com.example.sa.store.UserStore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject();
             username = (EditText) findViewById(R.id.loginInputUsername);
             password = (EditText) findViewById(R.id.loginInputPassword);
-            UserStore.userName = username.getText().toString();
             try {
                 jsonObject.put("password", password.getText().toString());
                 jsonObject.put("username", username.getText().toString());

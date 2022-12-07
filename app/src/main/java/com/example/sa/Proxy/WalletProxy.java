@@ -2,6 +2,8 @@ package com.example.sa.Proxy;
 
 import android.util.Log;
 
+import com.example.sa.store.UserStore;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,8 +39,9 @@ public class WalletProxy implements WalletService {
 
     public boolean userValidate(){
         //TODO: get User login statement from singleton Pattern
-        if(UserInfo.getUsername() != null){
-            Log.d("INFO",UserInfo.getUsername()+" is valid");
+        String username = UserStore.getInstance().getUsername();
+        if(username != null){
+            Log.d("INFO",username+" is valid");
             return true;
         }else{
             Log.d("INFO","User is invalid");

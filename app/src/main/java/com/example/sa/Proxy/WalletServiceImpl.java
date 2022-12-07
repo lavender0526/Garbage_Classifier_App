@@ -2,6 +2,8 @@ package com.example.sa.Proxy;
 
 import android.util.Log;
 
+import com.example.sa.store.UserStore;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +22,7 @@ public class WalletServiceImpl implements WalletService{
     @Override
     public JSONObject getWalletInfo() {
         //TODO:getUsername from singleton Pattern
-        String username=UserInfo.getUsername();
+        String username = UserStore.getInstance().getUsername();
         Log.d("INFO",username);
         Request request = new Request.Builder()
                 .url("http://140.125.207.230:8080/api/back_acct/username/"+username)
@@ -44,7 +46,7 @@ public class WalletServiceImpl implements WalletService{
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("account_code", accountCode);
         jsonObject.put("bank_type", bankType);
-        jsonObject.put("user", UserInfo.getUserId());//TODO: Get From Singleton Pattern
+        jsonObject.put("user", UserStore.getInstance().getUserId());//TODO: Get From Singleton Pattern
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
         Request request = new Request.Builder()

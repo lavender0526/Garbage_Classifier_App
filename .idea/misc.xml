@@ -8,6 +8,7 @@
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2025" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_connect_can.xml" value="0.264" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_home.xml" value="0.25364583333333335" />
+        <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_location_image.xml" value="0.25364583333333335" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_money.xml" value="0.25364583333333335" />
@@ -15,10 +16,10 @@
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_non_regist_trashcan.xml" value="0.21739130434782608" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_redgist_money.xml" value="0.25364583333333335" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_regist_location.xml" value="0.25364583333333335" />
-        <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_regist_trashcan.xml" value="0.152" />
+        <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_regist_trashcan.xml" value="0.264" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_register.xml" value="0.21739130434782608" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_register_revise_account.xml" value="0.25364583333333335" />
-        <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_setting.xml" value="0.2390625" />
+        <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/activity_setting.xml" value="0.2" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/layout/settings_activity.xml" value="0.19429347826086957" />
         <entry key="..\:/Garbage_Classifier_App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.12307692307692308" />
         <entry key="..\:/Users/H/Desktop/SA/APP1/app/src/main/res/drawable/btn.xml" value="0.26979166666666665" />
