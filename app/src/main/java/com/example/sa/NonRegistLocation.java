@@ -56,7 +56,7 @@ public class NonRegistLocation extends AppCompatActivity{
         machineImageView.setImageBitmap(bitmap);
     }
 
-    class nonRegistLocationTask extends AsyncTask<Void, Void, Boolean> {
+    class nonRegistLocationTask extends  AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... voids) {
             Request request = new Request.Builder()
