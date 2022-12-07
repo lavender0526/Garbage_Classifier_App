@@ -7,18 +7,32 @@
     android:background="#DCFAB9"
     tools:context=".RedgistMoney">
 
+    <EditText
+        android:id="@+id/inputmoney"
+        android:layout_width="191dp"
+        android:layout_height="51dp"
+        android:hint="輸入金額"
+        android:inputType="number"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+
     <Button
         android:id="@+id/btnCreatAcct"
         android:layout_width="156dp"
         android:layout_height="57dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/creatacctbtn"
         android:onClick="btnGoCreateAcct"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.577"
         tools:ignore="OnClick" />
 
     <TextView
@@ -80,14 +94,14 @@
         android:id="@+id/button"
         android:layout_width="157dp"
         android:layout_height="46dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/updatebtn"
         android:onClick="btnUpdateWalletBalance"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -189,5 +203,18 @@
             android:onClick="gotoConnect"
             app:backgroundTint="@null" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btngomoney"
+        android:text="轉帳"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
