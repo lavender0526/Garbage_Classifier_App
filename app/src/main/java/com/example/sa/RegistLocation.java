@@ -39,11 +39,6 @@ public class RegistLocation extends AppCompatActivity {
     float scaleWidth,scaleHeight;
 
 
-    //visitor
-//    private Page RegistTrashcan = new RegistTrashcan();
-//    private Page RedgistMoney = new RedgistMoney();
-//    private Page ConnectCan = new ConnectCan();
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);

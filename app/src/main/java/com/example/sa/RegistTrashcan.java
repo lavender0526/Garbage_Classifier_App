@@ -37,10 +37,6 @@ public class RegistTrashcan extends AppCompatActivity{
     GarbageCan ironGarbage = new IronGarbage();
     GarbageCan bottleGarbage = new BottleGarbage();
 
-//    visitor
-//    private Page registLocation = new RegistLocation();
-//    private Page redgistMoney = new RedgistMoney();
-//    private Page connectCan = new ConnectCan();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -28,30 +28,12 @@ public class Home extends AppCompatActivity {
     }
 
     public void btnMainToLocation(View view) {
-        System.out.printf("go NonRegistLocation");
         Switch aswitch = new Switch("NonRegistLocation",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Home.this, RegistLocation.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Home.this, NonRegistLocation.class);
-//            startActivity(intent);
-//        }
     }
 
     public void btnMainToTrashcan(View view) {
-        System.out.printf("go NonRegistTrashcan");
         Switch aswitch = new Switch("NonRegistTrashcan",this);
         aswitch.activity();
-//        if(isAccept){
-//            Intent intent = new Intent(Home.this, RegistTrashcan.class);
-//            startActivity(intent);
-//        }
-//        else{
-//            Intent intent = new Intent(Home.this, NonRegistTrashcan.class);
-//            startActivity(intent);
-//        }
     }
 }
