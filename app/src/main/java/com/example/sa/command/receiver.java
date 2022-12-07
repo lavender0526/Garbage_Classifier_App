@@ -18,6 +18,8 @@ public class receiver  {
         money = Bankmoney;
         almoney = money - changemoney;
         return (int)almoney;
+
+
     }
 
     public int Undomoney(){

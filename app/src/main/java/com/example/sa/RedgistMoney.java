@@ -125,11 +125,26 @@ public class RedgistMoney extends AppCompatActivity {
 }
 
     public void btngomoney(View view){
-
-        money = balance.getText().toString();
-        System.out.println(money);
-        System.out.println(inputmoney.getText().toString());
-        System.out.println("");
+        class updateBalance extends AsyncTask<Void, Void, Void> {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                JSONObject jsonArray = walletProxy.updateWalletInfo(username);
+                try {
+                    setTextView.put("date",jsonArray.getString("time_stamp"));
+                    setTextView.put("balance",jsonArray.getString("change_value"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+            protected void onPostExecute(Void aVoid) {
+                long datetime = Long.valueOf(setTextView.get("date"));
+                java.util.Date time=new java.util.Date((long)datetime*1000);
+                date.setText(String.valueOf(time).substring(0,19));
+                balance.setText(setTextView.get("balance"));
+            }
+        }
+        new updateBalance().execute();
         receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()) ,Double.parseDouble(setTextView.get("balance")));
         command = new Concrete_Commands(receiver);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
@@ -142,6 +157,13 @@ public class RedgistMoney extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 balance.setText(String.valueOf(command.execute()));
+                alertDialog1.dismiss();
+            }
+        });
+        alertDialog1.findViewById(R.id.btncamcelmoney).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                balance.setText(String.valueOf(command.unexecute()));
                 alertDialog1.dismiss();
             }
         });
