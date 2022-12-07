@@ -115,7 +115,7 @@ public class RedgistMoney extends AppCompatActivity {
                 long datetime = Long.valueOf(setTextView.get("date"));
                 java.util.Date time=new java.util.Date((long)datetime*1000);
                 date.setText(String.valueOf(time).substring(0,19));
-                balance.setText(c);
+                balance.setText(setTextView.get("balance"));
             }
     }
         new updateBalance().execute();
@@ -131,7 +131,7 @@ public class RedgistMoney extends AppCompatActivity {
 
         money = balance.getText().toString();
         System.out.println(money);
-        receiver = new receiver(inputmoney.getText().toString() ,);
+        receiver = new receiver(inputmoney.getText().toString() ,setTextView.get("balance"));
         command = new Concrete_Commands(receiver);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
         alertDialog.setView(R.layout.activity_bank_change_money);
