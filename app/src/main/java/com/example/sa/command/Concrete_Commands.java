@@ -8,14 +8,14 @@ public class Concrete_Commands implements Command{
     }
 
     @Override
-    public String execute() {
+    public int execute() {
 //        receiver = new receiver();
         return receiver.changemoney();
 
     }
 
     @Override
-    public String unexecute() {
+    public int unexecute() {
         return receiver.Undomoney();
     }
 }

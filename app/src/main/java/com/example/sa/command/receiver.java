@@ -3,24 +3,25 @@ package com.example.sa.command;
 import com.example.sa.RedgistMoney;
 
 public class receiver  {
-    int changemoney,money,almoney;
-    String a,b;
-    public receiver(String a,String b){
-        this.a=a;
-        this.b=b;
+    int changemoney;
+    int Money;
+    double Bankmoney,money,almoney;
+    public receiver(int money,double bankmoney){
+        this.Money=money;
+        this.Bankmoney=bankmoney;
         changemoney();
     }
 
 
-    public String changemoney(){
-        changemoney = Integer.parseInt(a);
-        money = Integer.parseInt(b);
+    public int changemoney(){
+        changemoney = Money;
+        money = Bankmoney;
         almoney = money - changemoney;
-        return String.valueOf(almoney);
+        return (int)almoney;
     }
 
-    public String Undomoney(){
-        return String.valueOf(money);
+    public int Undomoney(){
+        return (int)money;
     }
 
 

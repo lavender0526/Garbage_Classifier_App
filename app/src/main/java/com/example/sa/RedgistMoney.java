@@ -85,6 +85,8 @@ public class RedgistMoney extends AppCompatActivity {
                 e.printStackTrace();
             }
             return false;
+
+
         }
         protected void onPostExecute(Boolean result) {
             if (result){
@@ -121,28 +123,26 @@ public class RedgistMoney extends AppCompatActivity {
         new updateBalance().execute();
 
 }
-//    public String getchangemoney(){
-//        return inputmoney.getText().toString();
-//    }
-//    public String getmoney(){
-//        return setTextView.get("balance");
-//    }
+
     public void btngomoney(View view){
 
         money = balance.getText().toString();
         System.out.println(money);
-        receiver = new receiver(inputmoney.getText().toString() ,setTextView.get("balance"));
+        System.out.println(inputmoney.getText().toString());
+        System.out.println("");
+        receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()) ,Double.parseDouble(setTextView.get("balance")));
         command = new Concrete_Commands(receiver);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
         alertDialog.setView(R.layout.activity_bank_change_money);
         AlertDialog alertDialog1 = alertDialog.create();
         alertDialog1.show();
         moneyview = alertDialog1.findViewById(R.id.Viewchangemoney);
-        moneyview.setText(command.execute());
+        moneyview.setText(String.valueOf(command.execute()));
         alertDialog1.findViewById(R.id.btngomoneyOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                balance.setText(command.execute());
+                balance.setText(String.valueOf(command.execute()));
+                alertDialog1.dismiss();
             }
         });
     }
