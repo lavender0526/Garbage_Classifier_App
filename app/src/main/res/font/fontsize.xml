@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/opensansvariablefontwdthwght"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/robotocondensedbold"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/robotocondenseditalic"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/robotocondensedregular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/ubuntubold"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/ubuntuitalic"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+    <font
+        android:font="@font/ubunturegular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+</font-family>

@@ -7,6 +7,7 @@
     android:background="#DCFAB9"
     tools:context=".Home">
     <Button
+        style="@style/CardView.Dark"
         android:id="@+id/btnMainTrashcan"
         android:layout_width="247dp"
         android:layout_height="72dp"
