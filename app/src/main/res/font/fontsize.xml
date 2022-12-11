@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
+             xmlns:app="http://schemas.android.com/apk/res-auto">
     <font
         android:font="@font/opensansvariablefontwdthwght"
         android:fontStyle="normal"
@@ -10,7 +11,7 @@
         android:fontWeight="400" />
     <font
         android:font="@font/robotocondenseditalic"
-        android:fontStyle="normal"
+        android:fontStyle="italic"
         android:fontWeight="400" />
     <font
         android:font="@font/robotocondensedregular"
@@ -22,7 +23,7 @@
         android:fontWeight="400" />
     <font
         android:font="@font/ubuntuitalic"
-        android:fontStyle="normal"
+        android:fontStyle="italic"
         android:fontWeight="400" />
     <font
         android:font="@font/ubunturegular"

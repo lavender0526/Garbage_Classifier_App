@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.sa.Visitor.Page;
 import com.example.sa.Visitor.Switch;
@@ -35,5 +36,8 @@ public class Home extends AppCompatActivity {
     public void btnMainToTrashcan(View view) {
         Switch aswitch = new Switch("NonRegistTrashcan",this);
         aswitch.activity();
+    }
+    public void btnMainToChangetheme(View view) {
+        getResources().getColor(R.color.black);
     }
 }
