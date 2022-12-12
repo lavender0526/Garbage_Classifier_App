@@ -2,40 +2,37 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Setting extends AppCompatActivity {
+import com.example.sa.Visitor.Switch;
 
+public class Setting extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
     }
 
-    public void gotoHome(View view) {
-        Intent intent = new Intent(Setting.this,RegistTrashcan.class);
-        startActivity(intent);
+    public void btnsettingHome(View view) {
+        Switch aswitch = new Switch("RegistTrashcan",this);
+        aswitch.activity();
     }
-    public void gotoAccount(View view) {
-        Intent intent = new Intent(Setting.this,registerReviseAccount.class);
-        startActivity(intent);
+    public void btnsettingAccount(View view) {
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
+        aswitch.activity();
     }
-    public void gotoLocation(View view) {
-        Intent intent = new Intent(Setting.this,RegistLocation.class);
-        startActivity(intent);
+    public void btnsettingLocation(View view) {
+        Switch aswitch = new Switch("RegistLocation",this);
+        aswitch.activity();
     }
-    public void gotoMoney(View view) {
-        Intent intent = new Intent(Setting.this,RedgistMoney.class);
-        startActivity(intent);
+    public void btnsettingMoney(View view) {
+        Switch aswitch = new Switch("RedgistMoney",this);
+        aswitch.activity();
     }
     public void btnConnectCan(View view) {
-        Intent intent = new Intent(Setting.this,ConnectCan.class);
-        startActivity(intent);
+        Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
     }
-    public void btnContact(View view){
-        Intent intent = new Intent(Setting.this,Contact.class);
-        startActivity(intent);
-    }
+
 }

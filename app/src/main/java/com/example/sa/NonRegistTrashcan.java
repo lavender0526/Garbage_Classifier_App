@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -18,11 +17,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NonRegistTrashcan extends AppCompatActivity {
+public class NonRegistTrashcan extends AppCompatActivity{
     private int i=18;
     private String value;
     TextView bottleStorage,ironStorage,plasticbagStorage;
     OkHttpClient client = new OkHttpClient();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,7 @@ public class NonRegistTrashcan extends AppCompatActivity {
         ironStorage = (TextView) findViewById(R.id.ironbottleCanStorageNon);
         plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorageNon);
     }
+
 
     public void btnNonRegistUpdateStorage(View view) {
         new nonRegistTrashcanTask().execute();

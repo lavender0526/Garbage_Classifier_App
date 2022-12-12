@@ -56,7 +56,7 @@ class linkTask extends AsyncTask<String, Void, Void> {
     }
 }
 
-public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class ConnectCan extends AppCompatActivity implements ZXingScannerView.ResultHandler{
     private String username;
     ZXingScannerView zXingScannerView;
 
@@ -78,10 +78,13 @@ public class ConnectCan extends AppCompatActivity implements ZXingScannerView.Re
 
 
     }
+
     private void openQRCamera(){
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
     }
+
+
     /**取得權限回傳*/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
