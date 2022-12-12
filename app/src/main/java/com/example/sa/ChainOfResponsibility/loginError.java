@@ -42,7 +42,7 @@ public class loginError implements httpNum{
 
 
         System.out.println(request.getResponse().code());
-        if (request.getResponse().code() == 204 ) {
+        if (request.getResponse().code() == 204 || request.getResponse().code() == 404) {
             System.out.println("ERROR");
 
             request.getTextView().setVisibility(View.VISIBLE);

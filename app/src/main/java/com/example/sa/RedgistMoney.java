@@ -1,5 +1,10 @@
 package com.example.sa;
 
+
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,24 +13,49 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sa.ChainOfResponsibility.Numbers;
+import com.example.sa.ChainOfResponsibility.httpNum;
+import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
+import com.example.sa.ChainOfResponsibility.http_is_Informational;
+import com.example.sa.ChainOfResponsibility.http_is_Redirection;
+import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
+import com.example.sa.ChainOfResponsibility.http_is_Successful;
+import com.example.sa.ChainOfResponsibility.loginError;
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
 import com.example.sa.Visitor.Switch;
 import com.example.sa.store.UserStore;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class RedgistMoney extends AppCompatActivity {
     String username = UserStore.userName;
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
+
+    TextView banktype,acctcode,date,balance,moneyview;
+    EditText inputmoney ;
+    String money;
+    WalletService walletProxy= new WalletProxy();
+    private Command command;
+    private receiver receiver;
+    JSONObject raw = null;
+//    private  receiver;
+
     TextView banktype,acctcode,date,balance;
     WalletService walletProxy= new WalletProxy();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +103,8 @@ public class RedgistMoney extends AppCompatActivity {
                 e.printStackTrace();
             }
             return false;
+
+
         }
         protected void onPostExecute(Boolean result) {
             if (result){
@@ -108,4 +140,93 @@ public class RedgistMoney extends AppCompatActivity {
     }
         new updateBalance().execute();
 }
+
+
+    public void btngomoney(View view) {
+        if (inputmoney != null) {
+            receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()), Double.parseDouble(setTextView.get("balance")));
+            command = new Concrete_Commands(receiver);
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
+            alertDialog.setView(R.layout.activity_bank_change_money);
+            AlertDialog alertDialog1 = alertDialog.create();
+            alertDialog1.show();
+            moneyview = alertDialog1.findViewById(R.id.Viewchangemoney);
+            moneyview.setText(String.valueOf(command.execute()));
+            alertDialog1.findViewById(R.id.btngomoneyOK).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    balance.setText(String.valueOf(command.unexecute()));
+                    alertDialog1.dismiss();
+
+//                api
+                    class updatamoney extends AsyncTask<Void, Void,Boolean> {
+                        @Override
+                        protected Boolean doInBackground(Void... voids) {
+                            JSONObject jsonObject = new JSONObject();
+                            try {
+                                jsonObject.put("amount", Integer.parseInt(inputmoney.getText().toString()));
+                                jsonObject.put("bank_name", setTextView.get("bank_code"));
+                                jsonObject.put("receiver", username);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+                            RequestBody body = RequestBody.create(jsonObject.toString(), mediaType);
+                            Request request = new Request.Builder()
+                                    .url("http://140.125.207.230:8080/api/transfer_money_record")
+                                    .post(body)
+                                    .build();
+
+                            try (Response response = client.newCall(request).execute()) {
+                                raw = new JSONObject(response.body().string());
+
+                                //TODO: Store all user information by login response
+                                return true;
+
+                            } catch (IOException | JSONException e) {
+                                e.printStackTrace();
+                            }
+                            return false;
+                        }
+
+                        protected void onPostExecute(boolean result) {
+//                        要將輸入值改成API出来的
+                            if(result) {
+                                try {
+                                    balance.setText(raw.getJSONObject(String.valueOf(0)).getString("updatamoney"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                alertDialog1.dismiss();
+                            }
+                        }
+                    }
+
+
+                }
+            });
+            alertDialog1.findViewById(R.id.btncamcelmoney).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    balance.setText(String.valueOf(command.unexecute()));
+                    alertDialog1.dismiss();
+                }
+            });
+
+
+        }else {
+            AlertDialog.Builder alter = new AlertDialog.Builder(RedgistMoney.this);
+            alter.setMessage("請輸入金額\n" + "請你當個聰明的人");
+            alter.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            alter.show();
+        }
+
+
+    }
+
 }
