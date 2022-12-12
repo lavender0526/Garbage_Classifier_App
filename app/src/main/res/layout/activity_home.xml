@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#DCFAB9"
     tools:context=".Home">
-
     <Button
         android:id="@+id/btnMainTrashcan"
         android:layout_width="247dp"
