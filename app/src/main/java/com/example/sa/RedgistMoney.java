@@ -40,7 +40,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RedgistMoney extends AppCompatActivity {
-    String username = UserStore.userName;
+    String username = UserStore.getInstance().getUsername();
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
 
@@ -85,7 +85,7 @@ public class RedgistMoney extends AppCompatActivity {
     }
 
     public void gotoHome(View view) {
-        Switch aswitch = new Switch("RegistLocation",this);
+        Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
     }
 

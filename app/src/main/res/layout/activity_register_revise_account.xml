@@ -105,6 +105,7 @@
             android:layout_width="83dp"
             android:layout_height="75dp"
             android:background="@drawable/listhomepagebtn"
+            android:onClick="gotoHome"
             app:backgroundTint="@null" />
 
         <Button

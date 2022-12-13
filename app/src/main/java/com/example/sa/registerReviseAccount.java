@@ -28,7 +28,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class registerReviseAccount extends AppCompatActivity {
-    String username = UserStore.userName;
+    String username = UserStore.getInstance().getUsername();
     TextView usernameView;
     EditText password;
     OkHttpClient client = new OkHttpClient();
@@ -41,19 +41,19 @@ public class registerReviseAccount extends AppCompatActivity {
         password = (EditText) findViewById(R.id.reviseInputPassword);
 
     }
-    public void btnRegistReviseAccountSetting(View view) {
+    public void gotoConnect(View view) {
         Switch aswitch = new Switch("ConnectCan",this);
         aswitch.activity();
     }
-    public void btnRegistReviseAccountHome(View view) {
+    public void gotoHome(View view) {
         Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
     }
-    public void btnRegistReviseAccountLocation(View view) {
+    public void gotoLocation(View view) {
         Switch aswitch = new Switch("RegistLocation",this);
         aswitch.activity();
     }
-    public void btnRegistReviseAccountMoney(View view) {
+    public void gotoMoney(View view) {
         Switch aswitch = new Switch("RedgistMoney",this);
         aswitch.activity();
     }
