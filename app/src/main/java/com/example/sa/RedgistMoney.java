@@ -21,7 +21,7 @@ import java.util.HashMap;
 import okhttp3.OkHttpClient;
 
 public class RedgistMoney extends AppCompatActivity {
-    String username = UserStore.userName;
+    String username = UserStore.getInstance().getUsername();
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
     TextView banktype,acctcode,date,balance;
@@ -55,7 +55,7 @@ public class RedgistMoney extends AppCompatActivity {
     }
 
     public void gotoHome(View view) {
-        Switch aswitch = new Switch("RegistLocation",this);
+        Switch aswitch = new Switch("RegistTrashcan",this);
         aswitch.activity();
     }
 

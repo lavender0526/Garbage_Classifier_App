@@ -8,11 +8,11 @@ import com.example.sa.store.UserStore;
 public class Switch {
     private String location;
     private Context context;
-    private static Page registTrashcanMiddleware = new RegistTrashcanMiddleware();
-    private static Page registLocationMiddleware = new RegistLocationMiddleware();
-    private static Page redgistMoneyMiddleware = new RedgistMoneyMiddleware();
-    private static Page connectCanMiddleware = new ConnectCanMiddleware();
-    private static Page redgistrReviseAccountMiddleware = new RedgistrReviseAccountMiddleware();
+    private static PageMiddleware registTrashcanMiddleware = new RegistTrashcanMiddleware();
+    private static PageMiddleware registLocationMiddleware = new RegistLocationMiddleware();
+    private static PageMiddleware redgistMoneyMiddleware = new RedgistMoneyMiddleware();
+    private static PageMiddleware connectCanMiddleware = new ConnectCanMiddleware();
+    private static PageMiddleware redgistrReviseAccountMiddleware = new RedgistrReviseAccountMiddleware();
     public Switch(String location,Context context){
         this.context = context;
         this.location = location;
@@ -23,7 +23,7 @@ public class Switch {
         System.out.println(location);
         AuthVisitor authVisitor;
 
-        if(UserStore.userName == null){
+        if(UserStore.getInstance().getUsername() == null){
             authVisitor = new GuestVisitor(context);
         }
         else {
