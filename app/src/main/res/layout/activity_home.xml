@@ -7,6 +7,7 @@
     android:background="#DCFAB9"
     tools:context=".Home">
     <Button
+        style="@style/CardView.Dark"
         android:id="@+id/btnMainTrashcan"
         android:layout_width="247dp"
         android:layout_height="72dp"
@@ -19,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMainLogin"
         app:layout_constraintVertical_bias="0.082" />
+
 
     <Button
         android:id="@+id/btnMainLocation"
@@ -73,6 +75,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.199"
         app:srcCompat="@drawable/icon" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnMainToChangetheme"
+        android:text="Theme"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="671dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
