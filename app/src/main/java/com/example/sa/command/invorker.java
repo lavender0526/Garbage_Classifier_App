@@ -10,13 +10,14 @@ public class invorker {
     public void addCommend(Command Command) {
         commandList.add(Command);
     }
+
     public void execute() {
         for(Command command : commandList) {
             command.execute();
         }
     }
-    public void unexecute(){
-        for (Command command : commandList1){
+    public void unexecute() {
+        for (Command command : commandList1) {
             command.unexecute();
         }
     }

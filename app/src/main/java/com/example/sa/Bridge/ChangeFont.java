@@ -1,8 +1,10 @@
 package com.example.sa.Bridge;
 
 
+import android.widget.TextView;
+
 public interface ChangeFont {
-    Typeface typeface = getResources().getFont(R.font.myfont);
-    textView.setTypeface(typeface);
-abstract public void method();
+
+abstract public void method(TextView a,TextView b);
+
 }

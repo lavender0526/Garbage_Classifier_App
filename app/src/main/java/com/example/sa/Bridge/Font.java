@@ -1,11 +1,11 @@
 package com.example.sa.Bridge;
 
 abstract class Font {
-    protected ChangeFont Change;
+    protected ChangeFont changefont;
 
-    protected Font(ChangeFont Change){
-        this.Change=Change;
+    protected Font(ChangeFont changefont){
+        this.changefont = changefont;
     }
 
-    abstract public void function();
+    abstract public void change();
 }
