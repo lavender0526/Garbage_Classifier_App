@@ -9,10 +9,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sa.Bridge.ChangeFont;
+import com.example.sa.Bridge.opensansvariablefontwdthwght;
 import com.example.sa.ChainOfResponsibility.Numbers;
 import com.example.sa.ChainOfResponsibility.httpNum;
 import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
@@ -24,6 +28,9 @@ import com.example.sa.ChainOfResponsibility.loginError;
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
 import com.example.sa.Visitor.Switch;
+import com.example.sa.command.Command;
+import com.example.sa.command.Concrete_Commands;
+import com.example.sa.command.receiver;
 import com.example.sa.store.UserStore;
 
 import org.json.JSONArray;
@@ -48,13 +55,11 @@ public class RedgistMoney extends AppCompatActivity {
     EditText inputmoney ;
     String money;
     WalletService walletProxy= new WalletProxy();
+
     private Command command;
-    private receiver receiver;
+    private com.example.sa.command.receiver receiver;
     JSONObject raw = null;
 //    private  receiver;
-
-    TextView banktype,acctcode,date,balance;
-    WalletService walletProxy= new WalletProxy();
 
 
     @Override

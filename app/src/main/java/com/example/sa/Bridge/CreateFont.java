@@ -1,13 +1,20 @@
 package com.example.sa.Bridge;
 
 
-class CreateFont extends Font{
+import android.widget.TextView;
 
-    public CreateFont(ChangeFont Change){
-        super(Change);
+public class CreateFont extends Font{
+    TextView a,b;
+
+    public CreateFont(ChangeFont changeFont, TextView a,TextView b){
+
+        super(changeFont);
+        this.a = a;
+        this.b = b;
     }
+
     @Override
-    public void function() {
-        Change.method();
+    public void change() {
+        changefont.method(a,b);
     }
 }

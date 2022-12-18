@@ -7,6 +7,52 @@
     android:background="#DCFAB9"
     tools:context=".NonRegistTrashcan">
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_marginBottom="28dp"
+        android:entries="@array/spinnerValue"
+        app:layout_constraintBottom_toTopOf="@+id/changeFont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/Text1"
+        android:layout_width="144dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:autoSizeTextType="uniform"
+
+        android:gravity="center"
+        android:text="ubantubold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNonRegistTrashcanBackmain"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/Text2"
+        android:layout_width="135dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+
+        android:text="ubantubold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageView
         android:id="@+id/plasticbagCanNon"
         android:layout_width="116dp"
@@ -96,9 +142,23 @@
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnNonRegistTrashcanBackmain"
         app:layout_constraintTop_toBottomOf="@+id/plasticbagCanStorageNon"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintVertical_bias="0.163" />
+
+    <Button
+        android:id="@+id/changeFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="BTNchangeFont"
+        android:text="改變"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnNonRegistTrashcanBackmain"
@@ -110,9 +170,9 @@
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ironbottleCanStorageNon"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.308" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
