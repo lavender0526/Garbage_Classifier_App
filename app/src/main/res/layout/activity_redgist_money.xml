@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
+        app:layout_constraintVertical_bias="0.438"
         app:srcCompat="@drawable/walletballancetable" />
 
     <TextView
@@ -216,5 +216,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
