@@ -15,12 +15,7 @@ public class invorker {
         for (MoneyCommand moneyCommand : moneyCommandList){
              money= moneyCommand.execute();
         }
-
-
-
-        
     }
-
     public  void Undo(){
         for (MoneyCommand moneyCommand:moneyCommandListUndo){
            money = moneyCommand.Undo();
