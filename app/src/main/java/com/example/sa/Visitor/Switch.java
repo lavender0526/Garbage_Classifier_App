@@ -23,7 +23,7 @@ public class Switch {
         System.out.println(location);
         AuthVisitor authVisitor;
 
-        if(UserStore.userName == null){
+        if(UserStore.getInstance().getUsername() == null){
             authVisitor = new GuestVisitor(context);
         }
         else {

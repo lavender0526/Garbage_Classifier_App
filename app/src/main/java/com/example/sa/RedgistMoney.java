@@ -1,32 +1,27 @@
 package com.example.sa;
 
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sa.ChainOfResponsibility.Numbers;
-import com.example.sa.ChainOfResponsibility.httpNum;
-import com.example.sa.ChainOfResponsibility.http_is_Client_Error;
-import com.example.sa.ChainOfResponsibility.http_is_Informational;
-import com.example.sa.ChainOfResponsibility.http_is_Redirection;
-import com.example.sa.ChainOfResponsibility.http_is_Server_Error;
-import com.example.sa.ChainOfResponsibility.http_is_Successful;
-import com.example.sa.ChainOfResponsibility.loginError;
 import com.example.sa.Proxy.WalletProxy;
 import com.example.sa.Proxy.WalletService;
 import com.example.sa.Visitor.Switch;
+import com.example.sa.command.MoneyCommand;
+import com.example.sa.command.Transfer_Money;
+import com.example.sa.command.invorker;
+import com.example.sa.command.receiver;
 import com.example.sa.store.UserStore;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,7 +35,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RedgistMoney extends AppCompatActivity {
-    String username = UserStore.userName;
+    String username = UserStore.getInstance().getUsername();
     OkHttpClient client = new OkHttpClient();
     HashMap<String,String> setTextView = new HashMap<String,String>();
 
@@ -48,13 +43,13 @@ public class RedgistMoney extends AppCompatActivity {
     EditText inputmoney ;
     String money;
     WalletService walletProxy= new WalletProxy();
-    private Command command;
-    private receiver receiver;
+    private com.example.sa.command.receiver receiver;
     JSONObject raw = null;
-//    private  receiver;
 
-    TextView banktype,acctcode,date,balance;
-    WalletService walletProxy= new WalletProxy();
+
+
+
+
 
 
     @Override
@@ -144,18 +139,27 @@ public class RedgistMoney extends AppCompatActivity {
 
     public void btngomoney(View view) {
         if (inputmoney != null) {
-            receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()), Double.parseDouble(setTextView.get("balance")));
-            command = new Concrete_Commands(receiver);
+//            Command(receiver and invoker)
+            receiver receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()), Double.parseDouble(setTextView.get("balance")));
+            MoneyCommand transfer_money = new Transfer_Money(receiver);
+            invorker invorker = new invorker();
+            invorker.addMoneyCommand(transfer_money);
+            invorker.addMoneyCommandUndo(transfer_money);
+
+//
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(RedgistMoney.this);
             alertDialog.setView(R.layout.activity_bank_change_money);
             AlertDialog alertDialog1 = alertDialog.create();
             alertDialog1.show();
+            invorker.excute();
             moneyview = alertDialog1.findViewById(R.id.Viewchangemoney);
-            moneyview.setText(String.valueOf(command.execute()));
+            moneyview.setText(String.valueOf(invorker.getint()));
             alertDialog1.findViewById(R.id.btngomoneyOK).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    balance.setText(String.valueOf(command.unexecute()));
+//                    Comamand(invoker action)
+                    invorker.excute();
+                    balance.setText(String.valueOf(invorker.getint()));
                     alertDialog1.dismiss();
 
 //                api
@@ -194,6 +198,7 @@ public class RedgistMoney extends AppCompatActivity {
                             if(result) {
                                 try {
                                     balance.setText(raw.getJSONObject(String.valueOf(0)).getString("updatamoney"));
+                                    balance.setText(String.valueOf(invorker.getint()));
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -208,7 +213,9 @@ public class RedgistMoney extends AppCompatActivity {
             alertDialog1.findViewById(R.id.btncamcelmoney).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    balance.setText(String.valueOf(command.unexecute()));
+//
+                    invorker.Undo();
+                    balance.setText(String.valueOf(invorker.getint()));
                     alertDialog1.dismiss();
                 }
             });

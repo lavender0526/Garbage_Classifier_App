@@ -4,20 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class invorker {
-    private List<Command> commandList = new ArrayList<Command>();
-    private List<Command> commandList1 = new ArrayList<Command>();
+    private List<MoneyCommand> moneyCommandList = new ArrayList<MoneyCommand>();
+    private List<MoneyCommand> moneyCommandListUndo = new ArrayList<MoneyCommand>();
+    int money;
 
-    public void addCommend(Command Command) {
-        commandList.add(Command);
+    public void addMoneyCommand(MoneyCommand moneyCommand){moneyCommandList.add(moneyCommand);}
+    public  void addMoneyCommandUndo(MoneyCommand moneyCommand){moneyCommandListUndo.add(moneyCommand);}
+
+    public void excute(){
+        for (MoneyCommand moneyCommand : moneyCommandList){
+             money= moneyCommand.execute();
+        }
+
+
+
+        
     }
-    public void execute() {
-        for(Command command : commandList) {
-            command.execute();
+
+    public  void Undo(){
+        for (MoneyCommand moneyCommand:moneyCommandListUndo){
+           money = moneyCommand.Undo();
         }
     }
-    public void unexecute(){
-        for (Command command : commandList1){
-            command.unexecute();
-        }
+
+    public int getint(){
+        return money;
     }
 }

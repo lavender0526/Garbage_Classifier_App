@@ -28,7 +28,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class registerReviseAccount extends AppCompatActivity {
-    String username = UserStore.userName;
+    String username = UserStore.getInstance().getUsername();
     TextView usernameView;
     EditText password;
     OkHttpClient client = new OkHttpClient();
