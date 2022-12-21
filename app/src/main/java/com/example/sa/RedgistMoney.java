@@ -60,6 +60,7 @@ public class RedgistMoney extends AppCompatActivity {
         acctcode = (TextView)findViewById(R.id.accountCodeView);
         date = (TextView)findViewById(R.id.walletUpdateDate);
         balance = (TextView)findViewById(R.id.walletBalance);
+        inputmoney = (EditText) findViewById(R.id.inputmoney);
         new getBankInfor().execute();
 
     }
@@ -138,8 +139,8 @@ public class RedgistMoney extends AppCompatActivity {
 
 
     public void btngomoney(View view) {
-        if (inputmoney != null) {
-//            Command(receiver and invoker)
+        if (inputmoney.getText().toString() != "") {
+//            invoker (receier)
             receiver receiver = new receiver(Integer.parseInt(inputmoney.getText().toString()), Double.parseDouble(setTextView.get("balance")));
             MoneyCommand transfer_money = new Transfer_Money(receiver);
             invorker invorker = new invorker();
@@ -223,7 +224,7 @@ public class RedgistMoney extends AppCompatActivity {
 
         }else {
             AlertDialog.Builder alter = new AlertDialog.Builder(RedgistMoney.this);
-            alter.setMessage("請輸入金額\n" + "請你當個聰明的人");
+            alter.setMessage("請輸入金額\n");
             alter.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
