@@ -1,14 +1,20 @@
 package com.example.sa.Bridge;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
+import androidx.core.content.res.ResourcesCompat;
+
+import com.example.sa.R;
+
 public class ubuntuitalic implements ChangeFont{
     @Override
-    public void method(TextView a, TextView b) {
-        Typeface tf = Typeface.createFromAsset(a.getContext().getAssets(), "font/ubuntuitalic.ttf");
-        a.setTypeface(tf);
-        Typeface tf2 = Typeface.createFromAsset(b.getContext().getAssets(), "font/ubuntuitalic.ttf");
-        b.setTypeface(tf2);
+    public Typeface method(Context context) {
+        Typeface typeface;
+        typeface = ResourcesCompat.getFont(context, R.font.ubuntuitalic);
+        return typeface;
+
     }
 }
+
