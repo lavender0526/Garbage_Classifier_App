@@ -1,10 +1,13 @@
 package com.example.sa.Bridge;
 
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.widget.TextView;
 
 public interface ChangeFont {
 
-abstract public void method(TextView a,TextView b);
+abstract public Typeface method(Context context);
+
 
 }

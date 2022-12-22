@@ -1,11 +1,9 @@
 package com.example.sa;
 
-import static java.security.AccessController.getContext;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -17,20 +15,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.sa.Bridge.CreateFont;
+import com.example.sa.Bridge.Font;
 import com.example.sa.Bridge.opensansvariablefontwdthwght;
 import com.example.sa.Bridge.robotocondensedbold;
 import com.example.sa.Bridge.robotocondenseditalic;
 import com.example.sa.Bridge.robotocondensedregular;
 import com.example.sa.Bridge.ubuntubold;
 import com.example.sa.Bridge.ubuntuitalic;
-import com.example.sa.Bridge.ubunturegular;
-import com.google.android.material.navigation.NavigationBarView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -44,7 +40,8 @@ public class NonRegistTrashcan extends AppCompatActivity{
     OkHttpClient client = new OkHttpClient();
     com.example.sa.Bridge.CreateFont CreateFont;
     Typeface typeface;
-
+    Context context = this;
+    Font createFont;
 
 
     @SuppressLint("MissingInflatedId")
@@ -59,8 +56,6 @@ public class NonRegistTrashcan extends AppCompatActivity{
         fontText2 = (TextView) findViewById(R.id.Text2);
         spinner = (Spinner) findViewById(R.id.spinner1);
 
-        typeface = ResourcesCompat.getFont(this, R.font.opensansvariablefontwdthwght);
-//        typeface = Typeface.createFromAsset(getAssets(),"opensansvariablefontwdthwght.ttf");
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this,    //對應的Context
                         R.array.spinnerValue,                             //資料選項內容
@@ -83,36 +78,50 @@ public class NonRegistTrashcan extends AppCompatActivity{
         });
     }
     public void BTNchangeFont(View view){
+        fontText1.setText("請選擇字體");
         switch (str){
             case "opensansvariablefontwdthwght":
-                fontText1.setText("我想你");
-                fontText1.setTypeface(typeface);
-                CreateFont = new CreateFont(new opensansvariablefontwdthwght(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("opensanswdthwght");
+                createFont = new CreateFont(context,new opensansvariablefontwdthwght());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
+
                 break;
             case "robotocondensedbold":
-                CreateFont = new CreateFont(new robotocondensedbold(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("robotocondensedbold");
+                createFont = new CreateFont(context,new robotocondensedbold());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
                 break;
             case "robotocondenseditalic":
-                CreateFont = new CreateFont(new robotocondenseditalic(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("robotocondenseditalic");
+                createFont = new CreateFont(context,new robotocondenseditalic());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
                 break;
             case "robotocondensedregular":
-                CreateFont = new CreateFont(new robotocondensedregular(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("robotocondensedregular");
+                createFont = new CreateFont(context,new robotocondensedregular());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
                 break;
             case "ubuntubold":
-                CreateFont = new CreateFont(new ubuntubold(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("ubuntubold");
+                createFont = new CreateFont(context,new ubuntubold());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
                 break;
             case "ubuntuitalic":
-                CreateFont = new CreateFont(new ubuntuitalic(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("ubuntuitalic");
+                createFont = new CreateFont(context,new ubuntuitalic());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
                 break;
             default:
-                CreateFont = new CreateFont(new ubunturegular(),fontText1,fontText2);
-                System.out.println(str);
+                fontText2.setText("opensanswdthwght");
+                createFont = new CreateFont(context,new opensansvariablefontwdthwght());
+                fontText1.setTypeface(createFont.change());
+                fontText2.setTypeface(createFont.change());
     }}
     public void btnNonRegistUpdateStorage(View view) {
         new nonRegistTrashcanTask().execute();
@@ -158,5 +167,10 @@ public class NonRegistTrashcan extends AppCompatActivity{
             }
         }
 
+    }
+
+    private class println {
+        public println(String str) {
+        }
     }
 }

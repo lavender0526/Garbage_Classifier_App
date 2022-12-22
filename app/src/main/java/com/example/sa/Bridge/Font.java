@@ -1,11 +1,13 @@
 package com.example.sa.Bridge;
 
-abstract class Font {
+import android.graphics.Typeface;
+
+public abstract class Font {
     protected ChangeFont changefont;
 
     protected Font(ChangeFont changefont){
         this.changefont = changefont;
     }
 
-    abstract public void change();
+    abstract public Typeface change();
 }

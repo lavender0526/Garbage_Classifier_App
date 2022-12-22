@@ -1,16 +1,21 @@
 package com.example.sa.Bridge;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
-public class robotocondensedbold implements ChangeFont{
+import androidx.core.content.res.ResourcesCompat;
 
+import com.example.sa.R;
+
+public class robotocondensedbold implements ChangeFont{
     @Override
-    public void method(TextView a,TextView b) {
-        Typeface tf = Typeface.createFromAsset(a.getContext().getAssets(), "font/robotocondensedbold.ttf");
-        a.setTypeface(tf);
-        Typeface tf2 = Typeface.createFromAsset(b.getContext().getAssets(), "font/robotocondensedbold.ttf");
-        b.setTypeface(tf2);
+    public Typeface method(Context context) {
+        Typeface typeface;
+        typeface = ResourcesCompat.getFont(context, R.font.robotocondensedbold);
+        return typeface;
+
     }
 }
+
