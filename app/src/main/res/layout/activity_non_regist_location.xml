@@ -55,7 +55,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="27dp"
-        android:onClick="imageZommin"
+        android:onClick="zoomIn"
         app:layout_constraintBottom_toTopOf="@+id/nonRegistLocationConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

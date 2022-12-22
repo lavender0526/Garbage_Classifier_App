@@ -8,20 +8,20 @@
     tools:context=".Setting">
 
     <Button
-        android:id="@+id/connect2"
+        android:id="@+id/connect"
         android:layout_width="331dp"
         android:layout_height="64dp"
         android:layout_marginTop="28dp"
         android:onClick="btnConnectCan"
         android:text="Connect Garbage Can"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/connect"
+        app:layout_constraintBottom_toTopOf="@+id/contact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/connect"
+        android:id="@+id/contact"
         android:layout_width="331dp"
         android:layout_height="64dp"
         android:layout_marginTop="124dp"

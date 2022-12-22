@@ -2,6 +2,7 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -33,6 +34,10 @@ public class Setting extends AppCompatActivity{
     public void btnConnectCan(View view) {
         Switch localSwitch = new Switch("ConnectCan",this);
         localSwitch.activity();
+    }
+    public void btnContact(View view) {
+        Intent intent = new Intent(this, Contact.class);
+        startActivity(intent);
     }
 
 }
