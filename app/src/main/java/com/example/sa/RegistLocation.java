@@ -2,8 +2,13 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sa.Flyweight.FlyweightFactory;
+import com.example.sa.Flyweight.locationImage;
+import com.example.sa.Iterator.ConcreteAggregate;
+import com.example.sa.Iterator.Iterator;
 import com.example.sa.Visitor.Switch;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -30,29 +35,19 @@ import okhttp3.Response;
 
 public class RegistLocation extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient();
+    String value;
     int i = 0;
-    String getLocation, machineImage;
-    private String selectedLocation;
-    ArrayList<String> setLocation = new ArrayList<String>();
-    ArrayList<String> location = new ArrayList<>();
-    ImageView imageView ;
-    float scaleWidth,scaleHeight;
-
+    public String selectedLocation;
+    ImageView machineImageView;
+    ArrayList<String> getLocation = new ArrayList<String>();
+    Bitmap bitmap;
+    ConcreteAggregate concreteAggregate = new ConcreteAggregate();
+    FlyweightFactory factory;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist_location);
-        imageView = (ImageView)findViewById(R.id.machineImageView);
-        //創建矩陣
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //bp = BitmapFactory.decodeResource(getResources(),R.drawable.)
-        //int height =
-        //to get screen width and height
-        int w=dm.widthPixels;
-        int h=dm.heightPixels;
-
-        //to create array and get location  , put in the spinner
+        machineImageView = (ImageView)findViewById(R.id.machineImageView);
         new getMachineLocationTask().execute();
     }
 
@@ -68,13 +63,11 @@ public class RegistLocation extends AppCompatActivity {
                 if (response.code() == 200) {
                     JSONArray jsonArray = new JSONArray(response.body().string());
                     try {
-                        while (i < jsonArray.length()) {
-                            getLocation = jsonArray.getJSONObject(i).getString("location");
-                            location.add(getLocation);
+                        while (jsonArray.getJSONObject(i).getString("location")!=null) {
+                            value = jsonArray.getJSONObject(i).getString("location");
+                            concreteAggregate.add(value);
                             i++;
                         }
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -88,11 +81,10 @@ public class RegistLocation extends AppCompatActivity {
         }
 
         protected void onPostExecute(Boolean result) {
+            Iterator iterator = concreteAggregate.createIterator();
             if (result) {
-                int k = 0;
-                while (k < location.size()) {
-                    setLocation.add(location.get(k));
-                    k++;
+                while (iterator.hasNext()) {
+                    getLocation.add(iterator.next());
                 }
                 setSpinner();
             }
@@ -101,7 +93,7 @@ public class RegistLocation extends AppCompatActivity {
 
     private void setSpinner() {
         Spinner mspinner = (Spinner) findViewById(R.id.nonRegistSelectedLocation);
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, setLocation);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, getLocation);
         mspinner.setAdapter(adapter);
         mspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -115,39 +107,16 @@ public class RegistLocation extends AppCompatActivity {
             }
         });
     }
-
-    class registLocationGetImageTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(Void... voids) {
-            Request request = new Request.Builder()
-                    .url("http://140.125.207.230:8080/api/machines/location/?location=" + selectedLocation)
-                    .build();
-
-            try (Response response = client.newCall(request).execute()) {
-                if (response.code() == 200) {
-                    JSONArray json = new JSONArray(response.body().string());
-                    machineImage = json.getJSONObject(0).getString("machinePicture");
-                    return true;
-                }
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-
-            return false;
-        }
-
-        protected void onPostExecute(Boolean result) {
-            if (result) {
-                byte[] decodedString = Base64.decode(machineImage, Base64.DEFAULT);
-                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                imageView.setImageBitmap(decodedByte);
-
-            }
-        }
+    public void btnGetLocationImage(View view) {
+        bitmap = factory.getImage(selectedLocation);
+        machineImageView.setImageBitmap(bitmap);
     }
 
-    public void btnGetLocationImage(View view) {
-        new registLocationGetImageTask().execute();
+    public void zoomIn(View view) {
+        Intent intent = new Intent(RegistLocation.this, locationImage.class);
+        intent.putExtra("location",selectedLocation);
+        System.out.println(selectedLocation);
+        startActivity(intent);
     }
 
 
