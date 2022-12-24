@@ -47,7 +47,7 @@ public class NonRegistLocation extends AppCompatActivity{
 
 
     public void btnNonRegistLocationBackmain(View view) {
-        Intent intent = new Intent(NonRegistLocation.this, MainActivity.class);
+        Intent intent = new Intent(NonRegistLocation.this, Home.class);
         startActivity(intent);
     }
 

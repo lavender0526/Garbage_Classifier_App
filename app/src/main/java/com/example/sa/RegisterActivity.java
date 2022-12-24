@@ -30,11 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
     }
 
-    public void btnRegistBackMain(View view) {
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+    public void btnRegistBackmain(View view) {
+        Intent intent = new Intent(RegisterActivity.this, Home.class);
         startActivity(intent);
     }
-    public void btnRegistConfirm(View view) {
+    public void btnConfirmRegist(View view) {
         new RegisterTask().execute();
         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);

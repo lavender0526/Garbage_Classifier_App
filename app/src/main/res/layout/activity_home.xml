@@ -76,14 +76,5 @@
         app:layout_constraintVertical_bias="0.199"
         app:srcCompat="@drawable/icon" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="btnMainToChangetheme"
-        android:text="Theme"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="671dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

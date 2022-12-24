@@ -151,24 +151,25 @@ public class RegistLocation extends AppCompatActivity {
     }
 
 
-    public void btnRegistLocationHome(View view) {
-        Switch aswitch = new Switch("RegistTrashcan",this);
+    public void gotoHome(View view) {
+        Switch aswitch = new Switch("Home",this);
         aswitch.activity();
     }
-    public void btnRegistLocationAccount(View view) {
-        Switch aswitch = new Switch("RedgistrReviseAccount",this);
-        aswitch.activity();
-    }
-    public void btnRegistLocation(View view) {
+    public void gotoLocation(View view) {
         Switch aswitch = new Switch("RegistLocation",this);
         aswitch.activity();
     }
-    public void btnRegistLocationMoney(View view) {
-        Switch aswitch = new Switch("RedgistMoney",this);
+    public void gotoAccount(View view) {
+        Switch aswitch = new Switch("RedgistrReviseAccount",this);
         aswitch.activity();
     }
-    public void btnRegistLocationSetting(View view) {
+
+    public void gotoConnect(View view) {
         Switch aswitch = new Switch("ConnectCan",this);
+        aswitch.activity();
+    }
+    public void gotoMoney(View view) {
+        Switch aswitch = new Switch("RedgistMoney",this);
         aswitch.activity();
     }
 }

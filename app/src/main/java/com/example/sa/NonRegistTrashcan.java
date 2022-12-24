@@ -128,7 +128,7 @@ public class NonRegistTrashcan extends AppCompatActivity{
     }
 
     public void btnNonRegistBackMain(View view) {
-        Intent intent = new Intent(NonRegistTrashcan.this,MainActivity.class);
+        Intent intent = new Intent(NonRegistTrashcan.this,Home.class);
         startActivity(intent);
     }
 

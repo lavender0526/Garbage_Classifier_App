@@ -11,14 +11,14 @@
         android:id="@+id/nonRegistLocationConfirm"
         android:layout_width="158dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="48dp"
 
         android:background="@drawable/confirmbtn"
         android:onClick="btnNonRegistGetLocation"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.845"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -39,6 +39,7 @@
         android:layout_width="164dp"
         android:layout_height="62dp"
         android:layout_marginStart="48dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/gobackbtn"
         android:onClick="btnNonRegistLocationBackmain"
         app:backgroundTint="@null"

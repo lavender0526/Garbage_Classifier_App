@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btnLoginBackMain(View view) {
-        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this,Home.class);
         startActivity(intent);
     }
     public void btnLoginConfirm(View view) {
