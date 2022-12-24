@@ -8,6 +8,32 @@
     tools:context=".RegistTrashcan">
 
 
+    <TextView
+        android:id="@+id/paperCanStorage"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:text="%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
+
+    <ImageView
+        android:id="@+id/paperCan"
+        android:layout_width="118dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@drawable/can_paper" />
+
     <ImageView
         android:id="@+id/plasticbagCan"
         android:layout_width="116dp"
@@ -60,6 +86,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.634" />
 
+    <ImageView
+        android:id="@+id/bottleCan"
+        android:layout_width="118dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@drawable/can_plastic" />
+
     <TextView
         android:id="@+id/bottleCanStorage"
         android:layout_width="89dp"
@@ -69,21 +107,10 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
-
-    <ImageView
-        android:id="@+id/bottleCan"
-        android:layout_width="118dp"
-        android:layout_height="198dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
-        app:srcCompat="@drawable/can_plastic" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/btnUpdateStorage"

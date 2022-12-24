@@ -2,6 +2,7 @@ package com.example.sa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.example.sa.Observer.ConcreteAttribute;
 import com.example.sa.Observer.GarbageAttribute;
 import com.example.sa.Observer.GarbageCan;
 import com.example.sa.Observer.IronGarbage;
+import com.example.sa.Observer.PaperGarbage;
 import com.example.sa.Observer.PlasticGarbage;
 import com.example.sa.Visitor.Switch;
 
@@ -30,14 +32,17 @@ public class RegistTrashcan extends AppCompatActivity{
     public static String bottleStorage_String;
     public static String ironStorage_String;
     public static String plasticbagStorage_String;
+    public static String paperStorage_String;
     private int i=18;
     OkHttpClient client = new OkHttpClient();
     GarbageAttribute garbageAttribute = new ConcreteAttribute();
     GarbageCan plasticGarbage = new PlasticGarbage();
     GarbageCan ironGarbage = new IronGarbage();
     GarbageCan bottleGarbage = new BottleGarbage();
+    GarbageCan paperGarbage = new PaperGarbage();
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,8 @@ public class RegistTrashcan extends AppCompatActivity{
 
         bottleGarbage.setTextView((TextView) findViewById(R.id.bottleCanStorage));
         ironGarbage.setTextView((TextView) findViewById(R.id.IronbottleCanStorage));
-        plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));;
+        plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));
+        paperGarbage.setTextView((TextView) findViewById(R.id.paperCanStorage));
     }
 
 
@@ -77,6 +83,7 @@ public class RegistTrashcan extends AppCompatActivity{
         garbageAttribute.Attach(plasticGarbage);
         garbageAttribute.Attach(ironGarbage);
         garbageAttribute.Attach(bottleGarbage);
+        garbageAttribute.Attach(paperGarbage);
         garbageAttribute.Notify();
     }
 
@@ -111,8 +118,8 @@ public class RegistTrashcan extends AppCompatActivity{
             }else if(i==21){
                 plasticbagStorage_String = (value+"%");
             }
-            else{
-                System.out.println("11");
+            else if( i == 20){
+                paperStorage_String = (value + "%");
             }
         }
     }

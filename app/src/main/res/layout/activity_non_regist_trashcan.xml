@@ -7,6 +7,33 @@
     android:background="#DCFAB9"
     tools:context=".NonRegistTrashcan">
 
+    <TextView
+        android:id="@+id/paperCanStorage2"
+        android:layout_width="89dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="208dp"
+        android:text="%"
+        android:textColor="#F60000"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
+
+    <ImageView
+        android:id="@+id/paperCan2"
+        android:layout_width="118dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@drawable/can_paper" />
+
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
@@ -113,10 +140,10 @@
         android:layout_height="186dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088"
+        app:layout_constraintVertical_bias="0.077"
         app:srcCompat="@drawable/can_plastic" />
 
     <TextView
@@ -128,10 +155,10 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <Button
         android:id="@+id/btnNonRegistTrashcanUpdate"
