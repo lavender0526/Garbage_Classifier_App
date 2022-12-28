@@ -32,8 +32,8 @@ public class Setting extends AppCompatActivity{
         localSwitch.activity();
     }
     public void btnConnectCan(View view) {
-        Switch localSwitch = new Switch("ConnectCan",this);
-        localSwitch.activity();
+        Intent intent = new Intent(this, ConnectCan.class);
+        startActivity(intent);
     }
     public void btnContact(View view) {
         Intent intent = new Intent(this, Contact.class);

@@ -6,4 +6,5 @@ public interface GarbageCan {
 
     public void Update();
     public void setTextView(TextView textView);
+    public void setCallClass(String callClass);
 }

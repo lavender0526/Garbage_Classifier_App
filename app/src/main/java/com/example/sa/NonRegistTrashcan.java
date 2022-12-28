@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import com.example.sa.RegistLocation;
 import com.example.sa.Bridge.CreateFont;
 import com.example.sa.Bridge.Font;
 import com.example.sa.Bridge.opensansvariablefontwdthwght;
@@ -22,6 +22,13 @@ import com.example.sa.Bridge.robotocondenseditalic;
 import com.example.sa.Bridge.robotocondensedregular;
 import com.example.sa.Bridge.ubuntubold;
 import com.example.sa.Bridge.ubuntuitalic;
+import com.example.sa.Observer.BottleGarbage;
+import com.example.sa.Observer.ConcreteAttribute;
+import com.example.sa.Observer.GarbageAttribute;
+import com.example.sa.Observer.GarbageCan;
+import com.example.sa.Observer.IronGarbage;
+import com.example.sa.Observer.PaperGarbage;
+import com.example.sa.Observer.PlasticGarbage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,24 +41,39 @@ import okhttp3.Response;
 
 public class NonRegistTrashcan extends AppCompatActivity{
     private int i=18;
+    public static String bottleStorage_String;
+    public static String ironStorage_String;
+    public static String plasticbagStorage_String;
+    public static String paperStorage_String;
     private String value,str;
-    TextView bottleStorage,ironStorage,plasticbagStorage,fontText1,fontText2;
+    TextView fontText1,fontText2;
     Spinner spinner;
     OkHttpClient client = new OkHttpClient();
     com.example.sa.Bridge.CreateFont CreateFont;
     Typeface typeface;
     Context context = this;
     Font createFont;
-
+    GarbageAttribute garbageAttribute2 = new ConcreteAttribute();
+    GarbageCan plasticGarbage2 = new PlasticGarbage();
+    GarbageCan ironGarbage2 = new IronGarbage();
+    GarbageCan bottleGarbage2 = new BottleGarbage();
+    GarbageCan paperGarbage2 = new PaperGarbage();
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_non_regist_trashcan);
-        bottleStorage = (TextView) findViewById(R.id.plasticCanStorageNon);
-        ironStorage = (TextView) findViewById(R.id.ironbottleCanStorageNon);
-        plasticbagStorage = (TextView) findViewById(R.id.plasticbagCanStorageNon);
+        bottleGarbage2.setTextView((TextView) findViewById(R.id.bottleStorageNon));
+        ironGarbage2.setTextView((TextView) findViewById(R.id.ironbottleCanStorageNon));
+        plasticGarbage2.setTextView((TextView) findViewById(R.id.plasticbagCanStorageNon));
+        paperGarbage2.setTextView((TextView) findViewById(R.id.paperCanStorage2));
+        bottleGarbage2.setCallClass("0");
+        ironGarbage2.setCallClass("0");
+        plasticGarbage2.setCallClass("0");
+        paperGarbage2.setCallClass("0");
+
+
         fontText1 = (TextView) findViewById(R.id.Text1);
         fontText2 = (TextView) findViewById(R.id.Text2);
         spinner = (Spinner) findViewById(R.id.spinner1);
@@ -125,6 +147,12 @@ public class NonRegistTrashcan extends AppCompatActivity{
     }}
     public void btnNonRegistUpdateStorage(View view) {
         new nonRegistTrashcanTask().execute();
+        garbageAttribute2.Create();
+        garbageAttribute2.Attach(plasticGarbage2);
+        garbageAttribute2.Attach(ironGarbage2);
+        garbageAttribute2.Attach(bottleGarbage2);
+        garbageAttribute2.Attach(paperGarbage2);
+        garbageAttribute2.Notify();
     }
 
     public void btnNonRegistBackMain(View view) {
@@ -156,21 +184,22 @@ public class NonRegistTrashcan extends AppCompatActivity{
 
         protected void onPostExecute(Void voids) {
             if(i==18){
-                bottleStorage.setText(value+"%");
+                bottleStorage_String = (value+"%");
             }else if(i==19){
-                ironStorage.setText(value+"%");
+                ironStorage_String = (value+"%");
             }else if(i==21){
-                plasticbagStorage.setText(value+"%");
+                plasticbagStorage_String = (value+"%");
             }
-            else{
-                System.out.println("11");
+            else if( i == 20){
+                paperStorage_String = (value + "%");
+                System.out.println("00");
+                System.out.println(paperStorage_String);
+                System.out.println("01");
             }
+
         }
 
     }
 
-    private class println {
-        public println(String str) {
-        }
-    }
+
 }

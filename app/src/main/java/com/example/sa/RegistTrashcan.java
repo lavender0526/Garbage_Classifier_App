@@ -35,7 +35,7 @@ public class RegistTrashcan extends AppCompatActivity{
     public static String paperStorage_String;
     private int i=18;
     OkHttpClient client = new OkHttpClient();
-    GarbageAttribute garbageAttribute = new ConcreteAttribute();
+    static GarbageAttribute garbageAttribute = new ConcreteAttribute();
     GarbageCan plasticGarbage = new PlasticGarbage();
     GarbageCan ironGarbage = new IronGarbage();
     GarbageCan bottleGarbage = new BottleGarbage();
@@ -52,6 +52,10 @@ public class RegistTrashcan extends AppCompatActivity{
         ironGarbage.setTextView((TextView) findViewById(R.id.IronbottleCanStorage));
         plasticGarbage.setTextView((TextView) findViewById(R.id.plasticbagCanStorage));
         paperGarbage.setTextView((TextView) findViewById(R.id.paperCanStorage));
+        bottleGarbage.setCallClass("RegistTrashCan");
+        ironGarbage.setCallClass("RegistTrashCan");
+        plasticGarbage.setCallClass("RegistTrashCan");
+        paperGarbage.setCallClass("RegistTrashCan");
     }
 
 
