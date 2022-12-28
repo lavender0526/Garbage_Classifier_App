@@ -15,7 +15,6 @@
         android:text="%"
         android:textColor="#F60000"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/ironbottleCan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +146,7 @@
         app:srcCompat="@drawable/can_plastic" />
 
     <TextView
-        android:id="@+id/plasticCanStorageNon"
+        android:id="@+id/bottleStorageNon"
         android:layout_width="89dp"
         android:layout_height="58dp"
         android:text="%"

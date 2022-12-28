@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -107,7 +109,10 @@ public class ConnectCan extends AppCompatActivity implements ZXingScannerView.Re
     public void handleResult(Result rawResult) {
         String machineURL = rawResult.getText();
         System.out.println(machineURL);
-        new linkTask().execute(machineURL);
+        Uri uri = Uri.parse(machineURL);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+//        new linkTask().execute(machineURL);
 //        openQRCamera();
     }
 
